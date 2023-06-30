@@ -1,0 +1,8 @@
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: Golden Path Templates
+  description: A collection of all Golden Path templates
+spec:
+  targets:
+    - ./templates/springboot-grpc-template/template.yaml
