@@ -2,8 +2,8 @@
 apiVersion: backstage.io/v1alpha1
 kind: Location
 metadata:
-  name: Golden Path Catalog
+  name: golden-path-catalog
   description: A collection of all Backstage entities supporting Golden Path Demo
 spec:
   targets:
-    - ./all-templates.yaml
+    - ./golden-path-templates.yaml
