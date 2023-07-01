@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: pst
+  description: The PST organization
+  links:
+    - url: https://pstechnology.com/
+      title: Website
+    - url: https://meta.wikimedia.org/wiki/
+      title: Intranet
+spec:
+  type: organization
+  profile:
+    displayName: PST
+    email: info@example.com
+    picture: https://pstechnology.com/wp-content/uploads/2015/12/PSTSOLOtag.png
+  children: [technology]
+---
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: pst-groups
+  description: A collection of all PST Groups
+spec:
+  targets:
+    - ./technology.yaml
+    - ./crewpro-group.yaml
+    - ./crewpro-tech-team.yaml
