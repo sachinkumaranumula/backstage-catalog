@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: crewpro-tech-team
+  description: CrewPro Tech Team
+spec:
+  type: team
+  profile:
+    # Intentional no displayName for testing
+    email: crewprotechteam@pstechnology.com
+    picture: https://avatars.dicebear.com/api/identicon/team-a@example.com.svg?background=%23fff&margin=25
+  parent: crewpro-group
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: sachinanumula
+spec:
+  profile:
+    displayName: Sachin Anumula
+    email: sachinkumaranumula@gmail.com
+    picture: https://avatars.dicebear.com/api/avataaars/janelle-dawe@example.com.svg?background=%23fff
+  memberOf: [crewpro-tech-team]
+---

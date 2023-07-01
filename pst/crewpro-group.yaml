@@ -1,0 +1,13 @@
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: crewpro-group
+  description: The Crew Pro Group
+spec:
+  type: sub-department
+  profile:
+    displayName: Crew Pro Team
+    email: crewpro@pstechnology.com
+    picture: https://pstechnology.com/wp-content/uploads/2016/05/modular-single.png
+  parent: technology
+  children: [crewpro-tech-team]
