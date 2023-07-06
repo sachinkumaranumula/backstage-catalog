@@ -61,10 +61,6 @@ spec:
           ui:options:
             allowedOwners: ['UP-PST']
             allowedHosts: ['github.com']
-            showRepoDropdown:
-              github: true
-            pullReposFromBackend:
-              github: true
 
   steps:
     - id: template
