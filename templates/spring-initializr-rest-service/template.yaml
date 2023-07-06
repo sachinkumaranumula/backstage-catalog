@@ -48,8 +48,8 @@ spec:
           description: Owner of the component
           ui:field: OwnerPicker
           ui:options:
-            catalogFilter:
-              kind: Group
+            allowedKinds:
+              - Group
     - title: Choose a location
       required:
         - repoUrl
@@ -59,8 +59,12 @@ spec:
           type: string
           ui:field: RepoUrlPicker
           ui:options:
-            allowedHosts:
-              - github.com
+            allowedOwners: ['UP-PST']
+            allowedHosts: ['github.com']
+            showRepoDropdown:
+              github: true
+            pullReposFromBackend:
+              github: true
 
   steps:
     - id: template
