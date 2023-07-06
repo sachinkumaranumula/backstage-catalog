@@ -12,7 +12,7 @@ metadata:
     - rest
     - spring-initializer
 spec:
-  owner: https://start.spring.io/
+  owner: group:up-pst/cnx-pst-team
   type: service
 
   parameters:
