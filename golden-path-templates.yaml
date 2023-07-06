@@ -6,3 +6,4 @@ metadata:
 spec:
   targets:
     - ./templates/springboot-grpc-template/template.yaml
+    - ./templates/spring-initializr-rest-service/template.yaml
