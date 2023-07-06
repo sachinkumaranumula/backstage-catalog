@@ -6,7 +6,7 @@ metadata:
   description: Create a new standalone spring boot rest service
   tags:
     - spring-boot
-    - java 11
+    - java-11
     - maven
     - service
     - rest
