@@ -87,6 +87,8 @@ spec:
         allowedHosts: ["github.com"]
         description: This is ${{ parameters.component_id }}
         repoUrl: ${{ parameters.repoUrl }}
+        # Remove if you want it to be master, all public repos have pivoted to main as the default branch now
+        defaultBranch: main
 
     - id: register
       name: Register
