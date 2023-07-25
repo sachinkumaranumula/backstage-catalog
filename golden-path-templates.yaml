@@ -7,3 +7,5 @@ spec:
   targets:
     - ./templates/springboot-grpc-template/template.yaml
     - ./templates/spring-initializr-rest-service/template.yaml
+    - ./templates/docs-template/template.yaml
+    - ./templates/pull-request/template.yaml
