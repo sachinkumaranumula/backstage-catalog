@@ -9,7 +9,6 @@ metadata:
     - golden-path
     - templates
 spec:
-  owner: group:up-pst/cnx-pst-team
   targets:
     - ./templates/spring-boot-rest-service/template.yaml
     - ./templates/create-react-app/template.yaml
