@@ -41,7 +41,7 @@ spec:
         description:
           title: Description
           type: string
-          description: Help others understand what this website is for.
+          description: Help others understand what this service is for.
         owner:
           title: Owner
           type: string
@@ -61,6 +61,7 @@ spec:
           ui:options:
             allowedOwners: ['UP-PST']
             allowedHosts: ['github.com']
+            allowedallowedRepos: ['${{ parameters.component_id }}']
 
   steps:
     - id: template
