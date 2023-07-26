@@ -5,6 +5,6 @@ metadata:
   description: A collection of all Golden Path templates
 spec:
   targets:
-    - ./templates/springboot-grpc-template/template.yaml
-    - ./templates/spring-initializr-rest-service/template.yaml
+    - ./templates/spring-boot-rest-service/template.yaml
+    - ./templates/create-react-app/template.yaml
     - ./templates/docs-template/template.yaml

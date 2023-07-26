@@ -1,16 +1,16 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: spring-initializr-rest-service-template
-  title: Spring Initializer Rest Service Template
+  name: spring-boot-rest-service-template
+  title: Spring Boot Rest Service Template
   description: Create a new standalone spring boot rest service
   tags:
+    - recommended
     - spring-boot
     - java-11
     - maven
     - service
     - rest
-    - spring-initializer
 spec:
   owner: group:up-pst/cnx-pst-team
   type: service
