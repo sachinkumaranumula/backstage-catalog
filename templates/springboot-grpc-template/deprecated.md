@@ -1,2 +1,0 @@
-# DEPRECATED TEMPLATE
-This was borrowed from https://github.com/backstage/software-templates/tree/main/scaffolder-templates/springboot-grpc-template which fails for a variety of reasons at build and assumes packaging as 'com.example'

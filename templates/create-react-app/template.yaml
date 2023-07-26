@@ -1,33 +1,26 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: springboot-template
-  title: Spring Boot gRPC Service
-  description: Create a simple microservice using gRPC and Spring Boot Java
+  name: create-react-app-template
+  title: Create React App Template
+  description: Create a new CRA website project
   tags:
-    - recommended
-    - java
-    - grpc
+    - react
+    - cra
 spec:
-  owner: service@example.com
-  type: service
-
+  owner: web@example.com
+  type: website
   parameters:
     - title: Provide some simple information
       required:
         - component_id
         - owner
-        - java_package_name
       properties:
         component_id:
           title: Name
           type: string
           description: Unique name of the component
           ui:field: EntityNamePicker
-        java_package_name:
-          title: Java Package Name
-          type: string
-          description: Name for the java package. eg (io.backstage.blah)
         description:
           title: Description
           type: string
@@ -51,7 +44,6 @@ spec:
           ui:options:
             allowedHosts:
               - github.com
-
   steps:
     - id: template
       name: Fetch Skeleton + Template
@@ -63,21 +55,17 @@ spec:
         values:
           component_id: ${{ parameters.component_id }}
           description: ${{ parameters.description }}
-          artifact_id: ${{ parameters.component_id }}
-          java_package_name: ${{ parameters.java_package_name }}
-          owner: ${{ parameters.owner }}
           destination: ${{ parameters.repoUrl | parseRepoUrl }}
-          http_port: 8080
+          owner: ${{ parameters.owner }}
 
     - id: publish
       name: Publish
       action: publish:github
       input:
-        allowedHosts: ["github.com"]
+        allowedHosts:
+          - github.com
         description: This is ${{ parameters.component_id }}
         repoUrl: ${{ parameters.repoUrl }}
-        # Remove if you want it to be master, all public repos have pivoted to main as the default branch now
-        defaultBranch: main
 
     - id: register
       name: Register
