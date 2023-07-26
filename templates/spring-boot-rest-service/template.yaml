@@ -61,7 +61,8 @@ spec:
           ui:options:
             allowedOwners: ['UP-PST']
             allowedHosts: ['github.com']
-            allowedRepos: ['test', '${{ parameters.component_id }}']
+            allowedRepos: 
+              - ${{ parameters.component_id }}
 
   steps:
     - id: template
