@@ -9,7 +9,7 @@ metadata:
     - react
     - cra
 spec:
-  owner: web@example.com
+  owner: group:up-pst/cnx-pst-team
   type: website
   parameters:
     - title: Provide some simple information
