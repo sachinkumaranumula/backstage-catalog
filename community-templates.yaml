@@ -2,11 +2,10 @@
 apiVersion: backstage.io/v1alpha1
 kind: Location
 metadata:
-  name: golden-path-templates
-  description: A collection of all Golden Path templates
+  name: community-templates
+  description: A collection of all Community provided templates
   tags: 
-    - recommended
-    - golden-path
+    - community
     - templates
 spec:
   targets:
