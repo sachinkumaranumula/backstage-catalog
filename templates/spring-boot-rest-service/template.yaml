@@ -2,7 +2,7 @@ apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
   name: spring-boot-rest-service-template
-  title: Spring Boot REST Service Template
+  title: Spring Boot REST Service Initializr
   description: Create a new standalone Spring Boot REST service as provided by Spring Initializr
   tags:
     - skeleton
