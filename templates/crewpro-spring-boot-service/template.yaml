@@ -1,16 +1,17 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: spring-boot-rest-service-template
-  title: Spring Boot REST Service Template
-  description: Create a new standalone Spring Boot REST service as provided by Spring Initializr
+  name: crewpro-spring-boot-rest-service-template
+  title: CrewPro Spring Boot REST Service Template
+  description: Standard Spring Boot REST service template
   tags:
-    - skeleton
+    - recommended
     - spring-boot
     - java-11
     - maven
     - service
     - rest
+    - crewpro
 spec:
   owner: group:up-pst/cnx-pst-team
   type: service

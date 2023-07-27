@@ -1,0 +1,13 @@
+# Model: https://backstage.io/docs/features/software-catalog/descriptor-format#kind-location
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: golden-path-templates
+  description: A collection of all Golden Path templates
+  tags: 
+    - recommended
+    - golden-path
+    - templates
+spec:
+  targets:
+    - ./templates/crewpro-spring-boot-service/template.yaml
