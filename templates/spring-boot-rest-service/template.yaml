@@ -5,7 +5,7 @@ metadata:
   title: Spring Boot Rest Service Template
   description: Create a new standalone spring boot rest service
   tags:
-    - recommended
+    - skeleton
     - spring-boot
     - java-11
     - maven
