@@ -1,0 +1,170 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: assignments
+  description: Crew Assignments
+spec:
+  owner: crewpro-group
+  domain: crewpro
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: autocall
+  description: Crew AutoCall
+spec:
+  owner: crewpro-group
+  domain: crewpro
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: balance
+  description: Crew Supply/Demand
+spec:
+  owner: crewpro-group
+  domain: crewpro
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: control
+  description: Setup Rail Network
+spec:
+  owner: crewpro-group
+  domain: crewpro
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: crewcallprocess
+  description: Crew Call
+spec:
+  owner: crewpro-group
+  domain: crewpro
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: employee
+  description: Rail Employees
+spec:
+  owner: crewpro-group
+  domain: crewpro
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: crewcallprocess
+  description: Crew Call
+spec:
+  owner: crewpro-group
+  domain: crewpro
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: employeetracking
+  description: Employee Tracking
+spec:
+  owner: crewpro-group
+  domain: crewpro
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: foundationframework
+  description: CrewPro Framework
+spec:
+  owner: crewpro-group
+  domain: crewpro
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: employeetracking
+  description: Employee Tracking
+spec:
+  owner: crewpro-group
+  domain: crewpro
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: hoursofservice
+  description: HOS
+spec:
+  owner: crewpro-group
+  domain: crewpro
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: hoursofservice
+  description: HOS
+spec:
+  owner: crewpro-group
+  domain: crewpro
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: miscellaneous
+  description: Miscellaneous
+spec:
+  owner: crewpro-group
+  domain: crewpro
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: qualifications
+  description: Qualifications
+spec:
+  owner: crewpro-group
+  domain: crewpro
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: selfservice
+  description: Self Service
+spec:
+  owner: crewpro-group
+  domain: crewpro
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: statustracking
+  description: Status Tracking
+spec:
+  owner: crewpro-group
+  domain: crewpro
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: tieup
+  description: Tie Up
+spec:
+  owner: crewpro-group
+  domain: crewpro
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: train
+  description: Train
+spec:
+  owner: crewpro-group
+  domain: crewpro
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: vacation
+  description: Vacation
+spec:
+  owner: crewpro-group
+  domain: crewpro

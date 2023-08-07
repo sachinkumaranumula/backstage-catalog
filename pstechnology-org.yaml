@@ -1,8 +1,0 @@
-apiVersion: backstage.io/v1alpha1
-kind: Location
-metadata:
-  name: pst-org
-  description: A collection of all PST groups
-spec:
-  targets:
-    - ./pst/apis/

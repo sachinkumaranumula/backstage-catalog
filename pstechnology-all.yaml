@@ -1,6 +1,25 @@
 apiVersion: backstage.io/v1alpha1
 kind: Location
 metadata:
+  name: pst-org
+  description: A collection of all PST groups
+spec:
+  targets:
+    - ./pst/org/org.yaml
+---
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: pst-system-model
+  description: A collection of domain and systems
+spec:
+  targets:
+    - ./pst/system-model/domain.yaml
+    - ./pst/system-model/systems.yaml
+---
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
   name: crewpro-apis
   description: A collection of all Crew Pro APIs
 spec:
