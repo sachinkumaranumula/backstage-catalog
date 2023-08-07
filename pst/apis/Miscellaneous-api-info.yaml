@@ -1,0 +1,87 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/miscellaneous/pws/documents/blob/master/Awarding/Design/Business
+      Service Definitions/Bulk Lite Seniority Move Service Definition.yaml
+  description: The User shall be able to test seniority move funcationality using
+    this API.
+  name: Seniority_Move_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/miscellaneous/pws/documents/blob/master/Awarding/Design/Business
+      Service Definitions/Bulk Lite Seniority Move Service Definition.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Miscellaneous
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/miscellaneous/pws/documents/blob/master/Awarding/Design/Business
+      Service Definitions/Get Board Turns.yaml
+  description: The main responsibility is to find list of Turns in a board
+  name: Board_Turns_Crew_Maintenance-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/miscellaneous/pws/documents/blob/master/Awarding/Design/Business
+      Service Definitions/Get Board Turns.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Miscellaneous
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/miscellaneous/pws/documents/blob/master/Awarding/Design/Business
+      Service Definitions/Initiate-award-process.yaml
+  description: This would initiate PWS award process for all  valid bulletins. This
+    is as a weeekly job scheduled by PWS scheduler app.
+  name: Initiate_Auto_Awarding_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/miscellaneous/pws/documents/blob/master/Awarding/Design/Business
+      Service Definitions/Initiate-award-process.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Miscellaneous
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/miscellaneous/pws/documents/blob/master/Awarding/Design/Business
+      Service Definitions/run-award-process.yaml
+  description: This would execute PWS award process for a given bulletin.
+  name: Run_Award_Process_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/miscellaneous/pws/documents/blob/master/Awarding/Design/Business
+      Service Definitions/run-award-process.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Miscellaneous
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/miscellaneous/pws/documents/blob/master/Bid
+      Access Qualifications/Design/Business Service Definitions/BidAccessQualfication.yaml
+  description: "This api can be used to fetch Employee Bid Access Qualifications(BAQ).Also,\
+    \ It can be used to  \n Create and Delete Employee Bid Access Qualifications(BAQ). "
+  name: Employee_Bid_Access_Qualifications_API-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/miscellaneous/pws/documents/blob/master/Bid
+      Access Qualifications/Design/Business Service Definitions/BidAccessQualfication.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Miscellaneous
+  type: openapi

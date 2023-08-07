@@ -1,0 +1,52 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/tieup/documents/blob/master/Design/Business
+      Service Definitions/Complete Tie-up - Link Trains.yaml
+  description: When two trains are linked, the crew from first train will be put on
+    duty on the second train at tie-up time. Roaddeadhead, TurnCrew and Deadhead on
+    arrival are three different usecases that link two trains
+  name: Tieup_Move_Crew_from_one_train_to_other_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/tieup/documents/blob/master/Design/Business
+      Service Definitions/Complete Tie-up - Link Trains.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Tieup
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/tieup/documents/blob/master/Design/Business
+      Service Definitions/PST-CM-TieUp-FindCrewPositions-SwaggerDefinitions.yaml
+  description: Service to find the crew position details for tieup of crew on train
+  name: Find_Crew_Positions_For_Tieup-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/tieup/documents/blob/master/Design/Business
+      Service Definitions/PST-CM-TieUp-FindCrewPositions-SwaggerDefinitions.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Tieup
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/tieup/documents/blob/master/Design/Business
+      Service Definitions/PST-CM-TieUp-SaveCrewPositions-SwaggerDefinitions.yaml
+  description: Service to save the crew position details for tieup of crew on train
+  name: Save_Crew_Positions_For_Tieup-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/tieup/documents/blob/master/Design/Business
+      Service Definitions/PST-CM-TieUp-SaveCrewPositions-SwaggerDefinitions.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Tieup
+  type: openapi

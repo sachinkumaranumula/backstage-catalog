@@ -1,0 +1,24 @@
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: crewpro-apis
+  description: A collection of all Crew Pro APIs
+spec:
+  targets:
+    - ./pst/apis/Assignments-api-info.yaml
+    - ./pst/apis/AutoCall-api-info.yaml
+    - ./pst/apis/Balance-api-info.yaml
+    - ./pst/apis/Control-api-info.yaml
+    - ./pst/apis/CrewCallProcess-api-info.yaml
+    - ./pst/apis/Employees-api-info.yaml
+    - ./pst/apis/EmployeeTracking-api-info.yaml
+    - ./pst/apis/FoundationalFramework-api-info.yaml
+    - ./pst/apis/HoursofService-api-info.yaml
+    - ./pst/apis/Miscellaneous-api-info.yaml
+    - ./pst/apis/PPI-DDO-api-info.yaml
+    - ./pst/apis/Qualifications-api-info.yaml
+    - ./pst/apis/SelfService-api-info.yaml
+    - ./pst/apis/StatusTracking-api-info.yaml
+    - ./pst/apis/Tieup-api-info.yaml
+    - ./pst/apis/Train-api-info.yaml
+    - ./pst/apis/Vacation-api-info.yaml

@@ -1,0 +1,193 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/employees/documents/blob/master/Employee
+      History/Design/Business Service Definitions/Employee History.yaml
+  description: Any impact/change to employee details will be captured in history.
+    Attributes to create employee history are (system generated) 1. Employee Details
+    2. Function Details 3. Diagnostic Details
+  name: Employee_Histroy_API-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/employees/documents/blob/master/Employee
+      History/Design/Business Service Definitions/Employee History.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Employees
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/employees/documents/blob/master/Employee
+      Holiday/Business Service Definitions/get-employee-holidays-api.yaml
+  description: Services to get Holidays of an employee in a selected
+  name: Get_employee_s_Holidays-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/employees/documents/blob/master/Employee
+      Holiday/Business Service Definitions/get-employee-holidays-api.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Employees
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/employees/documents/blob/master/Employee
+      Inquiry/Design/Business Service Definitions/Employee Inquiry.yaml
+  description: Inquiry on the employee based on various attributes like employee master
+    attribtues, status, Hos values, qualifications, assignment details..etc
+  name: Employee_Inquiry_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/employees/documents/blob/master/Employee
+      Inquiry/Design/Business Service Definitions/Employee Inquiry.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Employees
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/employees/documents/blob/master/Employee
+      Master/Design/Business Service Definitions/Employee Master.yaml
+  description: This service Get Attributes of Employee Master, getting Employee summary,
+    advanced, personal contact information and updating these details vice versa.
+  name: Services_related_to_Employee_Master-v2
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/employees/documents/blob/master/Employee
+      Master/Design/Business Service Definitions/Employee Master.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Employees
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/employees/documents/blob/master/Employee
+      Proactive Notifications/Design/Business Service Definitions/Procative Notification.yaml
+  description: 'The main responsibility of this service is to create, update, delete
+    and get the employee proactive notification.
+
+    Employee can configure notifications to be generated for self, on certain events.
+    Types of Employee Proactive Notifications that can be setup:
+
+    1. Standing Position
+
+    2. PWS Evaluation Results
+
+    Enhancements:
+
+    3. Crew Dispatcher Notifications
+
+    4. Bulletin Change
+
+    5. HOS Alert Threshold
+
+    6. Taxi Notification.'
+  name: Roster_Control-v1.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/employees/documents/blob/master/Employee
+      Proactive Notifications/Design/Business Service Definitions/Procative Notification.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Employees
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/employees/documents/blob/master/Employee
+      Restdays/Business Service Definitions/employee-rest-days-api.yaml
+  description: A Generic Rest days API to get the employee's rest days
+  name: Get_employee_s_Rest_Days_API-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/employees/documents/blob/master/Employee
+      Restdays/Business Service Definitions/employee-rest-days-api.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Employees
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/employees/documents/blob/master/Employee
+      Restrictions/Design/Business Service Definitions/Employee Restrictions.yaml
+  description: The main responsibility of this service is to create, update, delete,
+    get and find the Employee Restriction.
+  name: Employee_Restrictions_API-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/employees/documents/blob/master/Employee
+      Restrictions/Design/Business Service Definitions/Employee Restrictions.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Employees
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/employees/documents/blob/master/Employee
+      Restrictions/Design/Business Service Definitions/Employee_Held_Assignments.yaml
+  description: ''
+  name: Employee_Held_Assignment_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/employees/documents/blob/master/Employee
+      Restrictions/Design/Business Service Definitions/Employee_Held_Assignments.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Employees
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/employees/documents/blob/master/Employee
+      Restrictions/Design/Business Service Definitions/Employee_Tracking_Assignment.yaml
+  description: ''
+  name: Employee_Held_Assignment_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/employees/documents/blob/master/Employee
+      Restrictions/Design/Business Service Definitions/Employee_Tracking_Assignment.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Employees
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/employees/documents/blob/master/Task
+      List/Design/Business Service Definitions/Task List.yaml
+  description: The main responsibility is to provide list of tasks or ability to find
+    tasks.
+  name: Task_List-v1.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/employees/documents/blob/master/Task
+      List/Design/Business Service Definitions/Task List.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Employees
+  type: openapi

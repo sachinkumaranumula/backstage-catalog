@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/balance/documents/blob/master/Extraboard_Vacancies___Supply_Demand.yaml
+  description: Gets Extraboard Vacancies that can be used for Supply Demand
+  name: Extraboard_Vacancies_Supply_Demand-1.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/balance/documents/blob/master/Extraboard_Vacancies___Supply_Demand.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Balance
+  type: openapi

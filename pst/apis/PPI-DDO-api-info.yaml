@@ -1,0 +1,16 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/ppi-ddo/documents/blob/master/Design/Business
+      Service Definitions/ppi_ddo_api.yaml
+  description: Get the PPI/DDO qualified & Unqualified Reports based on search Criteria
+  name: Get_the_PPI_DDO_qualified_Unqualified_Reports_based_on_search_Criteria-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/ppi-ddo/documents/blob/master/Design/Business
+      Service Definitions/ppi_ddo_api.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: PPI-DDO
+  type: openapi

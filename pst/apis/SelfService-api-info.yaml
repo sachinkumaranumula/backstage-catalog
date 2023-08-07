@@ -1,0 +1,542 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 2 unchecked/Business Service Definitions/AlertNotifications/notifications.yaml
+  description: This API is used for employee notifications.
+  name: Notifications-2.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 2 unchecked/Business Service Definitions/AlertNotifications/notifications.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: SelfService
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 2 unchecked/Business Service Definitions/Employee/employeeInfo.yaml
+  description: This API is used for employee information.
+  name: Employee_Info-2.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 2 unchecked/Business Service Definitions/Employee/employeeInfo.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: SelfService
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 2 unchecked/Business Service Definitions/GeographicalRestrictions/geographicalRestrictions.yaml
+  description: This API is used for creation for geographical restrictions by Admin.
+  name: Geographical_Restrictions-2.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 2 unchecked/Business Service Definitions/GeographicalRestrictions/geographicalRestrictions.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: SelfService
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 2 unchecked/Business Service Definitions/Layoff/layoff.yaml
+  description: This API is used for employee layoff's.
+  name: Layoff-2.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 2 unchecked/Business Service Definitions/Layoff/layoff.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: SelfService
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 2 unchecked/Business Service Definitions/Markup/markup.yaml
+  description: This API is used for employee markup's.
+  name: Markup-2.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 2 unchecked/Business Service Definitions/Markup/markup.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: SelfService
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 2 unchecked/Business Service Definitions/MasterData/ExtendLayoff/extendLayoff.yaml
+  description: This API is used for creation of master data by Admin.
+  name: Extended_Layoff-2.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 2 unchecked/Business Service Definitions/MasterData/ExtendLayoff/extendLayoff.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: SelfService
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 2 unchecked/Business Service Definitions/MasterData/FutureThresholdData/futureThresholdData.yaml
+  description: This API is used for creation of master data by Admin.
+  name: Future_Threshold-2.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 2 unchecked/Business Service Definitions/MasterData/FutureThresholdData/futureThresholdData.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: SelfService
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 2 unchecked/Business Service Definitions/MasterData/GlobalRestrictions/globalrestrictions.yaml
+  description: This API is used for setting global restrictions based on locations
+    by Admin
+  name: Global_Restriction-2.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 2 unchecked/Business Service Definitions/MasterData/GlobalRestrictions/globalrestrictions.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: SelfService
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 2 unchecked/Business Service Definitions/MasterData/MasterControl/masterControl.yaml
+  description: This API is used for creation of master data by Admin.
+  name: Master_Control-2.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 2 unchecked/Business Service Definitions/MasterData/MasterControl/masterControl.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: SelfService
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 2 unchecked/Business Service Definitions/MasterData/SupplyDemand/supplydemand.yaml
+  description: This API is used for control employee layoff based on supply demand
+    score by Admin
+  name: Supply_Demand-2.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 2 unchecked/Business Service Definitions/MasterData/SupplyDemand/supplydemand.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: SelfService
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 2 unchecked/Business Service Definitions/MasterData/Threshold/threshold.yaml
+  description: This API is used for setting threshold scores based on locations by
+    Admin
+  name: Threshold-2.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 2 unchecked/Business Service Definitions/MasterData/Threshold/threshold.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: SelfService
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 2 unchecked/Business Service Definitions/StatusApproval/statusApproval.yaml
+  description: This API is used for approving SS denied status change of employee
+    by admin
+  name: Status_Approval-2.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 2 unchecked/Business Service Definitions/StatusApproval/statusApproval.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: SelfService
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 2 unchecked/Business Service Definitions/TransactionLogs/transactionLogs.yaml
+  description: This API is returns information about Global restrictions.
+  name: Transaction_Logs-2.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 2 unchecked/Business Service Definitions/TransactionLogs/transactionLogs.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: SelfService
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 2 unchecked/Business Service Definitions/UserLogin/user.yaml
+  description: This API is used for login and logout of employee and admin.
+  name: Login_and_Logout-2.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 2 unchecked/Business Service Definitions/UserLogin/user.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: SelfService
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 2/Business Service Definitions/AlertNotifications/notifications.yaml
+  description: This API is used for employee notifications.
+  name: Notifications-2.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 2/Business Service Definitions/AlertNotifications/notifications.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: SelfService
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 2/Business Service Definitions/Employee/employeeInfo.yaml
+  description: This API is used for employee information.
+  name: Employee-2.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 2/Business Service Definitions/Employee/employeeInfo.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: SelfService
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 2/Business Service Definitions/Layoff/layoff.yaml
+  description: This API is used for employee layoff's.
+  name: Layoff-2.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 2/Business Service Definitions/Layoff/layoff.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: SelfService
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 2/Business Service Definitions/Markup/markup.yaml
+  description: This API is used for employee markup's.
+  name: Markup-2.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 2/Business Service Definitions/Markup/markup.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: SelfService
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 2/Business Service Definitions/MasterData/GlobalRestrictions/globalrestrictions.yaml
+  description: This API is used for setting global restrictions by Admin.
+  name: Global_Restriction-2.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 2/Business Service Definitions/MasterData/GlobalRestrictions/globalrestrictions.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: SelfService
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 2/Business Service Definitions/MasterData/MasterControl/masterControl.yaml
+  description: This API is used for creation of master control used for employee layoff
+    and markup by Admin.
+  name: Master_Control-2.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 2/Business Service Definitions/MasterData/MasterControl/masterControl.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: SelfService
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 2/Business Service Definitions/MasterData/SupplyDemand/supplydemand.yaml
+  description: This API is used to control employee layoff based on Geographic supply
+    demand score by Admin.
+  name: Supply_Demand_Scores-2.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 2/Business Service Definitions/MasterData/SupplyDemand/supplydemand.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: SelfService
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 2/Business Service Definitions/MasterData/Threshold/threshold.yaml
+  description: This API is used for setting threshold scores based on locations by
+    Admin
+  name: Threshold_scores-2.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 2/Business Service Definitions/MasterData/Threshold/threshold.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: SelfService
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 2/Business Service Definitions/Restrictions/restrictions.yaml
+  description: This API is used for creation for geographical restrictions for layoff
+    and markup based on layoff statuses by Admin.
+  name: Restrictions-2.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 2/Business Service Definitions/Restrictions/restrictions.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: SelfService
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 2/Business Service Definitions/StatusApproval/statusApproval.yaml
+  description: This API is used for approving SS denied status change requests of
+    employee by admin.
+  name: Status_approval-2.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 2/Business Service Definitions/StatusApproval/statusApproval.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: SelfService
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 2/Business Service Definitions/UserLogin/user.yaml
+  description: This API is used for login and logout of employee and admin.
+  name: Login_and_Logout-2.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 2/Business Service Definitions/UserLogin/user.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: SelfService
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 3/Business Service Definitions/DDO/employee-ddo-details.yaml
+  description: 'Professional Performance incentive is a NS specific agreement. Employees
+    are given an undeniable day off when they have meet the parameters for the quarter.
+    These parameters are usually based on no or few layoffs on a weekend. Meeting
+    the parameters also gives the employee a monetary bonus based on their earnings.
+    The guaranteed layoff must be used prior to the end of the next quarter. . '
+  name: employee_DDO_-2.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 3/Business Service Definitions/DDO/employee-ddo-details.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: SelfService
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 3/Business Service Definitions/Drop Turn/drop-turn.yaml
+  description: 'This API is about Drop Turn . '
+  name: Drop_Turn_-2.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 3/Business Service Definitions/Drop Turn/drop-turn.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: SelfService
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 3/Business Service Definitions/Extended Layoff/extend-layoff.yaml
+  description: This API is used for creating, updating and deleting extend layoff
+    information in master control screens.
+  name: Extend_Layoff_-2.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 3/Business Service Definitions/Extended Layoff/extend-layoff.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: SelfService
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 3/Business Service Definitions/Proactive Notification/proactive-notifications.yaml
+  description: 'Provides option to employee for sending information about Proactive
+    Notification to Mobile phone and Email. . '
+  name: Proactive_Notification_-2.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 3/Business Service Definitions/Proactive Notification/proactive-notifications.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: SelfService
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 3/Business Service Definitions/Recurring Restrictions/recurring-restrictions-search.yaml
+  description: This API is provides information for creating, updating and deleting
+    Recurring geographical restrictions.
+  name: Reccuring_Restrictions_Search_-2.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 3/Business Service Definitions/Recurring Restrictions/recurring-restrictions-search.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: SelfService
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 3/Business Service Definitions/Reschedule Vacation/reschedule-vacation.yaml
+  description: 'This API is about Rescheudle  Vacation . '
+  name: Reschedule_Vacation_-2.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/selfservice/documents/blob/master/SS
+      Phase 3/Business Service Definitions/Reschedule Vacation/reschedule-vacation.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: SelfService
+  type: openapi

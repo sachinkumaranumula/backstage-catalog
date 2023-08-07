@@ -1,0 +1,188 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/train/documents/blob/master/Train/Design/Business
+      Service Definitions/NS_DTSR_Refresh_Service_definition.yaml
+  description: Contains definitions for receiving Train Information from DTSR
+  name: Receive_Train_Information_from_DTSR-1.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/train/documents/blob/master/Train/Design/Business
+      Service Definitions/NS_DTSR_Refresh_Service_definition.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Train
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/train/documents/blob/master/Train/Design/Business
+      Service Definitions/TYES-Inquiry_Update.yaml
+  description: This API is used for inquiry/update train details for external systems.I.e
+    Tyes
+  name: TYES_Train_Inquiry_Update_API-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/train/documents/blob/master/Train/Design/Business
+      Service Definitions/TYES-Inquiry_Update.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Train
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/train/documents/blob/master/Train/Design/Business
+      Service Definitions/Train_History-R11.yaml
+  description: This API is used to fetch the History details the Crew on the Train.
+  name: View_Train_History_API-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/train/documents/blob/master/Train/Design/Business
+      Service Definitions/Train_History-R11.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Train
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/train/documents/blob/master/Train/Design/Business
+      Service Definitions/Train_History.yaml
+  description: This API is used to fetch the History details the Crew on the Train.
+  name: View_Train_History_API-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/train/documents/blob/master/Train/Design/Business
+      Service Definitions/Train_History.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Train
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/train/documents/blob/master/Train/Design/Business
+      Service Definitions/common/common_definitions.yaml
+  description: Crewpro Train module's common definitions
+  name: Crewpro_Train_module_s_common_definitions-1.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/train/documents/blob/master/Train/Design/Business
+      Service Definitions/common/common_definitions.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Train
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/train/documents/blob/master/Train/Design/Business
+      Service Definitions/delete_reinstate_planned_train.yaml
+  description: Contains definitions for Delete and Reinstate Planned Trains
+  name: Delete_Planned_Trains-1.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/train/documents/blob/master/Train/Design/Business
+      Service Definitions/delete_reinstate_planned_train.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Train
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/train/documents/blob/master/Train/Design/Business
+      Service Definitions/get_create_update_train.yaml
+  description: Contains definitions for create train and get train details services.
+  name: Create_and_Manage_Train-1.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/train/documents/blob/master/Train/Design/Business
+      Service Definitions/get_create_update_train.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Train
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/train/documents/blob/master/Train/Design/Business
+      Service Definitions/get_create_update_train_R8.yaml
+  description: Contains definitions for create train and get train details services.
+  name: Create_and_Manage_Train-1.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/train/documents/blob/master/Train/Design/Business
+      Service Definitions/get_create_update_train_R8.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Train
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/train/documents/blob/master/Train/Design/Business
+      Service Definitions/train-Inquiry.yaml
+  description: This API is used for inquiry train id
+  name: TYES_Train_Inquiry_Update_API-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/train/documents/blob/master/Train/Design/Business
+      Service Definitions/train-Inquiry.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Train
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/train/documents/blob/master/Train/Design/Business
+      Service Definitions/train_symbol_change.yaml
+  description: This API is used for Train Symbol Change Usecase
+  name: Train_Symbol_Change_API-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/train/documents/blob/master/Train/Design/Business
+      Service Definitions/train_symbol_change.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Train
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/train/documents/blob/master/Train/Design/Business
+      Service Definitions/work_list.yaml
+  description: The main responsibility of this service is to find the trains that
+    a crew dispatcher works.
+  name: Train_Worklist_API-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/train/documents/blob/master/Train/Design/Business
+      Service Definitions/work_list.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Train
+  type: openapi

@@ -1,0 +1,16 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/hoursofservice/documents/blob/master/Design/Business
+      Service Definitions/PST-CM-HOS-Log-SwaggerDefinitions.yaml
+  description: Contains services related to Hours of Service Logs
+  name: Hos_Log_services-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/hoursofservice/documents/blob/master/Design/Business
+      Service Definitions/PST-CM-HOS-Log-SwaggerDefinitions.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: HoursofService
+  type: openapi

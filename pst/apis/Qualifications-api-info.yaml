@@ -1,0 +1,34 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/qualifications/documents/blob/master/Employee/Design/Business
+      Service Definitions/Employee-Extra-Work-Qualification.yaml
+  description: Extra work qualifications that are assigned to an employee.
+  name: Employee_Extra_Work_Qualification-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/qualifications/documents/blob/master/Employee/Design/Business
+      Service Definitions/Employee-Extra-Work-Qualification.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Qualifications
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/qualifications/documents/blob/master/Employee/Design/Business
+      Service Definitions/Employee-Qualification.yaml
+  description: Identifies qualifications that are assigned to an employee. Qualification
+    type extra work will not be considered.
+  name: Employee_Qualifications-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/qualifications/documents/blob/master/Employee/Design/Business
+      Service Definitions/Employee-Qualification.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Qualifications
+  type: openapi

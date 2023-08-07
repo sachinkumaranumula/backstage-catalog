@@ -1,0 +1,478 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/Adhoc
+      Positions/Design/Business Service Definitions/PST-CM-Call-FindAdhocPositions-SwaggerDefinitions.yaml
+  description: Service to find the positions that can be added to the given crew request
+  name: Find_Adhoc_Positions-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/Adhoc
+      Positions/Design/Business Service Definitions/PST-CM-Call-FindAdhocPositions-SwaggerDefinitions.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: CrewCallProcess
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/AnnulTrainOrCrew/Design/Business
+      Service Definitions/PST-CM-Call-AnnulUnAnnulTrain-SwaggerDefinitions.yaml
+  description: ''
+  name: Annul_UnAnnul_Train_API-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/AnnulTrainOrCrew/Design/Business
+      Service Definitions/PST-CM-Call-AnnulUnAnnulTrain-SwaggerDefinitions.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: CrewCallProcess
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/Call/Design/Business
+      Service Definitions/PST-CM-Call-CallEachPosition-SwaggerDefinitions.yaml
+  description: ''
+  name: Call_Each_Position_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/Call/Design/Business
+      Service Definitions/PST-CM-Call-CallEachPosition-SwaggerDefinitions.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: CrewCallProcess
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/Call/Design/Business
+      Service Definitions/PST-CM-Call-MadeUpTurns-SwaggerDefinitions.yaml
+  description: The User shall be able to setup and manage Tie up Exceptions using
+    the Tie Up Exceptions API.
+  name: MadeUp_Turn_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/Call/Design/Business
+      Service Definitions/PST-CM-Call-MadeUpTurns-SwaggerDefinitions.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: CrewCallProcess
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/CallSlip/Design/Business
+      Service Definitions/PST-CM-Call-Outboundcallslip-SwaggerDefinitions.yaml
+  description: ''
+  name: Generate_Outbound_Callslip_API-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/CallSlip/Design/Business
+      Service Definitions/PST-CM-Call-Outboundcallslip-SwaggerDefinitions.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: CrewCallProcess
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/Cancel
+      Call/Design/Business Service Definitions/PST-CM-Call-CancelCrewedPosition.yaml
+  description: ''
+  name: Cancel_the_call_on_a_crewed_positions_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/Cancel
+      Call/Design/Business Service Definitions/PST-CM-Call-CancelCrewedPosition.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: CrewCallProcess
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/Complete
+      Call/Design/Business Service Definitions/Complete Call.yaml
+  description: This would perform complete call for the train by making sure either
+    call is completed or vacating each position for optional positions  and marking
+    crew request header status as call completed. It would also generate Outbound
+    call slip .
+  name: Complete_Call_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/Complete
+      Call/Design/Business Service Definitions/Complete Call.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: CrewCallProcess
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/Deadheads/Create
+      DeadHead Assignment/Design/Business Service Definitions/Auto-Call-Create-IDH-Assignment.yaml
+  description: The User shall be able to deadhead an employee to either an assignment
+    or home using the call function from Individual deadhead screen.
+  name: Create_Individual_DeadHead_to_Assignment_Screen_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/Deadheads/Create
+      DeadHead Assignment/Design/Business Service Definitions/Auto-Call-Create-IDH-Assignment.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: CrewCallProcess
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/Decision
+      Fill/Design/Business Service Definitions/Call - Decision Fill Swagger Definitions.yaml
+  description: The User shall be able to setup and manage Decision Tables/Rules using
+    the API.
+  name: Decision_Fill_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/Decision
+      Fill/Design/Business Service Definitions/Call - Decision Fill Swagger Definitions.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: CrewCallProcess
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/Drop
+      Turn/Design/Business Service Definitions/PST-CM-Call-DropTurn-SwaggerDefinitions.yaml
+  description: ''
+  name: Drop_Turn_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/Drop
+      Turn/Design/Business Service Definitions/PST-CM-Call-DropTurn-SwaggerDefinitions.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: CrewCallProcess
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/Drop
+      Turn/Design/Business Service Definitions/PST-CM-Call-Lost-Work-Drop-Event-SwaggerDefinitions.yaml
+  description: ''
+  name: Create_Lost_Work_Drop_Event_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/Drop
+      Turn/Design/Business Service Definitions/PST-CM-Call-Lost-Work-Drop-Event-SwaggerDefinitions.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: CrewCallProcess
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/Find
+      Right Carded Schedule Crew ID/Design/Business Service Definitions/Find Right
+      Carded Schedule Crew ID.yaml
+  description: The user should be able to find, call, and cancel a carded schedule
+    crew id
+  name: Find_Right_Carded_Schedule_Crew_ID-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/Find
+      Right Carded Schedule Crew ID/Design/Business Service Definitions/Find Right
+      Carded Schedule Crew ID.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: CrewCallProcess
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/Help
+      CrewID/Design/Business Service Definitions/PST-CM-Call-HelpCrewID-SwaggerDefinitions.yaml
+  description: ''
+  name: Help_CrewID_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/Help
+      CrewID/Design/Business Service Definitions/PST-CM-Call-HelpCrewID-SwaggerDefinitions.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: CrewCallProcess
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/Help/Design/Business
+      Service Defintions/Help  Employee.yaml
+  description: Employee will be helped on to a position using this function either
+    on the call screen or deadheead screen.
+  name: Help_an_employee_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/Help/Design/Business
+      Service Defintions/Help  Employee.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: CrewCallProcess
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/Present
+      Train/Design/Business Service Definitions/AtteptToNotify.yaml
+  description: ''
+  name: Appempt_To_Notify_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/Present
+      Train/Design/Business Service Definitions/AtteptToNotify.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: CrewCallProcess
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/Present
+      Train/Design/Business Service Definitions/Crew Messages.yaml
+  description: ''
+  name: Crew_Messages_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/Present
+      Train/Design/Business Service Definitions/Crew Messages.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: CrewCallProcess
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/Present
+      Train/Design/Business Service Definitions/Present Train.yaml
+  description: ''
+  name: Present_Train_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/Present
+      Train/Design/Business Service Definitions/Present Train.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: CrewCallProcess
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/Present
+      Train/Design/Business Service Definitions/Present_Crew_On_Each_Position.yaml
+  description: ''
+  name: Present_Crew_On_Each_Position_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/Present
+      Train/Design/Business Service Definitions/Present_Crew_On_Each_Position.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: CrewCallProcess
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/Present
+      Train/Design/Business Service Definitions/Train Messages.yaml
+  description: ''
+  name: Call_Each_Position_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/Present
+      Train/Design/Business Service Definitions/Train Messages.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: CrewCallProcess
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/Reject
+      Employee/Design/Business Service Definitions/Reject Employee.yaml
+  description: The User shall be able to reject an employee using any of the valid
+    reject functions.
+  name: Reject_an_Employee_from_a_Position_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/Reject
+      Employee/Design/Business Service Definitions/Reject Employee.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: CrewCallProcess
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/Reject
+      Turn/Design/Business Service Definitions/PST-CM-Call-RejectTurn-SwaggerDefinitions.yaml
+  description: ''
+  name: Reject_Turn_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/Reject
+      Turn/Design/Business Service Definitions/PST-CM-Call-RejectTurn-SwaggerDefinitions.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: CrewCallProcess
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/Replace
+      Employee/Design/Business Service Definitions/PST-CM-Call-ReplaceEmployee-SwaggerDefinitions.yaml
+  description: When user perform Replace employee on a crew position, the original
+    on-duty employee is either moved to a made-up turn, so that a new employee can
+    be called on the original turn, or the original on-duty employee remains on the
+    original turn and a new employee can be called on either a made up turn, or the
+    next turn on the board.
+  name: Replace_Employee_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/Replace
+      Employee/Design/Business Service Definitions/PST-CM-Call-ReplaceEmployee-SwaggerDefinitions.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: CrewCallProcess
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/Send
+      Employee to Autocall/Design/Business Service Definitions/Send_Employee_to_Autocall.yaml
+  description: Details about unlock autocall service this will be used to unlock a
+    position for CrewDispatcher to call the position manually from Call screen.
+  name: Send_Employee_to_Auto_call-1.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/Send
+      Employee to Autocall/Design/Business Service Definitions/Send_Employee_to_Autocall.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: CrewCallProcess
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/Swap
+      Crew/Design/Business Service Definitions/Swap Crew.yaml
+  description: The User shall be able to swap the entire crew between two trains whose  crewprofiles
+    match.
+  name: Swap_crew_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/Swap
+      Crew/Design/Business Service Definitions/Swap Crew.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: CrewCallProcess
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/Unlock
+      Autocall/Design/Business Service Definitions/UnlockAutoCall.yaml
+  description: Details about unlock autocall service this will be used to unlock a
+    position for CrewDispatcher to call the position manually from Call screen.
+  name: Unlock_Auto_call-1.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/Unlock
+      Autocall/Design/Business Service Definitions/UnlockAutoCall.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: CrewCallProcess
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/Vacancy
+      Fill Rules/Design/Business Service Definitions/DecisionFillSwaggerDefinitions.yaml
+  description: The User shall be able to setup and manage Decision Tables/Rules using
+    the API.
+  name: Decision_Rules_Table_Control_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/Vacancy
+      Fill Rules/Design/Business Service Definitions/DecisionFillSwaggerDefinitions.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: CrewCallProcess
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/Vacate
+      Position/Documents/Design/Business Service Defintions/Vacate Position.yaml
+  description: To complete the call, the position either has to be vacated or Called.
+    This usecase would mark the position as Vacated.
+  name: Vacate_a_Position_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/crewcallprocess/documents/blob/master/Vacate
+      Position/Documents/Design/Business Service Defintions/Vacate Position.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: CrewCallProcess
+  type: openapi

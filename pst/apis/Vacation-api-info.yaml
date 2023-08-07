@@ -1,0 +1,68 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/vacation/documents/blob/master/employee-dashboard/Business
+      Service Definitions/employee-dashboard.yaml
+  description: The main responsibility is to find list of Turns in a board
+  name: Get_Employee_Dashboard_details_with_Employees_rest_days_current_assignment_and_scheduled_vacation-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/vacation/documents/blob/master/employee-dashboard/Business
+      Service Definitions/employee-dashboard.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Vacation
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/vacation/documents/blob/master/swap
+      vacation/business service definitions/swap-vacation.yaml
+  description: Service API to request for swap vacation for the employee
+  name: Swap_Vacation_Request-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/vacation/documents/blob/master/swap
+      vacation/business service definitions/swap-vacation.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Vacation
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/vacation/documents/blob/master/vacation-inquiry/Business
+      Service Definitions/employee-vacation-scheduled-api.yaml
+  description: Get Employee's scheduled vacation details with optional details  of
+    vacation list and vacation Profile details
+  name: Get_Employee_s_scheduled_vacation_details-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/vacation/documents/blob/master/vacation-inquiry/Business
+      Service Definitions/employee-vacation-scheduled-api.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Vacation
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/vacation/documents/blob/master/vacation-inquiry/Business
+      Service Definitions/vacation-inquiry-api-deprecated.yaml
+  description: Tofind employees with Scheduled Vacations with search criteria
+  name: Get_employees_scheduled_vacation_weeks_rest_days_current_assignment_and_scheduled_vacation_for_a_search_criteria-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/vacation/documents/blob/master/vacation-inquiry/Business
+      Service Definitions/vacation-inquiry-api-deprecated.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Vacation
+  type: openapi

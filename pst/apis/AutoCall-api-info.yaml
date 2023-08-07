@@ -1,0 +1,70 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/autocall/documents/blob/master/Auto
+      Call Status/Design/Business Service Definitions/Auto_call_status.yaml
+  description: Contains services about all the assignments and it's status that we
+    sent to IVR.
+  name: Auto_call_status-1.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/autocall/documents/blob/master/Auto
+      Call Status/Design/Business Service Definitions/Auto_call_status.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: AutoCall
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/autocall/documents/blob/master/IVR
+      Integrations/Contact_Employee_For_Notification.yaml
+  description: This will colleect required data which we will send to IVR for it's
+    procecssing.
+  name: Contact_Employee_for_notifications_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/autocall/documents/blob/master/IVR
+      Integrations/Contact_Employee_For_Notification.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: AutoCall
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/autocall/documents/blob/master/IVR
+      Integrations/ivr_Contact.yaml
+  description: This will colleect required data which we will send to IVR for it's
+    procecssing.
+  name: Contact_Employee_for_assignment_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/autocall/documents/blob/master/IVR
+      Integrations/ivr_Contact.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: AutoCall
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/autocall/documents/blob/master/IVR
+      Process/Design/Business Service Definitions/IVR_Response.yaml
+  description: Contains services about IVR Response process
+  name: IVR_Response_process-1.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/autocall/documents/blob/master/IVR
+      Process/Design/Business Service Definitions/IVR_Response.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: AutoCall
+  type: openapi

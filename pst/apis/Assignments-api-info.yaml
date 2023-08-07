@@ -1,0 +1,269 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/assignments/documents/blob/master/Assigned
+      Job Maintenance/Design/Business Service Definitions/Assigned Job Maintenance.yaml
+  description: "The main responsibility is to find list of Assigned Jobs a board\n\
+    \  and Create/update/delete Assigned Jobs and Annulments."
+  name: Assigned_Job_Maintenance_Crew_Maintenance-v1.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/assignments/documents/blob/master/Assigned
+      Job Maintenance/Design/Business Service Definitions/Assigned Job Maintenance.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Assignments
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/assignments/documents/blob/master/Assigned
+      Job Maintenance/Design/Business Service Definitions/Swagger/AssignedJobPosition.yaml
+  description: The User shall be able to create Assigned Job Maintainance API.
+  name: Assigned_Job_Maintanence_API-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/assignments/documents/blob/master/Assigned
+      Job Maintenance/Design/Business Service Definitions/Swagger/AssignedJobPosition.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Assignments
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/assignments/documents/blob/master/Board
+      Maintenance/Design/Business Service Definitions/EnquireBoards.yaml
+  description: The User shall be able to find the boards and will be able to navigate/view
+    the Board Maintainance Screens.
+  name: Board_Enquiry_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/assignments/documents/blob/master/Board
+      Maintenance/Design/Business Service Definitions/EnquireBoards.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Assignments
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/assignments/documents/blob/master/Common/Design/Business
+      Service Definitions/common.yaml
+  description: The main responsibility is to provide common services required for
+    assignments (pool/extraboard/assignedjob).
+  name: Roster_Control-v1.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/assignments/documents/blob/master/Common/Design/Business
+      Service Definitions/common.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Assignments
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/assignments/documents/blob/master/Employee
+      Protection/Design/Business Service Definitions/Lost Protection.yaml
+  description: The User shall be able to test employee protection functionality using
+    this API.
+  name: Employee_Protection_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/assignments/documents/blob/master/Employee
+      Protection/Design/Business Service Definitions/Lost Protection.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Assignments
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/assignments/documents/blob/master/Extraboard
+      Maintenance/Design/Business Service Definitions/Extra Board Maintenance.yaml
+  description: "The main responsibility is to find list of extraboard Turns in a board\n\
+    \  and Create/update/delete/Reposition Extraboard Turns."
+  name: Extraboard_Turn_Crew_Maintenance-v1.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/assignments/documents/blob/master/Extraboard
+      Maintenance/Design/Business Service Definitions/Extra Board Maintenance.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Assignments
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/assignments/documents/blob/master/Field
+      Inquiry/Design/Business Service Definitions/Field Inquiry.yaml
+  description: This service deals with view of assignemnts related to pool board,
+    Extra board and assigned board based on criteria provided by user.
+  name: Services_related_to_Field_Inquiry-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/assignments/documents/blob/master/Field
+      Inquiry/Design/Business Service Definitions/Field Inquiry.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Assignments
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/assignments/documents/blob/master/Job
+      History/Design/Business Service Definitions/Job History.yaml
+  description: Any impact/change to Assignment will be captured in history. Attributes
+    to create job history are (system generated) 1. Assignment  Details 2. Function
+    Details 3. Diagnostic Details
+  name: Job_Histroy_API-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/assignments/documents/blob/master/Job
+      History/Design/Business Service Definitions/Job History.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Assignments
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/assignments/documents/blob/master/Pool
+      Maintenance/Design/Business Service Definitions/CarriedTurns.yaml
+  description: To carry the turns along with the working the turn when they are not
+    worked for ID pools
+  name: Carry_Turns_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/assignments/documents/blob/master/Pool
+      Maintenance/Design/Business Service Definitions/CarriedTurns.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Assignments
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/assignments/documents/blob/master/Pool
+      Maintenance/Design/Business Service Definitions/Pool Maintenance.yaml
+  description: This service deals with assignemnts related to pool board.
+  name: Services_related_to_Employee_Master-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/assignments/documents/blob/master/Pool
+      Maintenance/Design/Business Service Definitions/Pool Maintenance.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Assignments
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/assignments/documents/blob/master/Protecting
+      Extraboard/Design/Business Service Definitions/Protecting Extraboard Load.yaml
+  description: This service is to identify future thresholds in self-service layoff
+    approval process, for employee requested layoff.
+  name: Services_related_to_protecting_extraboard_load_projection_-v2
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/assignments/documents/blob/master/Protecting
+      Extraboard/Design/Business Service Definitions/Protecting Extraboard Load.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Assignments
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/assignments/documents/blob/master/Seniority
+      Move/Design/Business Service Definitions/Seniority Move Swagger R6.yaml
+  description: The User shall be able to test seniority move funcationality using
+    this API.
+  name: Seniority_Move_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/assignments/documents/blob/master/Seniority
+      Move/Design/Business Service Definitions/Seniority Move Swagger R6.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Assignments
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/assignments/documents/blob/master/Seniority
+      Move/Design/Business Service Definitions/Seniority Move Swagger.yaml
+  description: The User shall be able to test seniority move funcationality using
+    this API.
+  name: Seniority_Move_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/assignments/documents/blob/master/Seniority
+      Move/Design/Business Service Definitions/Seniority Move Swagger.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Assignments
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/assignments/documents/blob/master/Transfer
+      Displacement/Design/Business Service Definitions/Trasnfer Displacement.yaml
+  description: The main responsibility of this service is to create, update, delete,
+    get and find the Labor Agreement Profile.
+  name: Labor_Agreement_Profile_API-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/assignments/documents/blob/master/Transfer
+      Displacement/Design/Business Service Definitions/Trasnfer Displacement.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Assignments
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/assignments/documents/blob/master/Vacancy
+      Inquiry/Design/Business Service Definitions/Vacancy Inquiry.yaml
+  description: This service deals with view of OPEN/VACANT assignemnts related to
+    pool board, Extra board, Assigned Yard and Assigned Local boards based on criteria
+    provided by user.
+  name: Services_related_to_Vacancy_Inquiry-v2
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/assignments/documents/blob/master/Vacancy
+      Inquiry/Design/Business Service Definitions/Vacancy Inquiry.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Assignments
+  type: openapi

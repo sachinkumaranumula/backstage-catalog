@@ -1,0 +1,123 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/statustracking/documents/blob/master/Employee
+      Change of Status/Design/Business Service Definitions/Employee Change of Status.yaml
+  description: The User shall be able to test employee changed of status funcationality
+    using this API.
+  name: Employee_Change_of_Status_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/statustracking/documents/blob/master/Employee
+      Change of Status/Design/Business Service Definitions/Employee Change of Status.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: StatusTracking
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/statustracking/documents/blob/master/Employee
+      Change of Status/Design/Business Service Definitions/openapi.yaml
+  description: The User shall be able to test employee changed of status funcationality
+    using this API.
+  name: Employee_Change_of_Status_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/statustracking/documents/blob/master/Employee
+      Change of Status/Design/Business Service Definitions/openapi.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: StatusTracking
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/statustracking/documents/blob/master/Layoff
+      Into Long Term Off Status/Design/Business Service Definitions/PST-CM-StatusTracking-LayoffIntoLongTermOffStatus-SwaggerDefinitions.yaml
+  description: It is a background process that runs once a day at 6:30am, evaluates
+    all employees in off status to put into long term off status.
+  name: Layoff_Into_Long_Term_Off_Status-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/statustracking/documents/blob/master/Layoff
+      Into Long Term Off Status/Design/Business Service Definitions/PST-CM-StatusTracking-LayoffIntoLongTermOffStatus-SwaggerDefinitions.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: StatusTracking
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/statustracking/documents/blob/master/Layoff
+      On Call/Design/Business Service Definitions/PST-CM-StatusTracking-LayoffOnCall-SwaggerDefinitions.yaml
+  description: The User shall be able to layoff an employee from call process.
+  name: Layoff_an_Employee_from_Call_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/statustracking/documents/blob/master/Layoff
+      On Call/Design/Business Service Definitions/PST-CM-StatusTracking-LayoffOnCall-SwaggerDefinitions.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: StatusTracking
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/statustracking/documents/blob/master/Missed
+      Call Document/Design/Business Service Definitions/Missed Call.yaml
+  description: When an employee is missed a call from call screen, we create a missed
+    call document for that person.
+  name: Missed_Call_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/statustracking/documents/blob/master/Missed
+      Call Document/Design/Business Service Definitions/Missed Call.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: StatusTracking
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/statustracking/documents/blob/master/Write
+      Employee Attendance Details/Design/Business Service Definitions/PST-CM-StatusTracking-WriteEmployeeAttendanceDetails-SwaggerDefinitions.yaml
+  description: It is a background process that runs once every day, evaluates all
+    employees history records to write attendance history details needed for reports.
+  name: Write_Employee_Attendance_Details-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/statustracking/documents/blob/master/Write
+      Employee Attendance Details/Design/Business Service Definitions/PST-CM-StatusTracking-WriteEmployeeAttendanceDetails-SwaggerDefinitions.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: StatusTracking
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/statustracking/documents/blob/master/miscellaneous2-ss/swap-vacation/business
+      service documents/swap-vacation.yaml
+  description: Service API to request for swap vacation for the employee
+  name: Swap_Vacation_Request-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/statustracking/documents/blob/master/miscellaneous2-ss/swap-vacation/business
+      service documents/swap-vacation.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: StatusTracking
+  type: openapi

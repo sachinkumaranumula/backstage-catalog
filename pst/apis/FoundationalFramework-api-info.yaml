@@ -1,0 +1,20 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/foundationalframework/taskmanagement/documents/blob/master/Design/Business
+      Service Definitions/Task Management.yaml
+  description: This is a generic component which allows to broadcast a message to
+    an employee or group of employees or a group of people which are not necessarily
+    employees. This broadcast component allows to broadcast through email or broadcast
+    on browser. When broadcasting on to Browser is targeted, system will display the
+    message when user is logged in.
+  name: Broadcast_Messaging-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/foundationalframework/taskmanagement/documents/blob/master/Design/Business
+      Service Definitions/Task Management.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: FoundationalFramework
+  type: openapi

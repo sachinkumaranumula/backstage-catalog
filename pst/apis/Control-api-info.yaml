@@ -1,0 +1,1404 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Advertisement
+      Bid/Design/Business Service Definitions/AdvertisementBidControl.yaml
+  description: Advertisement Bid controls determine what advertisements are displayed
+    to an employee on the Advertisement Selection screen
+  name: AdvertisementBidControl_API-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Advertisement
+      Bid/Design/Business Service Definitions/AdvertisementBidControl.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Assigned
+      Job Default Position/Design/Business Service Definitions/Assigned Job default
+      position.yaml
+  description: The main responsibility of this service is to create, update, delete
+    and find the Default Position.
+  name: Default_Position_API-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Assigned
+      Job Default Position/Design/Business Service Definitions/Assigned Job default
+      position.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Assigned
+      Job Snapshot/Design/Business Service Definitions/Assigned Job Snapshot.yaml
+  description: The main responsibility of this service is to create, update, delete,
+    get and find the Assignedjob Snapshot Control.
+  name: Assignedjob_Snapshot_Control_API-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Assigned
+      Job Snapshot/Design/Business Service Definitions/Assigned Job Snapshot.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Assignment
+      Description/Design/Business Service Definitions/Assignment Description.yaml
+  description: The main responsibility of this service API is to create, update, delete,
+    get and find the Assignment Description.
+  name: Assignment_Description_API-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Assignment
+      Description/Design/Business Service Definitions/Assignment Description.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Assignment
+      Qualifications/Design/Business Service Definitions/Assignment Qualifications.yaml
+  description: The main responsibility of this service is to create, update, delete
+    and find the AssignmentQualifications.
+  name: AssignmentQualifications_API-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Assignment
+      Qualifications/Design/Business Service Definitions/Assignment Qualifications.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Auto
+      Call Outage Control/Design/Business Service Definitions/OutageControl.yaml
+  description: Auto call outage control will provide you the information on planned
+    outages of Auto call process.
+  name: Auto_call_Outage_Control_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Auto
+      Call Outage Control/Design/Business Service Definitions/OutageControl.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Auto
+      Call Profile/Design/Business Service Definitions/Auto Call Profile.yaml
+  description: The main responsibility of this service is to create, update, delete
+    and find the Auto Call Profile.
+  name: Auto_Call_Profile_API-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Auto
+      Call Profile/Design/Business Service Definitions/Auto Call Profile.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/AutoCall
+      Sort Profile Control/Design/Business Service Definitions/Auto Call Sort Profile
+      Control.yaml
+  description: 'When autocall is processing multiple assignments from the same Call
+    Zone at the same time, autocall will use this Control to determine the order of
+    positions to send to the VRU and Texting application.    .  '
+  name: AutoCallSortProfileControl_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/AutoCall
+      Sort Profile Control/Design/Business Service Definitions/Auto Call Sort Profile
+      Control.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Autocall
+      Control/Design/Business Service Definitions/AutoCallControl.yaml
+  description: The main responsibility of this service is to update auto call flag
+    details at DeskID, District, Subdistrict, Board and Board Terminal Location services.
+  name: AutoCallControl_API-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Autocall
+      Control/Design/Business Service Definitions/AutoCallControl.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Board
+      Assignment Master Advertisement/Design/Business Service Definitions/Board Assignment
+      Master Advertisement.yaml
+  description: The main responsibility of this service is to create, update, delete,
+    get and find the Assignment Description.
+  name: Assignment_Description_API-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Board
+      Assignment Master Advertisement/Design/Business Service Definitions/Board Assignment
+      Master Advertisement.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Board
+      Definition & BTL/Design/Business Service Definitions/Board Definition & BTL.yaml
+  description: The main responsibility of this service is to create, update, delete,
+    get and find the Board Definition.
+  name: Board_Definition_API-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Board
+      Definition & BTL/Design/Business Service Definitions/Board Definition & BTL.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Board
+      Definition & BTL/Design/Business Service Definitions/Board Definition & BTL_R8.yaml
+  description: The main responsibility of this service is to create, update, delete,
+    get and find the Board Definition.
+  name: Board_Definition_API-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Board
+      Definition & BTL/Design/Business Service Definitions/Board Definition & BTL_R8.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Board
+      Rotation Profile/Design/Business Service Definitions/Board Rotation Profile.yaml
+  description: The Board Rotation Profile allows for placement of turn (back to board)
+    based on specified tour of duty events and will be attached to the Labor Profile.
+  name: Board_Rotation_Profile_API-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Board
+      Rotation Profile/Design/Business Service Definitions/Board Rotation Profile.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Call
+      Zone/Design/Business Service Definitions/callZone.yaml
+  description: This will contains the information about the logical group of DD/SD/Boards/BTL
+    Hdrs which will help in auto call process
+  name: Call_Zone_Control_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Call
+      Zone/Design/Business Service Definitions/callZone.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Carded
+      Pool Schedule/Design/Business Service Definitions/Carded Pool Schedule Report.yaml
+  description: API to generate Cardedpool schedule report.
+  name: Cardedpool_Schedule_Report_API-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Carded
+      Pool Schedule/Design/Business Service Definitions/Carded Pool Schedule Report.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Carded
+      Pool Schedule/Design/Business Service Definitions/Carded Pool Schedule.yaml
+  description: 'The schedule for train crews that perform work on only specific days,
+
+    specific trains, or during specific times of the day.'
+  name: arded_Pool_Schedule_API-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Carded
+      Pool Schedule/Design/Business Service Definitions/Carded Pool Schedule.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Company/Design/Business
+      Service Definitions/Company.yaml
+  description: 'The responsibility of this service is to create, update, delete, get
+    and find Company.  '
+  name: Company_Control_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Company/Design/Business
+      Service Definitions/Company.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Craft
+      Position/Design/Business Service Definitions/Craft Position.yaml
+  description: The main responsibility of this service is to manage craft positions
+  name: Craft_Position_API-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Craft
+      Position/Design/Business Service Definitions/Craft Position.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Crew
+      Profile/Design/Business Service Definitions/crew-profile-R8.yaml
+  description: Crew Profile contains the information necessary for calling of trains
+    and assignments. Crew Profile are also used to convert train line up received
+    from external interfaces into workable train/crew requests in work list, to locate
+    crew, to produce various reports and for handling of pay differences.
+  name: Crew_Profile_Control_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Crew
+      Profile/Design/Business Service Definitions/crew-profile-R8.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Crew
+      Profile/Design/Business Service Definitions/crew-profile.yaml
+  description: Crew Profile contains the information necessary for calling of trains
+    and assignments. Crew Profile are also used to convert train line up received
+    from external interfaces into workable train/crew requests in work list, to locate
+    crew, to produce various reports and for handling of pay differences.
+  name: Crew_Profile_Control_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Crew
+      Profile/Design/Business Service Definitions/crew-profile.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Crew
+      Summary Report Control/Design/Business Service Definitions/crewsummaryreportcontrol.yaml
+  description: The User shall be able to setup and manage Crew Summary Report Control
+    API.
+  name: Crew_Summary_Report_Control_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Crew
+      Summary Report Control/Design/Business Service Definitions/crewsummaryreportcontrol.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Deadhead
+      Travel Miles/Design/Business Service Definitions/DeadheadTravelMile.yaml
+  description: The user should be able to create,get, update and delete travel miles
+    information(travel distance and time ) between an origin and a destination.
+  name: Deadhead_Travel_Miles_Control_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Deadhead
+      Travel Miles/Design/Business Service Definitions/DeadheadTravelMile.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Decision
+      Table Control/Design/Business Service Definitions/Decision Table Control Swagger
+      Definitions.yaml
+  description: The User shall be able to setup and manage Decision Tables/Rules using
+    the API.
+  name: Decision_Rules_Table_Control_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Decision
+      Table Control/Design/Business Service Definitions/Decision Table Control Swagger
+      Definitions.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Desk
+      Assignments/Design/Business Service Definitions/deskid-api.yaml
+  description: Service for Crewpro Desk API
+  name: Desk_API_Services-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Desk
+      Assignments/Design/Business Service Definitions/deskid-api.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Desk
+      Assignments/Design/Business Service Definitions/deskid-api_R8.yaml
+  description: Service for Crewpro Desk API
+  name: Desk_API_Services-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Desk
+      Assignments/Design/Business Service Definitions/deskid-api_R8.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/District/Design/Business
+      Service Definitions/District.yaml
+  description: The main responsibility of this service is to create, update, delete
+    and get the Districts.
+  name: District_API-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/District/Design/Business
+      Service Definitions/District.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/District/Design/Business
+      Service Definitions/District_R8.yaml
+  description: The main responsibility of this service is to create, update, delete
+    and get the Districts.
+  name: District_API-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/District/Design/Business
+      Service Definitions/District_R8.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Expiring
+      Qualifications Profile/Design/Business Service Definitions/Expiring Qualifications
+      Profile.yaml
+  description: The main responsibility of this service is to create, update, delete
+    and get the Expiring Qualifications.
+  name: Expiring_Qualification_API-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Expiring
+      Qualifications Profile/Design/Business Service Definitions/Expiring Qualifications
+      Profile.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Extra
+      Work Profile/Design/Business Service Definitions/Extra-Work-Profile.yaml
+  description: Extra Work Profile dictates the rules for employee requesting/unrequesting
+    to be made available for extra work. This will be mapped on the Labor Agreement
+    profile, to be linked to employee.
+  name: Extra_Work_Profile-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Extra
+      Work Profile/Design/Business Service Definitions/Extra-Work-Profile.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Extraboard/Design/Business
+      Service Definitions/Extra Board - R10.5.yaml
+  description: 'This will contains various services for Create, Read, Update,
+
+    Delete of different types of boards.'
+  name: Board_Definition-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Extraboard/Design/Business
+      Service Definitions/Extra Board - R10.5.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Extraboard/Design/Business
+      Service Definitions/Extra Board.yaml
+  description: This will contains various services for Create, Read, Update, Delete
+    of different types of boards.
+  name: Extra_Board_Definition-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Extraboard/Design/Business
+      Service Definitions/Extra Board.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Flowback
+      Profile/Design/Business Service Definitions/Flowback Profile.yaml
+  description: The main responsibility of this service is to create, update, delete,
+    get and find the Flowback Profile.
+  name: Flowback_Profile_API-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Flowback
+      Profile/Design/Business Service Definitions/Flowback Profile.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Flowback
+      Profile/Requirements/Design/Business Service Definitions/EmployeeFlowbackRequest.yaml
+  description: Employees eligible for flowback can request for flowback/unflowback/renew.
+  name: Employee_Flow_Back_Request_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Flowback
+      Profile/Requirements/Design/Business Service Definitions/EmployeeFlowbackRequest.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/HOS
+      Threshold Profile/Design/Business Service Definitions/Hos Threshold Profile.yaml
+  description: content
+  name: Hours_Of_Service_Profile_and_threshold_API-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/HOS
+      Threshold Profile/Design/Business Service Definitions/Hos Threshold Profile.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Hire
+      Group/Design/Business Service Definitions/Hire Group.yaml
+  description: The main responsibility of this service is to create, update, delete
+    and get the HireGroups.
+  name: HireGroup_API-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Hire
+      Group/Design/Business Service Definitions/Hire Group.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/IVR
+      Board Code/Design/Business Service Definitions/IVR Board Codes.yaml
+  description: The main responsibility of this service is to create, update, delete
+    and find the Board codes Control.
+  name: IVR_Board_codes_Control_API-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/IVR
+      Board Code/Design/Business Service Definitions/IVR Board Codes.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/IVR
+      Call Profile/Design/Business Service Definitions/IVR Call Profile.yaml
+  description: The main responsibility of this service is to create, update, delete
+    and find the VRU Call Profile.
+  name: VRU_Call_Profile_API-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/IVR
+      Call Profile/Design/Business Service Definitions/IVR Call Profile.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/IVR
+      Notifications Control/Design/Business Service Definitions/IVR Notify Control.yaml
+  description: The main responsibility of this service is to create, update, delete
+    and find the VRU Notify Control.
+  name: VRU_Notify_Control_API-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/IVR
+      Notifications Control/Design/Business Service Definitions/IVR Notify Control.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/IVR
+      Notifications Profile/Design/Business Service Definitions/IVR Notification Profile.yaml
+  description: The main responsibility of this service is to create, update, delete
+    and find the IVR Notification Profile.
+  name: IVR_Notification_Profile_API-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/IVR
+      Notifications Profile/Design/Business Service Definitions/IVR Notification Profile.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Job
+      Classification/Design/Business Service Definitions/JobClassifications.yaml
+  description: Job Classification is used to identify the list of valid positions
+    for a job. Applicable only for Assigned Yard Jobs, not applicable for Assigned
+    Local Jobs.
+  name: Job_Classification_Control_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Job
+      Classification/Design/Business Service Definitions/JobClassifications.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Labor
+      Agreement Profile/Design/Business Service Definitions/Labor Agreement Profile.yaml
+  description: The main responsibility of this service is to create, update, delete,
+    get and find the Labor Agreement Profile.
+  name: Labor_Agreement_Profile_API-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Labor
+      Agreement Profile/Design/Business Service Definitions/Labor Agreement Profile.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Layoff
+      Request/Design/Business Service Definitions/Layoff Request.yaml
+  description: 'This is used to prevent layoff requests for a specific time frame.
+
+    The main responsibility of this service is to create, update, delete, get and
+    find the Layoff Reqeust Restriction.'
+  name: Layoff_Request_Restriction_API-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Layoff
+      Request/Design/Business Service Definitions/Layoff Request.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Legacy
+      Units/Crewvue Layoff Percentage/Design/Business Service Definitions/LayoffPercentage.yaml
+  description: The User shall be able to get employees related to the layoff percentage
+    for an assignment
+  name: Layoff_Percentage_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Legacy
+      Units/Crewvue Layoff Percentage/Design/Business Service Definitions/LayoffPercentage.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Line
+      Segment/Design/Business Service Definitions/Line-Segment-Profile.yaml
+  description: 'Line segment Profile is used to create unique line segments which
+    are used to associate necessary territorial qualifications to be able to qualify
+    employees to work that specific line segments.    '
+  name: Rate_Factor_Profile-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Line
+      Segment/Design/Business Service Definitions/Line-Segment-Profile.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Markup
+      Rotation Profile/Design/Business Service Definitions/Markup Rotation Profile.yaml
+  description: The Markup Rotation Profile is attached to the Status Reason Code for
+    the specific markup rotation rules. If there is no profile attached, standard
+    placement is bottom of the board.
+  name: MarkupRotationProfile_API-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Markup
+      Rotation Profile/Design/Business Service Definitions/Markup Rotation Profile.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Master
+      Advertisement Descriptions/Design/Business Service Definitions/Master Advertisement
+      Description.yaml
+  description: The main responsibility of this service is to create, update, delete,
+    get and find the Assignment Description.
+  name: Assignment_Description_API-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Master
+      Advertisement Descriptions/Design/Business Service Definitions/Master Advertisement
+      Description.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Notification
+      Profile/Design/Business Service Definitions/notification-profile-api.yaml
+  description: It is a message broadcast process to all the disapatcher working at
+    desk ids. The messages are created at District/Subdistrict level or at Desk ID.
+  name: Notification_Profiles_API-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Notification
+      Profile/Design/Business Service Definitions/notification-profile-api.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/On
+      Call Penalty Profile/Design/Business Service Definitions/On Call Penalty.yaml
+  description: 'This defines Penalty Placement Rules for employees when they either
+    miss a call or layoff on call. These rules are attached at the service level (engine/train)
+    on the Board Terminal Location.  '
+  name: On_Call_Penalty_Profile_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/On
+      Call Penalty Profile/Design/Business Service Definitions/On Call Penalty.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/PWS
+      Bid Groups/Design/Business Service Definitions/PWSBidGroupControl.yaml
+  description: Bid Group Control aids in creating weekly bulletins for weekly Job
+    Adjustment day (JAD) awards.
+  name: PWS_Bid_Group_Control-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/PWS
+      Bid Groups/Design/Business Service Definitions/PWSBidGroupControl.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/PWS
+      Placement Profile/Design/Business Service Definitions/Placement Profile.yaml
+  description: During the award placement process the placement profile is used to
+    determine which position to place the employee/Turn on the board.
+  name: Placement_Profile_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/PWS
+      Placement Profile/Design/Business Service Definitions/Placement Profile.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/PoolRegulationStarts/Design/Business
+      Service Definitions/Pool Regulation Starts.yaml
+  description: The main responsibility of this service is to create, update, delete
+    and get the Pool Regulation Starts.
+  name: Pool_Regulation_Starts_API-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/PoolRegulationStarts/Design/Business
+      Service Definitions/Pool Regulation Starts.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Pools
+      & Pool Positions/Design/Business Service Definitions/Pools & Pool Positions.yaml
+  description: Pool Board Control is to configure certain rules for pool boards in
+    the system.
+  name: Pool_Board_API-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Pools
+      & Pool Positions/Design/Business Service Definitions/Pools & Pool Positions.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Qualifications/Design/Business
+      Service Definitions/Qualifications.yaml
+  description: The main responsibility of this service is to create, update, delete
+    and find the Qualifications.
+  name: qualification_API-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Qualifications/Design/Business
+      Service Definitions/Qualifications.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Reason
+      Codes/Design/Business Service Definitions/Reason Codes.yaml
+  description: The main responsibility of this service is to create, update, delete
+    and get the Reason Codes.
+  name: Reason_Codes_API-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Reason
+      Codes/Design/Business Service Definitions/Reason Codes.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Report
+      Configuration/Design/Business Service Definitions/PST-CM-Report-Configuration-Schema-Definitions.yaml
+  description: 'The Report Configuration will allow users to configure report controls
+    that will manage the Call Sheet and Bulletins being sent to email addresses as
+    identified in the control page. The report being sent to the specified email addresses
+    will be controlled by system events. The Crew Summary Report page that is being
+    deprecated will be used as a starting page to develop enhancements to be used
+    for the Report Routing page. '
+  name: Report_Configuration-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Report
+      Configuration/Design/Business Service Definitions/PST-CM-Report-Configuration-Schema-Definitions.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Roster
+      Control/Design/Business Service Definitions/Roster Control.yaml
+  description: 'The main responsibility of this service is to create, update, delete
+    and get the rosters.
+
+    and also responsible for add,update, deleting employees from a roster and view
+    the roster by employee, view employees by roster.
+
+    and also responsible for contolling the assignments.'
+  name: Roster_Control-v1.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Roster
+      Control/Design/Business Service Definitions/Roster Control.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Seniority
+      Move Profile/Design/Business Service Definitions/SeniorityMoveProfile.yaml
+  description: Seniority Move Profile defines specific rules when employees exercise
+    seniority to assignments.
+  name: Seniority_Move_Profile_API-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Seniority
+      Move Profile/Design/Business Service Definitions/SeniorityMoveProfile.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Shift
+      Report Status Counts/Design/Business Service Definitions/Shift Report Status
+      Counts.yaml
+  description: The main responsibility of these services is to create, update, delete
+    and get the Status Counts control.
+  name: Status_Counts_API-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Shift
+      Report Status Counts/Design/Business Service Definitions/Shift Report Status
+      Counts.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Shift
+      Report/Design/Design/Business Service Definitions/PST-CM-Shift-Report-Control-Schema-Definitions.yaml
+  description: 'It defines seamless integration with Shift Report Control API. Using
+    Shift Report Control, user will be able to configure or setup a shift report for
+    a given district and subdistrict.  This control should be configured for each
+    district subdistrict before generating shift report for any district  subdistrict.. '
+  name: Shift_Report_Control_Profie-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Shift
+      Report/Design/Design/Business Service Definitions/PST-CM-Shift-Report-Control-Schema-Definitions.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Snapshot
+      Inquiry/Design/Business Service Definitions/SnapshotInquiry.yaml
+  description: This service deals with view of poolboard, extraboard, assignedjob
+    snapshots.
+  name: Services_related_to_Snapshot_Inquiry-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Snapshot
+      Inquiry/Design/Business Service Definitions/SnapshotInquiry.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Special
+      Condition/Design/Business Service Definitions/Special Conditions.yaml
+  description: The main responsibility of this service is to create, update, delete
+    and find the SpecialConditions.
+  name: SpecialConditions_API-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Special
+      Condition/Design/Business Service Definitions/Special Conditions.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Starts
+      Profile/Design/Business Service Definitions/Starts Profile.yaml
+  description: 'Starts Profile defines  the maximum accumulated starts by employee
+    over a specified period of time.  Starts only apply to Extraboard and Assigned
+    Job boards.
+
+    The main responsibility of this service is to create, update, delete, get and
+    find the Starts Profile.'
+  name: Starts_Profile_API-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Starts
+      Profile/Design/Business Service Definitions/Starts Profile.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Status
+      Codes/Design/Business Service Definitions/Status Code.yaml
+  description: The main responsibility of this service is to create, update, delete
+    and get the StatusCode.
+  name: StatusCode_API-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Status
+      Codes/Design/Business Service Definitions/Status Code.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Status
+      Reason Control/Design/Business Service Definitions/Status Reason Control.yaml
+  description: 'The main responsibility of this service is to create, update, delete
+    and get the Status Reason Control.
+
+    and also responsible for find best match for an assignment.'
+  name: Status_Reason_Control-v1.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Status
+      Reason Control/Design/Business Service Definitions/Status Reason Control.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/SubDistrict/Design/Business
+      Service Definitions/Subdistrict.yaml
+  description: The main responsibility of this service is to create, update, delete,
+    get and find subdistricts.
+  name: SubDistrict_API-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/SubDistrict/Design/Business
+      Service Definitions/Subdistrict.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/TSR
+      Station Override/Design/Business Service Definitions/StateControl.yaml
+  description: The User shall be able to get the state details using the API.
+  name: State_Control_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/TSR
+      Station Override/Design/Business Service Definitions/StateControl.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/TSR
+      Station Override/Design/Business Service Definitions/StationControlApi_V2.yaml
+  description: The User shall be able to setup and manage Stations using Station Control  API.
+  name: Station_Control_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/TSR
+      Station Override/Design/Business Service Definitions/StationControlApi_V2.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/TSR
+      Station Override/Design/Business Service Definitions/StationControlApi_V3.yaml
+  description: The User shall be able to setup and manage Stations using Station Control  API.
+  name: Station_Control_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/TSR
+      Station Override/Design/Business Service Definitions/StationControlApi_V3.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Tieup
+      Exception/Design/Business Service Definitions/TieUpExceptions.yaml
+  description: The User shall be able to setup and manage Tie up Exceptions using
+    the Tie Up Exceptions API.
+  name: Tie_Up_Exception_Control_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Tieup
+      Exception/Design/Business Service Definitions/TieUpExceptions.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Train
+      Profile/Design/Business Service Definitions/train-profile.yaml
+  description: Train Profiles are used to determine what Crew Profile should be used
+    to crew the train.
+  name: Train_Profile_Control_API_-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Train
+      Profile/Design/Business Service Definitions/train-profile.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Train
+      Schedule/Design/Business Service Definitions/Train Schedule.yaml
+  description: The main responsibility of this service is to create, update, delete
+    and find the Train Schedule.
+  name: Train_Schedule_API-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Train
+      Schedule/Design/Business Service Definitions/Train Schedule.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/TrainRoute/Design/Business
+      Service Definitions/Train-Route.yaml
+  description: 'Route Segment Profile is used to create unique route segments which
+    are used to associate necessary. territorial qualifications to be able to qualify
+    employees to work that specific route segments.  '
+  name: Train_Route_Control_API-1.0.0
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/TrainRoute/Design/Business
+      Service Definitions/Train-Route.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Trainmaster
+      Territory/Design/Business Service Definitions/Trainmaster Territory.yaml
+  description: The main responsibility of this service is to create, update, delete
+    and find the Trainmaster Territory.
+  name: Trainmaster_Territory_API-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Trainmaster
+      Territory/Design/Business Service Definitions/Trainmaster Territory.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Union
+      Lodge/Design/Business Service Definitions/Union Lodge.yaml
+  description: The main responsibility of this service is to create, update, delete
+    and find the UnionLodge.
+  name: UnionLodge_API-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Union
+      Lodge/Design/Business Service Definitions/Union Lodge.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Union
+      Lodge/Design/Business Service Definitions/UnionRepresentativesAndLodges.yaml
+  description: The main responsibility of this service is to create, update, delete
+    and find the unionRepresentatives and Lodges.
+  name: Union_Representatives_And_Lodges_API-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Union
+      Lodge/Design/Business Service Definitions/UnionRepresentativesAndLodges.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/source-location: url:http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Yard
+      Shift Call Windows/Design/Business Service Definitions/Yard Shift Call Windows.yaml
+  description: The main responsibility of this service is to create, update, delete
+    and find the YardCallWindows.
+  name: YardCallWindows_API-v1
+spec:
+  definition:
+    $text: http://pst-gitlab.pstechnology.com/crewpro/control/documents/blob/master/Yard
+      Shift Call Windows/Design/Business Service Definitions/Yard Shift Call Windows.yaml
+  lifecycle: production
+  owner: crewpro-tech-team
+  system: Control
+  type: openapi

@@ -23,6 +23,10 @@ spec:
         - component_id
         - owner
       properties:
+        api_spec_location:
+          title: API Specification Url
+          type: string
+          description: Location of API Specification
         component_group_id:
           title: Group Name
           type: string
@@ -77,6 +81,7 @@ spec:
           description: ${{ parameters.description }}
           artifact_id: ${{ parameters.component_id }}
           java_package_name: ${{ parameters.component_group_id }}.${{ parameters.component_id | trim | lower | replace("-", "_") }}
+          api_spec_location: ${{ parameters.api_spec_location }}
           owner: ${{ parameters.owner }}
           destination: ${{ parameters.repoUrl | parseRepoUrl }}
           http_port: 8080
