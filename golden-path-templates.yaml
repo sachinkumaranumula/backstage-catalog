@@ -11,3 +11,4 @@ metadata:
 spec:
   targets:
     - ./templates/crewpro-spring-boot-service/template.yaml
+    - ./templates/crewpro-api-bindings/template.yaml
