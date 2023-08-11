@@ -1,0 +1,54 @@
+openapi: 3.0.2
+info:
+  title: domain/service-name/1.0
+  description: CHANGE ME
+  version: '1.0'
+  license:
+    name: private
+paths:
+  /domain/service-name/1.0:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ServiceActionNameRequest'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceActionNameResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: http://api.www.uprr.com/repo/jas/common/error-fault-definition-1_1_2.yaml#/components/schemas/ErrorResponse
+        '432':
+          description: Service Transaction Deadline Timeout Exceeded
+          content:
+            application/json:
+              schema:
+                $ref: http://api.www.uprr.com/repo/jas/common/error-fault-definition-1_1_2.yaml#/components/schemas/ErrorResponse
+        '500':
+          description: Backend error response
+          content:
+            application/json:
+              schema:
+                $ref: http://api.www.uprr.com/repo/jas/common/error-fault-definition-1_1_2.yaml#/components/schemas/FaultResponse
+components:
+  schemas:
+    ServiceActionNameRequest:
+      type: object
+      description: CHANGE ME -- Your request object
+      properties:
+        element_1:
+          type: string
+    ServiceActionNameResponse:
+      type: object
+      description: CHANGE ME -- Your response object
+      properties:
+        element_2:
+          type: string

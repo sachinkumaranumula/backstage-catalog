@@ -1,0 +1,175 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>${{values.group_id}}</groupId>
+    <artifactId>${{values.artifact_id}}</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+
+    <name>${{values.artifact_id}}</name>
+    <description>Generated API bindings for API: ${{values.api_spec_location}} </description>
+
+    <properties>
+        <!-- API Developer Provided -->
+        <openapi-spec-location>${{values.api_spec_location}}</openapi-spec-location>
+        <api-root-package>${{values.java_package_name}}</api-root-package>
+        <!-- Maven Props -->
+        <java.version>17</java.version>
+        <!-- Maven plugins -->
+        <jacoco.version>0.8.8</jacoco.version>
+        <openapi-generator-maven-plugin.version>6.3.0</openapi-generator-maven-plugin.version>
+        <build-helper-maven-plugin.version>3.2.0</build-helper-maven-plugin.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.fasterxml.jackson</groupId>
+                <artifactId>jackson-bom</artifactId>
+                <version>2.14.2</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <defaultGoal>install</defaultGoal>
+        <plugins>
+            <!-- Maven Release Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>3.0.1</version>
+                <configuration>
+                    <tagNameFormat>@{project.version}</tagNameFormat>
+                    <!-- The 'perform' goal by default runs Maven's 'deploy' or 'deploy site-deploy' phases. Those are handled by our DevOps build so your local release command shouldn't do them. -->
+                    <goals>verify</goals>
+                    <!-- Prevents git from pushing the pom.xml with the release version in it to master which can interfere with the DevOps automation's tag/release artifact publishing -->
+                    <pushChanges>false</pushChanges>
+                </configuration>
+            </plugin>
+            <!-- Attach source to published jar -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.3.0</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.5.0</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.openapitools</groupId>
+                <artifactId>openapi-generator-maven-plugin</artifactId>
+                <!-- RELEASE_VERSION -->
+                <version>${openapi-generator-maven-plugin.version}</version>
+                <!-- /RELEASE_VERSION -->
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <inputSpec>${openapi-spec-location}</inputSpec>
+                            <sourceFolder>src/main/java</sourceFolder>
+                            <generatorName>java</generatorName>
+                            <verbose>false</verbose>
+                            <generateApis>false</generateApis>
+                            <generateApiTests>false</generateApiTests>
+                            <generateModels>true</generateModels>
+                            <modelNameSuffix>Dto</modelNameSuffix>
+                            <modelPackage>${api-root-package}.dto</modelPackage>
+                            <generateModelTests>true</generateModelTests>
+                            <configOptions>
+                                <performBeanValidation>true</performBeanValidation>
+                                <dateLibrary>java8</dateLibrary>
+                                <serializationLibrary>jackson</serializationLibrary>
+                                <generatedConstructorWithRequiredArgs>true</generatedConstructorWithRequiredArgs>
+                            </configOptions>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <!-- Activate via -P enforcer. Usage details: https://maven.apache.org/enforcer/enforcer-rules/requireUpperBoundDeps.html -->
+            <id>enforcer</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-enforcer-plugin</artifactId>
+                        <version>3.3.0</version>
+                        <executions>
+                            <execution>
+                                <configuration>
+                                    <rules>
+                                        <!--ensures that every (transitive) dependency is resolved to its specified version or higher-->
+                                        <requireUpperBoundDeps/>
+                                        <requireReleaseDeps/>
+                                    </rules>
+                                </configuration>
+                                <goals>
+                                    <goal>enforce</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+    <scm>
+        <connection>scm:git:${{source_control_url}}</connection>
+        <developerConnection>scm:git:${{source_control_url}}</developerConnection>
+        <url>${{source_control_url}}</url>
+        <tag>HEAD</tag>
+    </scm>
+
+</project>

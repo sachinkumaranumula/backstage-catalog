@@ -1,20 +1,18 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: crewpro-spring-boot-rest-service-template
-  title: CrewPro Spring Boot REST Service Template
-  description: Standard Spring Boot REST service template
+  name: crewpro-api-bindings-template
+  title: CrewPro API bindings
+  description: Generates api-bindings project from API specification
   tags:
     - recommended
-    - spring-boot
-    - java-11
+    - java-17
     - maven
-    - service
-    - rest
+    - api-bindings
     - crewpro
 spec:
   owner: group:up-pst/cnx-pst-team
-  type: service
+  type: component
 
   parameters:
     - title: Provide some simple information
@@ -22,11 +20,8 @@ spec:
         - component_group_id
         - component_id
         - owner
+        - api
       properties:
-        api_spec_location:
-          title: API Specification Url
-          type: string
-          description: Location of API Specification
         component_group_id:
           title: Group Name
           type: string
@@ -36,17 +31,8 @@ spec:
             - com.pst
             - com.pst.app.crewpro
           enumNames:
-            - 'PST'
-            - 'PST CrewPro'
-        component_id:
-          title: Name
-          type: string
-          description: Unique name of the component
-          ui:field: EntityNamePicker
-        description:
-          title: Description
-          type: string
-          description: Help others understand what this service is for.
+            - "PST"
+            - "PST CrewPro"
         owner:
           title: Owner
           type: string
@@ -55,6 +41,15 @@ spec:
           ui:options:
             allowedKinds:
               - Group
+        api:
+          title: API
+          type: string
+          description: API for which bindings will be generated
+          ui:field: EntityPicker
+          ui:options:
+            allowArbitraryValues: false
+            catalogFilter:
+              - kind: API
     - title: Choose a location
       required:
         - repoUrl
@@ -64,8 +59,8 @@ spec:
           type: string
           ui:field: RepoUrlPicker
           ui:options:
-            allowedOwners: ['UP-PST']
-            allowedHosts: ['github.com']
+            allowedOwners: ["UP-PST"]
+            allowedHosts: ["github.com"]
 
   steps:
     - id: template
@@ -77,14 +72,11 @@ spec:
           - .github/workflows/*
         values:
           group_id: ${{ parameters.component_group_id }}
-          component_id: ${{ parameters.component_id }}
-          description: ${{ parameters.description }}
-          artifact_id: ${{ parameters.component_id }}
-          java_package_name: ${{ parameters.component_group_id }}.${{ parameters.component_id | trim | lower | replace("-", "_") }}
-          api_spec_location: ${{ parameters.api_spec_location }}
+          artifact_id: ${{ parameters.api.name | trim | lower | replace("_", "-") | replace(".", "_")}}
+          api_spec_location: ${{ parameters.api.metadata.annotations.backstage.io/source-location }}
+          java_package_name: ${{ parameters.component_group_id }}.${{ parameters.api.name | trim | lower | replace("-", "_") }}
           owner: ${{ parameters.owner }}
-          destination: ${{ parameters.repoUrl | parseRepoUrl }}
-          http_port: 8080
+          source_control_url: ${{ parameters.repoUrl | parseRepoUrl }}
 
     - id: publish
       name: Publish
