@@ -25,10 +25,10 @@ spec:
           title: Group Name
           type: string
           description: Group this component belongs to
-          default: com.pst
+          default: com.pst.app.crewpro.api.bindings
           enum:
-            - com.pst
-            - com.pst.app.crewpro
+            - com.pst.api.bindings
+            - com.pst.app.crewpro.api.bindings
           enumNames:
             - "PST"
             - "PST CrewPro"
@@ -36,6 +36,7 @@ spec:
           title: Owner
           type: string
           description: Owner of the component
+          default: up-pst/cnx-pst-team
           ui:field: OwnerPicker
           ui:options:
             allowedKinds:
@@ -78,12 +79,14 @@ spec:
           - .github/workflows/*
         values:
           group_id: ${{ parameters.component_group_id }}
-          component_id: ${{ steps['catalogFetch'].output.entity.metadata.name }} Bindings
-          artifact_id: ${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("_", "-") | replace(".", "_")}}
-          api_spec_location:  ${{ steps['catalogFetch'].output.entity.metadata.annotations | pick('backstage.io/source-location') }}
+          component_id: ${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("_", "-") | replace(".", "_")}}-bindings
+          api_spec_location:  ${{ steps['catalogFetch'].output.entity.metadata.annotations | pick('backstage.io/source-location') | replace("url:", "") }}
           java_package_name: ${{ parameters.component_group_id }}.${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("-", "_") }}
           owner: ${{ parameters.owner }}
+          system: ${{ steps['catalogFetch'].output.entity.spec.system }}
           source_control_url: ${{ parameters.repoUrl | parseRepoUrl }}
+          destination: ${{ parameters.repoUrl | parseRepoUrl }}
+          description: ${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("_", "-") | replace(".", "_")}} API Bindings
 
     - id: publish
       name: Publish

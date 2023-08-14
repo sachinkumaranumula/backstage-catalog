@@ -3,10 +3,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>${{values.group_id}}</groupId>
-    <artifactId>${{values.artifact_id}}</artifactId>
+    <artifactId>${{values.component_id}}</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
-    <name>${{values.artifact_id}}</name>
+    <name>${{values.component_id}}</name>
     <description>Generated API bindings for API: ${{values.api_spec_location}} </description>
 
     <properties>
@@ -14,7 +14,12 @@
         <openapi-spec-location>${{values.api_spec_location}}</openapi-spec-location>
         <api-root-package>${{values.java_package_name}}</api-root-package>
         <!-- Maven Props -->
-        <java.version>17</java.version>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- Third Party Libraries -->
+        <javax.annotation-api.version>1.3.2</javax.annotation-api.version>
+        <jsr305.version>3.0.2</jsr305.version>
         <!-- Maven plugins -->
         <jacoco.version>0.8.8</jacoco.version>
         <openapi-generator-maven-plugin.version>6.3.0</openapi-generator-maven-plugin.version>
@@ -24,11 +29,11 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>com.fasterxml.jackson</groupId>
-                <artifactId>jackson-bom</artifactId>
-                <version>2.14.2</version>
-                <scope>import</scope>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>3.1.2</version>
                 <type>pom</type>
+                <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -49,6 +54,16 @@
         <dependency>
             <groupId>com.fasterxml.jackson.datatype</groupId>
             <artifactId>jackson-datatype-jsr310</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.annotation</groupId>
+            <artifactId>javax.annotation-api</artifactId>
+            <version>${javax.annotation-api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+            <version>${jsr305.version}</version>
         </dependency>
     </dependencies>
 
@@ -84,25 +99,9 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.5.0</version>
-                <executions>
-                    <execution>
-                        <id>attach-javadocs</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
                 <groupId>org.openapitools</groupId>
                 <artifactId>openapi-generator-maven-plugin</artifactId>
-                <!-- RELEASE_VERSION -->
                 <version>${openapi-generator-maven-plugin.version}</version>
-                <!-- /RELEASE_VERSION -->
                 <executions>
                     <execution>
                         <goals>
@@ -110,7 +109,7 @@
                         </goals>
                         <configuration>
                             <inputSpec>${openapi-spec-location}</inputSpec>
-                            <sourceFolder>src/main/java</sourceFolder>
+                            <!-- https://openapi-generator.tech/docs/generators/java -->
                             <generatorName>java</generatorName>
                             <verbose>false</verbose>
                             <generateApis>false</generateApis>
@@ -118,9 +117,15 @@
                             <generateModels>true</generateModels>
                             <modelNameSuffix>Dto</modelNameSuffix>
                             <modelPackage>${api-root-package}.dto</modelPackage>
-                            <generateModelTests>true</generateModelTests>
+                            <!-- If you want to publish tests then toggle below to true and do https://maven.apache.org/plugins/maven-jar-plugin/examples/create-test-jar.html -->
+                            <generateModelTests>false</generateModelTests>
+                            <generateSupportingFiles>false</generateSupportingFiles>
+                            <generateModelDocumentation>false</generateModelDocumentation>
+                            <!--<ignoreFileOverride>${basedir}/.openapi-codegen-ignore</ignoreFileOverride>-->
                             <configOptions>
-                                <performBeanValidation>true</performBeanValidation>
+                                <documentationProvider>none</documentationProvider>
+                                <!-- This dictates serialization library to use i.e. jackson 2.x -->
+                                <library>resttemplate</library>
                                 <dateLibrary>java8</dateLibrary>
                                 <serializationLibrary>jackson</serializationLibrary>
                                 <generatedConstructorWithRequiredArgs>true</generatedConstructorWithRequiredArgs>
@@ -132,43 +137,10 @@
         </plugins>
     </build>
 
-    <profiles>
-        <profile>
-            <!-- Activate via -P enforcer. Usage details: https://maven.apache.org/enforcer/enforcer-rules/requireUpperBoundDeps.html -->
-            <id>enforcer</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-enforcer-plugin</artifactId>
-                        <version>3.3.0</version>
-                        <executions>
-                            <execution>
-                                <configuration>
-                                    <rules>
-                                        <!--ensures that every (transitive) dependency is resolved to its specified version or higher-->
-                                        <requireUpperBoundDeps/>
-                                        <requireReleaseDeps/>
-                                    </rules>
-                                </configuration>
-                                <goals>
-                                    <goal>enforce</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
-
     <scm>
-        <connection>scm:git:${{source_control_url}}</connection>
-        <developerConnection>scm:git:${{source_control_url}}</developerConnection>
-        <url>${{source_control_url}}</url>
+        <connection>scm:git:git://${{values.source_control_url.host}}/${{values.source_control_url.owner}}/${{values.source_control_url.repo}}.git</connection>
+        <developerConnection>scm:git:git://${{values.source_control_url.host}}/${{values.source_control_url.owner}}/${{values.source_control_url.repo}}.git</developerConnection>
+        <url>https://${{values.source_control_url.host}}/${{values.source_control_url.owner}}/${{values.source_control_url.repo}}</url>
         <tag>HEAD</tag>
     </scm>
 
