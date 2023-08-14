@@ -78,10 +78,10 @@ spec:
           - .github/workflows/*
         values:
           group_id: ${{ parameters.component_group_id }}
-          component_id: ${{ steps.catalogFetch.entity.metadata.name }} Bindings
-          artifact_id: ${{ steps.catalogFetch.entity.metadata.name | trim | lower | replace("_", "-") | replace(".", "_")}}
-          api_spec_location:  ${{ steps.catalogFetch.entity.metadata.annotations | pick('backstage.io/source-location') }}
-          java_package_name: ${{ parameters.component_group_id }}.${{ steps.catalogFetch.entity.metadata.name | trim | lower | replace("-", "_") }}
+          component_id: ${{ steps['catalogFetch'].output.entity.metadata.name }} Bindings
+          artifact_id: ${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("_", "-") | replace(".", "_")}}
+          api_spec_location:  ${{ steps['catalogFetch'].output.entity.metadata.annotations | pick('backstage.io/source-location') }}
+          java_package_name: ${{ parameters.component_group_id }}.${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("-", "_") }}
           owner: ${{ parameters.owner }}
           source_control_url: ${{ parameters.repoUrl | parseRepoUrl }}
 
@@ -90,7 +90,7 @@ spec:
       action: publish:github
       input:
         allowedHosts: ["github.com"]
-        description: API Bindings for ${{ steps.catalogFetch.entity.metadata.name }}
+        description: API Bindings for ${{ steps['catalogFetch'].output.entity.metadata.name }}
         repoUrl: ${{ parameters.repoUrl }}
         # Remove if you want it to be master, all public repos have pivoted to main as the default branch now
         defaultBranch: main
