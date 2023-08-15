@@ -86,6 +86,7 @@ spec:
           system: ${{ steps['catalogFetch'].output.entity.spec.system }}
           source_control_url: ${{ parameters.repoUrl | parseRepoUrl }}
           destination: ${{ parameters.repoUrl | parseRepoUrl }}
+          cataloged_api: ${{ parameters.api }}
           description: ${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("_", "-") | replace(".", "_")}} API Bindings
 
     - id: publish
