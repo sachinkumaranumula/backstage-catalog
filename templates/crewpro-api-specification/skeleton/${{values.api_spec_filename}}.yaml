@@ -1,10 +1,16 @@
-openapi: 3.0.2
+openapi: 3.1.0
 info:
-  title: domain/service-name/1.0
-  description: CHANGE ME
-  version: '1.0'
+  title: '${{values.api_title}}'
+  description: ${{values.api_description}}
+  version: '${{values.api_version}}'
   license:
     name: private
+  contact:
+    email: ${{values.owner}}
+servers:
+  - description: CrewPro API Server
+    url: http://pstechnology.com/crewpro
+  
 paths:
   /domain/service-name/1.0:
     post:

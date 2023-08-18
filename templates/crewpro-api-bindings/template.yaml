@@ -12,7 +12,7 @@ metadata:
     - crewpro
 spec:
   owner: group:up-pst/cnx-pst-team
-  type: component
+  type: library
 
   parameters:
     - title: Provide some simple information

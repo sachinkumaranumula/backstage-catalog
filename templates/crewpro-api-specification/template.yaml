@@ -1,0 +1,101 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: crewpro-api-specification-template
+  title: CrewPro API Specification
+  description: Generates API specification
+  tags:
+    - recommended
+    - openapi
+    - api
+    - crewpro
+spec:
+  owner: group:up-pst/cnx-pst-team
+  type: openapi
+
+  parameters:
+    - title: Provide API information
+      required:
+        - title
+        - description
+        - version
+        - owner
+        - system
+      properties:
+        title:
+          title: Title of API
+          type: string
+          description: Title of API in OpenAPI Specification
+          ui:field: EntityNamePicker
+          ui:options: {}
+        description:
+          title: Description of API
+          type: string
+          description: Description of API in OpenAPI Specification
+        version:
+          title: Version of API
+          type: string
+          description: Version of API in OpenAPI Specification
+        owner:
+          title: Owner
+          type: string
+          description: Owner of the component
+          default: up-pst/cnx-pst-team
+          ui:field: OwnerPicker
+          ui:options:
+            allowedKinds:
+              - Group
+        system:
+          title: System
+          type: string
+          description: System(Module) this API belongs to
+          ui:field: EntityPicker
+          ui:options:
+            allowArbitraryValues: false
+            catalogFilter:
+              - kind: System
+    - title: Choose a location
+      required:
+        - repoUrl
+      properties:
+        repoUrl:
+          title: Repository Location
+          type: string
+          ui:field: RepoUrlPicker
+          ui:options:
+            allowedOwners: ["UP-PST"]
+            allowedHosts: ["github.com"]
+            allowedRepos: ["API"]
+
+  steps:
+    - id: template
+      name: Fetch Skeleton + Template
+      action: fetch:template
+      input:
+        url: ./skeleton
+        values:
+          api_title: ${{ parameters.title }}
+          api_description: ${{ parameters.description }}
+          api_spec_filename: ${{ parameters.title }}-${{ parameters.version }}
+          api_version: ${{ parameters.version }}
+          api_owner: ${{ parameters.owner }}
+          api_system: ${{ parameters.system }}
+          api_catalog_name: ${{ parameters.title | trim | lower | replace(" ", "_") }}-${{ parameters.version }}
+          destination: ${{ parameters.repoUrl | parseRepoUrl }}
+    - id: publish
+      name: Publish
+      action: publish:github:pull-request
+      input:
+        repoUrl: ${{ parameters.repoUrl }}
+        title: API Specification ${{ paramaters.title }}
+        branchName: ${{ parameters.title }}
+        description: |
+          # API: ${{parameters.title}}
+
+          ${{ parameters.description if parameters.description }}
+        targetPath: ${{parameters.title}}
+
+  output:
+    links:
+      - title: Go to PR
+        url: ${{ steps.publish.output.remoteUrl }}
