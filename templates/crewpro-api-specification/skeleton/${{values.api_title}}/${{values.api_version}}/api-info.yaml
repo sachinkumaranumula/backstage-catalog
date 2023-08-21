@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    github.com/project-slug: ${{values.destination.owner + "/" + values.destination.repo}}
+  description: ${{values.api_description}}
+  name: ${{values.api_catalog_name}}
+spec:
+  definition:
+    $text: ./${{values.api_spec_filename}}.yaml
+  lifecycle: production
+  owner: ${{values.api_owner}}
+  system: ${{values.api_system}}
+  type: openapi

@@ -1,15 +1,16 @@
 apiVersion: backstage.io/v1alpha1
-kind: API
+kind: Location
 metadata:
+  name: new-crewpro-apis
+  description: Collection of NEW CrewPro APIs
   annotations:
-    github.com/project-slug: ${{values.destination.owner + "/" + values.destination.repo}}
+    github.com/project-slug: API
     backstage.io/techdocs-ref: dir:.
-  description: ${{values.api_description}}
-  name: ${{values.api_catalog_name}}
+  tags:
+    - openapi
 spec:
-  definition:
-    $yaml: ${{values.api_spec_filename}}.yaml
-  lifecycle: production
-  owner: ${{values.owner}}
-  system: ${{values.api_system}}
-  type: openapi
+  type: url
+  system: api
+  presence: optional
+  targets:
+    - ./${{values.api_title}}/${{values.api_version}}/api-info.yaml

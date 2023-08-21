@@ -55,16 +55,19 @@ spec:
             catalogFilter:
               - kind: System
     - title: Choose a location
-      required:
-        - repoUrl
       properties:
         repoUrl:
           title: Repository Location
           type: string
           ui:field: RepoUrlPicker
           ui:options:
-            allowedOwners: ["UP-PST"]
+            requestUserCredentials:
+              secretsKey: USER_OAUTH_TOKEN
+              additionalScopes:
+                github:
+                  - workflow
             allowedHosts: ["github.com"]
+            allowedOwners: ["UP-PST"]
             allowedRepos: ["API"]
 
   steps:
@@ -74,7 +77,7 @@ spec:
       input:
         url: ./skeleton
         values:
-          api_title: ${{ parameters.title }}
+          api_title: ${{ parameters.title | trim | replace(" ", "_") }}
           api_description: ${{ parameters.description }}
           api_spec_filename: ${{ parameters.title }}-${{ parameters.version }}
           api_version: ${{ parameters.version }}
@@ -82,18 +85,19 @@ spec:
           api_system: ${{ parameters.system }}
           api_catalog_name: ${{ parameters.title | trim | lower | replace(" ", "_") }}-${{ parameters.version }}
           destination: ${{ parameters.repoUrl | parseRepoUrl }}
+
     - id: publish
       name: Publish
       action: publish:github:pull-request
       input:
         repoUrl: ${{ parameters.repoUrl }}
-        title: API Specification ${{ paramaters.title }}
-        branchName: ${{ parameters.title }}
+        title: "New API: ${{ parameters.title }}-${{ parameters.version }}"
+        branchName: New-API/${{ parameters.title }}-${{ parameters.version }}
         description: |
-          # API: ${{parameters.title}}
+          # API: ${{ parameters.title }}-${{ parameters.version }}
 
           ${{ parameters.description if parameters.description }}
-        targetPath: ${{parameters.title}}
+        token: ${{ secrets.USER_OAUTH_TOKEN }}
 
   output:
     links:
