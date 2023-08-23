@@ -71,6 +71,7 @@ spec:
             allowedRepos: ["API"]
 
   steps:
+    # fetch:plain:file did not work, original intention was to get catalog-info.yaml from github and then append using roadiehq:utils:fs:append, this has been moved into Github Actions
     - id: template
       name: Fetch Skeleton + Template
       action: fetch:template
@@ -83,23 +84,41 @@ spec:
           api_version: ${{ parameters.version }}
           api_owner: ${{ parameters.owner }}
           api_system: ${{ parameters.system }}
-          api_catalog_name: ${{ parameters.title | trim | lower | replace(" ", "_") }}-${{ parameters.version }}
+          api_catalog_name: ${{ parameters.title | trim | replace(" ", "_") }}-${{ parameters.version }}
           destination: ${{ parameters.repoUrl | parseRepoUrl }}
 
     - id: publish
-      name: Publish
+      name: New API Pull Request for API Review
       action: publish:github:pull-request
       input:
         repoUrl: ${{ parameters.repoUrl }}
         title: "New API: ${{ parameters.title }}-${{ parameters.version }}"
-        branchName: New-API/${{ parameters.title }}-${{ parameters.version }}
+        branchName: New-API_${{ parameters.title }}-${{ parameters.version }}
         description: |
           # API: ${{ parameters.title }}-${{ parameters.version }}
 
           ${{ parameters.description if parameters.description }}
         token: ${{ secrets.USER_OAUTH_TOKEN }}
+        teamReviewers: ["API-Reviewers"]
+    
+    - id: label
+      name: Add New API Label to Pull Request
+      action: github:issues:label
+      input:
+        repoUrl: ${{ parameters.repoUrl }}
+        number: ${{ steps.publish.output.pullRequestNumber }}
+        labels: ["New API"]
+
+    - id: register
+      name: Register
+      action: catalog:register
+      input:
+        catalogInfoUrl: https://${{ parameters.repoUrl | parseRepoUrl | pick('host')}}/${{ parameters.repoUrl | parseRepoUrl | pick('owner')}}/${{ parameters.repoUrl | parseRepoUrl | pick('repo')}}/blob/New-API_${{ parameters.title }}-${{ parameters.version }}/${{ parameters.title | trim | replace(" ", "_") }}/${{ parameters.version }}/api-info.yaml
 
   output:
     links:
       - title: Go to PR
         url: ${{ steps.publish.output.remoteUrl }}
+      - title: Open in catalog
+        icon: catalog
+        entityRef: ${{ steps['register'].output.entityRef }}

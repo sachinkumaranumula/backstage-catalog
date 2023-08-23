@@ -12,3 +12,4 @@ spec:
     - ./templates/spring-boot-rest-service/template.yaml
     - ./templates/create-react-app/template.yaml
     - ./templates/docs-template/template.yaml
+    - ./templates/test-template/template.yaml

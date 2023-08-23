@@ -1,0 +1,66 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: test-template
+  title: Debug Template
+  description: Helps with testing out Template steps/actions/output
+  tags:
+    - test
+spec:
+  owner: group:up-pst/cnx-pst-team
+  type: template
+
+  parameters:
+    - title: Provide API information
+      required:
+        - title
+      properties:
+        title:
+          title: Title of API
+          type: string
+          description: Title of API in OpenAPI Specification
+          ui:field: EntityNamePicker
+          ui:options: {}
+
+  steps:
+    - action: catalog:fetch
+      id: fetch
+      name: Fetch catalog entity
+      input:
+        entityRef: location:new-crewpro-apis
+
+    - action: roadiehq:utils:serialize:yaml
+      id: serialize
+      name: Serialize Yaml
+      input:
+        data: ${{steps.fetch.output.entity.spec.targets}}
+
+    - action: debug:log
+      id: write-debug-line
+      name: Write "Hello Backstage!" log line
+      input:
+        message: |
+          ${{steps.fetch.output.entity | dump | safe}}
+          ${{steps.serialize.output.serialized}}
+    
+    - action: catalog:write
+      id: create-catalog-info-file
+      name: Create catalog file
+      input:
+        entity:
+          apiVersion: backstage.io/v1alpha1
+          kind: Location
+          metadata:
+            name: new-crewpro-apis
+            description: Collection of NEW CrewPro APIs
+            annotations:
+              github.com/project-slug: API
+            tags:
+              - openapi
+          spec:
+            type: url
+            system: api
+            presence: optional
+            targets:
+              # API's registered here, ensure when merging you are appending and not overriding on the list items
+              

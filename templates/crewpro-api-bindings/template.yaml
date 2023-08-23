@@ -103,7 +103,7 @@ spec:
       name: Register
       action: catalog:register
       input:
-        repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
+        repoContentsUrl: https://github.com/UP-PST/API/blob/${{ steps.publish.output.repoContentsUrl }}
         catalogInfoPath: "/catalog-info.yaml"
         
 
