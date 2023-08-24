@@ -65,13 +65,13 @@ spec:
   steps:
     # https://github.com/backstage/backstage/issues/17053
     - id: catalogFetch
-      name: Fetch Context
+      name: Fetch API from Catalog
       action: catalog:fetch
       input:
         entityRef: ${{ parameters.api }}
 
     - id: template
-      name: Fetch Skeleton + Template
+      name: Generate Bindings Skeleton from Template
       action: fetch:template
       input:
         url: ./skeleton
@@ -80,7 +80,7 @@ spec:
         values:
           group_id: ${{ parameters.component_group_id }}
           component_id: ${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("_", "-") | replace(".", "_")}}-bindings
-          api_spec_location:  ${{ steps['catalogFetch'].output.entity.metadata.annotations | pick('backstage.io/source-location') | replace("url:", "") }}
+          api_spec_location:  ${{ steps['catalogFetch'].output.entity.metadata.annotations | pick('pstechnology.com/api-definition-url') }}
           java_package_name: ${{ parameters.component_group_id }}.${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("-", "_") }}
           owner: ${{ parameters.owner }}
           system: ${{ steps['catalogFetch'].output.entity.spec.system }}
@@ -103,7 +103,7 @@ spec:
       name: Register
       action: catalog:register
       input:
-        repoContentsUrl: https://github.com/UP-PST/API/blob/${{ steps.publish.output.repoContentsUrl }}
+        repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
         catalogInfoPath: "/catalog-info.yaml"
         
 

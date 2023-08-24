@@ -12,6 +12,8 @@
     <properties>
         <!-- API Developer Provided -->
         <openapi-spec-location>${{values.api_spec_location}}</openapi-spec-location>
+        <!-- CommandLine: `mvn -Dapi_spec_location_bearer_token=$API_SPEC_BEARER_TOKEN clean install`, another option is to add maven profile active by default in settings.xml to set this property-->
+        <openapi-spec-location-bearerToken>${api_spec_location_bearer_token}</openapi-spec-location-bearerToken>
         <api-root-package>${{values.java_package_name}}</api-root-package>
         <!-- Maven Props -->
         <maven.compiler.source>17</maven.compiler.source>
@@ -98,6 +100,31 @@
                     </execution>
                 </executions>
             </plugin>
+            <!-- IMPORTANT: This plugin should appear before generator plugin to maintain the order of execution -->
+            <plugin>
+                <groupId>com.googlecode.maven-download-plugin</groupId>
+                <artifactId>download-maven-plugin</artifactId>
+                <version>1.7.1</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>wget</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <!-- Need to pass below headers for GitHub Private Repos and to get RAW file -->
+                    <headers>
+                        <Authorization>Bearer ${openapi-spec-location-bearerToken}</Authorization>
+                        <Accept>application/vnd.github.raw</Accept>
+                    </headers>
+                    <uri>${openapi-spec-location}</uri>
+                    <outputDirectory>${project.build.outputDirectory}/api</outputDirectory>
+                    <outputFileName>openapi.yaml</outputFileName>
+                    <skipCache>true</skipCache>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.openapitools</groupId>
                 <artifactId>openapi-generator-maven-plugin</artifactId>
@@ -108,7 +135,7 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <inputSpec>${openapi-spec-location}</inputSpec>
+                            <inputSpec>${project.build.outputDirectory}/api/openapi.yaml</inputSpec>
                             <!-- https://openapi-generator.tech/docs/generators/java -->
                             <generatorName>java</generatorName>
                             <verbose>false</verbose>
@@ -121,13 +148,15 @@
                             <generateModelTests>false</generateModelTests>
                             <generateSupportingFiles>false</generateSupportingFiles>
                             <generateModelDocumentation>false</generateModelDocumentation>
-                            <!--<ignoreFileOverride>${basedir}/.openapi-codegen-ignore</ignoreFileOverride>-->
+                            <ignoreFileOverride>${basedir}/.openapi-codegen-ignore</ignoreFileOverride>
+                            <skipValidateSpec>true</skipValidateSpec>
                             <configOptions>
                                 <documentationProvider>none</documentationProvider>
                                 <!-- This dictates serialization library to use i.e. jackson 2.x -->
                                 <library>resttemplate</library>
                                 <dateLibrary>java8</dateLibrary>
                                 <serializationLibrary>jackson</serializationLibrary>
+                                <openApiNullable>false</openApiNullable>
                                 <generatedConstructorWithRequiredArgs>true</generatedConstructorWithRequiredArgs>
                             </configOptions>
                         </configuration>

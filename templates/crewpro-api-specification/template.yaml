@@ -78,12 +78,12 @@ spec:
       input:
         url: ./skeleton
         values:
+          api_system: ${{ parameters.system }}
+          api_owner: ${{ parameters.owner }}
           api_title: ${{ parameters.title | trim | replace(" ", "_") }}
+          api_version: ${{ parameters.version }}
           api_description: ${{ parameters.description }}
           api_spec_filename: ${{ parameters.title }}-${{ parameters.version }}
-          api_version: ${{ parameters.version }}
-          api_owner: ${{ parameters.owner }}
-          api_system: ${{ parameters.system }}
           api_catalog_name: ${{ parameters.title | trim | replace(" ", "_") }}-${{ parameters.version }}
           destination: ${{ parameters.repoUrl | parseRepoUrl }}
 
@@ -109,16 +109,18 @@ spec:
         number: ${{ steps.publish.output.pullRequestNumber }}
         labels: ["New API"]
 
-    - id: register
-      name: Register
-      action: catalog:register
-      input:
-        catalogInfoUrl: https://${{ parameters.repoUrl | parseRepoUrl | pick('host')}}/${{ parameters.repoUrl | parseRepoUrl | pick('owner')}}/${{ parameters.repoUrl | parseRepoUrl | pick('repo')}}/blob/New-API_${{ parameters.title }}-${{ parameters.version }}/${{ parameters.title | trim | replace(" ", "_") }}/${{ parameters.version }}/api-info.yaml
+    # NOT Registering as after a merge the entityRef conflict favors the branch as opposed to master entry
+    # - id: register
+    #   name: Register
+    #   action: catalog:register
+    #   input:
+    #     catalogInfoUrl: https://${{ parameters.repoUrl | parseRepoUrl | pick('host')}}/${{ parameters.repoUrl | parseRepoUrl | pick('owner')}}/${{ parameters.repoUrl | parseRepoUrl | pick('repo')}}/blob/New-API_${{ parameters.title }}-${{ parameters.version }}/${{ parameters.title | trim | replace(" ", "_") }}/${{ parameters.version }}/api-info.yaml
 
   output:
     links:
       - title: Go to PR
         url: ${{ steps.publish.output.remoteUrl }}
-      - title: Open in catalog
-        icon: catalog
-        entityRef: ${{ steps['register'].output.entityRef }}
+      # Un-comment if you are registering in Catalog for PR branch
+      # - title: Open in catalog
+      #   icon: catalog
+      #   entityRef: ${{ steps['register'].output.entityRef }}

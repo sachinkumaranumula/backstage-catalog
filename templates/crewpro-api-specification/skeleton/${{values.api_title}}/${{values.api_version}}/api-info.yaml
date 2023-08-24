@@ -2,10 +2,11 @@
 apiVersion: backstage.io/v1alpha1
 kind: API
 metadata:
+  name: ${{values.api_catalog_name}}
+  description: ${{values.api_description}}
   annotations:
     github.com/project-slug: ${{values.destination.owner + "/" + values.destination.repo}}
-  description: ${{values.api_description}}
-  name: ${{values.api_catalog_name}}
+    pstechnology.com/api-definition-url: https://${{values.destination.host + "/" + values.destination.owner + "/" + values.destination.repo + "/blob/main/" + values.api_title + "/" + values.api_version + "/" + values.api_spec_filename + ".yaml" }}
 spec:
   definition:
     $text: ./${{values.api_spec_filename}}.yaml

@@ -1,60 +1,109 @@
 openapi: 3.1.0
 info:
-  title: '${{values.api_title}}'
+  title: "${{values.api_title}}"
   description: ${{values.api_description}}
-  version: '${{values.api_version}}'
+  version: 1.0.0 # The version of the OpenAPI document (which is distinct from the OpenAPI Specification version or the API implementation version)
   license:
     name: private
   contact:
-    email: ${{values.owner}}
+    email: api_maintainers@pstechnology.com
 servers:
-  - description: CrewPro API Server
-    url: http://pstechnology.com/crewpro
-  
+  - description: CrewPro Dev API Server
+    url: http://dev.pstechnology.com/crewpro
+  - description: CrewPro Staging API Server
+    url: http://staging.pstechnology.com/crewpro
+
 paths:
-  /domain/service-name/1.0:
+  /${{values.api_system}}/service-name/${{values.api_version}}:
     post:
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ServiceActionNameRequest'
+              $ref: "#/components/schemas/ServiceRequest"
       responses:
-        '200':
+        "200":
           description: Success
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ServiceActionNameResponse'
+                $ref: "#/components/schemas/ServiceResponse"
         '400':
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: http://api.www.uprr.com/repo/jas/common/error-fault-definition-1_1_2.yaml#/components/schemas/ErrorResponse
-        '432':
-          description: Service Transaction Deadline Timeout Exceeded
-          content:
-            application/json:
-              schema:
-                $ref: http://api.www.uprr.com/repo/jas/common/error-fault-definition-1_1_2.yaml#/components/schemas/ErrorResponse
+          $ref: "#/components/responses/BadRequest"
+        '401':
+          $ref: "#/components/responses/Unauthorized"
+        '403':
+          $ref: "#/components/responses/Forbidden"
+        '429':
+          $ref: "#/components/responses/RequestLimitExceeded"
         '500':
-          description: Backend error response
-          content:
-            application/json:
-              schema:
-                $ref: http://api.www.uprr.com/repo/jas/common/error-fault-definition-1_1_2.yaml#/components/schemas/FaultResponse
+          $ref: "#/components/responses/InternalServiceError"
+         
 components:
   schemas:
-    ServiceActionNameRequest:
+    ServiceRequest:
       type: object
-      description: CHANGE ME -- Your request object
+      description: Enter Description of Request
       properties:
-        element_1:
+        property:
           type: string
-    ServiceActionNameResponse:
+    ServiceResponse:
       type: object
-      description: CHANGE ME -- Your response object
+      description: Enter Description of Request
       properties:
-        element_2:
+        property:
           type: string
+    Errors:
+      type: array
+      items:
+        $ref: "#/components/schemas/Error"
+    Error:
+      type: object
+      required:
+        - code
+        - title
+      properties:
+        id:
+          type: string
+          description: Id for error
+        title:
+          type: string
+          description: A short, human-readable summary of Error
+        code:
+          type: string
+          description: Code for the Error (used for i18N)
+        detail:
+          type: string
+          description: Details of the Error
+
+  responses:
+    BadRequest:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Errors"
+    Unauthorized:
+      description: Unauthorized Request
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Errors"
+    Forbidden:
+      description: Forbidden Request
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Errors"
+    RequestLimitExceeded:
+      description: Request Limit Exceeded
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Errors"
+    InternalServiceError:
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Errors"
