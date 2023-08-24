@@ -15,7 +15,7 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
       - name: Build with Maven
-        run: mvn --batch-mode -D --update-snapshots package
+        run: mvn --batch-mode -Dapi_spec_location_bearer_token=${{ secrets.API_REPO_READ_BEARER_TOKEN }} --update-snapshots package
       - name: Upload Jars
         uses: actions/upload-artifact@v3
         with:
