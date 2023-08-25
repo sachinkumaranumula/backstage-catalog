@@ -148,7 +148,7 @@
                             <generateModelTests>false</generateModelTests>
                             <generateSupportingFiles>false</generateSupportingFiles>
                             <generateModelDocumentation>false</generateModelDocumentation>
-                            <ignoreFileOverride>${basedir}/.openapi-codegen-ignore</ignoreFileOverride>
+                            <ignoreFileOverride>${basedir}/.openapi-generator-ignore</ignoreFileOverride>
                             <skipValidateSpec>true</skipValidateSpec>
                             <configOptions>
                                 <documentationProvider>none</documentationProvider>
@@ -167,9 +167,9 @@
     </build>
 
     <scm>
-        <connection>scm:git:git://${{values.source_control_url.host}}/${{values.source_control_url.owner}}/${{values.source_control_url.repo}}.git</connection>
-        <developerConnection>scm:git:git://${{values.source_control_url.host}}/${{values.source_control_url.owner}}/${{values.source_control_url.repo}}.git</developerConnection>
-        <url>https://${{values.source_control_url.host}}/${{values.source_control_url.owner}}/${{values.source_control_url.repo}}</url>
+        <connection>scm:git:git://${{values.source_control_url}}.git</connection>
+        <developerConnection>scm:git:git://${{values.source_control_url}}.git</developerConnection>
+        <url>https://${{values.source_control_url}}</url>
         <tag>HEAD</tag>
     </scm>
 

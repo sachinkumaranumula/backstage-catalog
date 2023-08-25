@@ -50,17 +50,20 @@ spec:
             allowArbitraryValues: false
             catalogFilter:
               - kind: API
-    - title: Choose a location
-      required:
-        - repoUrl
-      properties:
-        repoUrl:
-          title: Repository Location
-          type: string
-          ui:field: RepoUrlPicker
-          ui:options:
-            allowedOwners: ["UP-PST"]
-            allowedHosts: ["github.com"]
+            defaultKind: API
+    # - title: Choose a location
+    #   required:
+    #     - repoUrl
+    #   properties:
+    #     repoUrl:
+    #       title: Repository Location
+    #       type: string
+    #       ui:field: RepoUrlPicker
+    #       ui:options:
+    #         requestUserCredentials:
+    #           secretsKey: USER_OAUTH_TOKEN
+    #         allowedOwners: ["UP-PST"]
+    #         allowedHosts: ["github.com"]
 
   steps:
     # https://github.com/backstage/backstage/issues/17053
@@ -79,13 +82,16 @@ spec:
           - .github/workflows/*
         values:
           group_id: ${{ parameters.component_group_id }}
-          component_id: ${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("_", "-") | replace(".", "_")}}-bindings
-          api_spec_location:  ${{ steps['catalogFetch'].output.entity.metadata.annotations | pick('pstechnology.com/api-definition-url') }}
-          java_package_name: ${{ parameters.component_group_id }}.${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("-", "_") }}
+          component_id: ${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("_", "-") | replace(".", "_")}}-api-bindings
+          api_spec_location:  ${{ steps['catalogFetch'].output.entity.metadata.annotations | pick('api/definition-raw-url') }}
+          java_package_name: ${{ parameters.component_group_id }}.${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("-", "_") | replace(".", "_") }}
           owner: ${{ parameters.owner }}
           system: ${{ steps['catalogFetch'].output.entity.spec.system }}
-          source_control_url: ${{ parameters.repoUrl | parseRepoUrl }}
-          destination: ${{ parameters.repoUrl | parseRepoUrl }}
+          #source_control_url: ${{parameters.repoUrl | parseRepoUrl | pick('host')}}/${{parameters.repoUrl | parseRepoUrl | pick('owner')}}/${{parameters.repoUrl | parseRepoUrl | pick('repo')}}
+          # BEGIN: PST OPINIONATED
+          #project_slug: ${{ parameters.repoUrl | projectSlug }}
+          project_slug: UP-PST/${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("_", "-") | replace(".", "_")}}-api-bindings
+          source_control_url: github.com/UP-PST/${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("_", "-") | replace(".", "_")}}-api-bindings
           cataloged_api: ${{ parameters.api }}
           description: ${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("_", "-") | replace(".", "_")}} API Bindings
 
@@ -93,11 +99,15 @@ spec:
       name: Publish
       action: publish:github
       input:
-        allowedHosts: ["github.com"]
+        #repoUrl: ${{ parameters.repoUrl }}
+        repoUrl: github.com?repo=${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("_", "-") | replace(".", "_")}}-api-bindings&owner=UP-PST
         description: API Bindings for ${{ steps['catalogFetch'].output.entity.metadata.name }}
-        repoUrl: ${{ parameters.repoUrl }}
         # Remove if you want it to be master, all public repos have pivoted to main as the default branch now
         defaultBranch: main
+        token: ${{ secrets.USER_OAUTH_TOKEN }}
+        secrets: 
+          # Safe this token just has repo:read permissions
+          API_REPO_READ_BEARER_TOKEN: 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
 
     - id: register
       name: Register

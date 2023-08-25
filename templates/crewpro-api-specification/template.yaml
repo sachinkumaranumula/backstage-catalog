@@ -54,21 +54,19 @@ spec:
             allowArbitraryValues: false
             catalogFilter:
               - kind: System
-    - title: Choose a location
-      properties:
-        repoUrl:
-          title: Repository Location
-          type: string
-          ui:field: RepoUrlPicker
-          ui:options:
-            requestUserCredentials:
-              secretsKey: USER_OAUTH_TOKEN
-              additionalScopes:
-                github:
-                  - workflow
-            allowedHosts: ["github.com"]
-            allowedOwners: ["UP-PST"]
-            allowedRepos: ["API"]
+            defaultKind: System
+    # - title: Choose a location
+    #   properties:
+    #     repoUrl:
+    #       title: Repository Location
+    #       type: string
+    #       ui:field: RepoUrlPicker
+    #       ui:options:
+    #         requestUserCredentials:
+    #           secretsKey: USER_OAUTH_TOKEN
+    #         allowedHosts: ["github.com"]
+    #         allowedOwners: ["UP-PST"]
+    #         allowedRepos: ["API", "API-CN"]
 
   steps:
     # fetch:plain:file did not work, original intention was to get catalog-info.yaml from github and then append using roadiehq:utils:fs:append, this has been moved into Github Actions
@@ -85,13 +83,18 @@ spec:
           api_description: ${{ parameters.description }}
           api_spec_filename: ${{ parameters.title }}-${{ parameters.version }}
           api_catalog_name: ${{ parameters.title | trim | replace(" ", "_") }}-${{ parameters.version }}
-          destination: ${{ parameters.repoUrl | parseRepoUrl }}
+          # BEGIN: PST OPINIONATED
+          #project_slug: ${{ parameters.repoUrl | projectSlug }}
+          project_slug: UP-PST/API
+          #api_definition_raw_url: https://api.github.com/repos/${{parameters.repoUrl | parseRepoUrl | pick('owner')}}/${{parameters.repoUrl | parseRepoUrl | pick('repo')}}/contents/${{ parameters.title | trim | replace(" ", "_") }}/${{ parameters.version }}/${{ parameters.title }}-${{ parameters.version }}.yaml
+          api_definition_raw_url: https://api.github.com/repos/UP-PST/API/contents/${{ parameters.title | trim | replace(" ", "_") }}/${{ parameters.version }}/${{ parameters.title }}-${{ parameters.version }}.yaml
 
     - id: publish
       name: New API Pull Request for API Review
       action: publish:github:pull-request
       input:
-        repoUrl: ${{ parameters.repoUrl }}
+        #repoUrl: ${{ parameters.repoUrl }}
+        repoUrl: 'github.com?repo=API&owner=UP-PST'
         title: "New API: ${{ parameters.title }}-${{ parameters.version }}"
         branchName: New-API_${{ parameters.title }}-${{ parameters.version }}
         description: |
@@ -100,12 +103,14 @@ spec:
           ${{ parameters.description if parameters.description }}
         token: ${{ secrets.USER_OAUTH_TOKEN }}
         teamReviewers: ["API-Reviewers"]
-    
+        deleteBranchOnMerge: true
+
     - id: label
       name: Add New API Label to Pull Request
       action: github:issues:label
       input:
-        repoUrl: ${{ parameters.repoUrl }}
+        #repoUrl: ${{ parameters.repoUrl }}
+        repoUrl: 'github.com?repo=API&owner=UP-PST'
         number: ${{ steps.publish.output.pullRequestNumber }}
         labels: ["New API"]
 

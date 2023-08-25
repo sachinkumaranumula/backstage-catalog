@@ -21,46 +21,55 @@ spec:
           description: Title of API in OpenAPI Specification
           ui:field: EntityNamePicker
           ui:options: {}
+        system:
+          title: System
+          type: string
+          description: System(Module) this API belongs to
+          ui:field: EntityPicker
+          ui:options:
+            allowArbitraryValues: false
+            catalogFilter:
+              - kind: System
+            defaultKind: System
 
   steps:
-    - action: catalog:fetch
-      id: fetch
-      name: Fetch catalog entity
-      input:
-        entityRef: location:new-crewpro-apis
+    # - action: catalog:fetch
+    #   id: fetch
+    #   name: Fetch catalog entity
+    #   input:
+    #     entityRef: location:new-crewpro-apis
 
-    - action: roadiehq:utils:serialize:yaml
-      id: serialize
-      name: Serialize Yaml
-      input:
-        data: ${{steps.fetch.output.entity.spec.targets}}
+    # - action: roadiehq:utils:serialize:yaml
+    #   id: serialize
+    #   name: Serialize Yaml
+    #   input:
+    #     data: ${{steps.fetch.output.entity.spec.targets}}
 
     - action: debug:log
       id: write-debug-line
       name: Write "Hello Backstage!" log line
       input:
         message: |
-          ${{steps.fetch.output.entity | dump | safe}}
-          ${{steps.serialize.output.serialized}}
+          ${{parameters.system | replace("system:default/", "")}}
     
-    - action: catalog:write
-      id: create-catalog-info-file
-      name: Create catalog file
-      input:
-        entity:
-          apiVersion: backstage.io/v1alpha1
-          kind: Location
-          metadata:
-            name: new-crewpro-apis
-            description: Collection of NEW CrewPro APIs
-            annotations:
-              github.com/project-slug: API
-            tags:
-              - openapi
-          spec:
-            type: url
-            system: api
-            presence: optional
-            targets:
+    # - action: catalog:write
+    #   id: create-catalog-info-file
+    #   name: Create catalog file
+    #   input:
+    #     entity:
+    #       apiVersion: backstage.io/v1alpha1
+    #       kind: Location
+    #       metadata:
+    #         name: new-crewpro-apis
+    #         description: Collection of NEW CrewPro APIs
+    #         annotations:
+    #           github.com/project-slug: API
+    #         tags:
+    #           - openapi
+    #       spec:
+    #         type: url
+    #         system: api
+    #         presence: optional
+    #         targets:
               # API's registered here, ensure when merging you are appending and not overriding on the list items
               

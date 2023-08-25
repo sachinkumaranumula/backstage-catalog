@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.0.3
 info:
   title: "${{values.api_title}}"
   description: ${{values.api_description}}
@@ -14,7 +14,7 @@ servers:
     url: http://staging.pstechnology.com/crewpro
 
 paths:
-  /${{values.api_system}}/service-name/${{values.api_version}}:
+  /${{values.api_system | replace("system:default/", "")}}/enter-service-name/${{values.api_version}}:
     post:
       requestBody:
         content:
