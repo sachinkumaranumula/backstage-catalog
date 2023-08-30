@@ -1,0 +1,17 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ${{values.component_id | dump}}
+  {%- if values.description %}
+  description: ${{values.description | dump}}
+  {%- endif %}
+  tags:
+    - service
+  annotations:
+    github.com/project-slug: ${{values.project_slug}}
+spec:
+  type: service
+  lifecycle: production
+  owner: ${{values.owner | dump}}
+  system: ${{values.system}}
+  providesApis: [${{values.cataloged_api}}]

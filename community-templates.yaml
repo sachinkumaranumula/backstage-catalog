@@ -9,7 +9,8 @@ metadata:
     - templates
 spec:
   targets:
-    - ./templates/spring-boot-rest-service/template.yaml
     - ./templates/create-react-app/template.yaml
     - ./templates/docs-template/template.yaml
     - ./templates/test-template/template.yaml
+    - ./templates/spring-boot-starter/template.yaml
+    - ./templates/spring-boot-rest-service/template.yaml

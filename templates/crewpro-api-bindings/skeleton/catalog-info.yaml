@@ -2,14 +2,16 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: ${{values.component_id}}
+  {%- if values.description %}
   description: ${{values.description | dump}}
+  {%- endif %}
   tags:
     - bindings
   annotations:
     github.com/project-slug: ${{values.project_slug}}
 spec:
-  type: service
-  lifecycle: experimental
+  type: library
+  lifecycle: production
   owner: ${{values.owner}}
   system: ${{values.system}}
-  consumesApis: [${{values.cataloged_api | dump}}]
+  consumesApis: [${{values.cataloged_api}}]

@@ -63,15 +63,12 @@ components:
         - code
         - title
       properties:
-        id:
-          type: string
-          description: Id for error
-        title:
-          type: string
-          description: A short, human-readable summary of Error
         code:
           type: string
           description: Code for the Error (used for i18N)
+        title:
+          type: string
+          description: A short, human-readable summary of Error
         detail:
           type: string
           description: Details of the Error

@@ -1,0 +1,121 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: crewpro-api-service-template
+  title: CrewPro API Service
+  description: Generates api-service project from API specification
+  tags:
+    - recommended
+    - java-17
+    - maven
+    - api-service
+    - crewpro
+spec:
+  owner: group:up-pst/cnx-pst-team
+  type: component
+
+  parameters:
+    - title: Provide API information
+      required:
+        - component_group_id
+        - owner
+        - api
+      properties:
+        component_group_id:
+          title: Group Name
+          type: string
+          description: Group this component belongs to
+          default: com.pst.app.crewpro.api.bindings
+          enum:
+            - com.pst.api.bindings
+            - com.pst.app.crewpro.api.bindings
+          enumNames:
+            - "PST"
+            - "PST CrewPro"
+        owner:
+          title: Owner
+          type: string
+          description: Owner of the component
+          default: up-pst/cnx-pst-team
+          ui:field: OwnerPicker
+          ui:options:
+            allowedKinds:
+              - Group
+        api:
+          title: API
+          type: string
+          description: API for which bindings will be generated
+          ui:field: EntityPicker
+          ui:options:
+            allowArbitraryValues: false
+            catalogFilter:
+              - kind: API
+            defaultKind: API
+
+  steps:
+    - id: catalogFetch
+      name: Fetch API from Catalog
+      action: catalog:fetch
+      input:
+        entityRef: ${{ parameters.api }}
+
+    - id: template
+      name: Fetch Skeleton + Template
+      action: fetch:template
+      input:
+        url: ./skeleton
+        targetPath: profiles # CHANGE THIS TO PARAM component_id
+        copyWithoutRender:
+          - .github/workflows/*
+        values:
+          group_id: ${{ parameters.component_group_id }}
+          component_id: ${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("_", "-") | replace(".", "_")}}-service
+          description: ${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("_", "-") | replace(".", "_")}} Service
+          owner: ${{ parameters.owner }}
+          system: ${{ steps['catalogFetch'].output.entity.spec.system }}
+          cataloged_api: ${{ parameters.api }}
+          # BEGIN: PST OPINIONATED
+          #project_slug: ${{ parameters.repoUrl | projectSlug }}
+          project_slug: UP-PST/${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("_", "-") | replace(".", "_")}}-service
+
+    - id: fetchAPIDefinition
+      name: Fetch OpenAPI Spec from API
+      action: roadiehq:utils:fs:write
+      input:
+        path: openapi.yaml
+        content: ${{ steps['catalogFetch'].output.entity.spec.definition }}
+
+    - action: cnx:api:generate-service
+      id: generate-api-service
+      name: Generate Service
+      input:
+        apiSpecUrl: openapi.yaml
+        mavenGroupId: ${{ parameters.component_group_id }}
+        mavenArtifactId: ${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("_", "-") | replace(".", "_")}}-service
+
+    - id: publish
+      name: Publish
+      action: publish:github
+      input:
+        #repoUrl: ${{ parameters.repoUrl }}
+        repoUrl: github.com?repo=${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("_", "-") | replace(".", "_")}}-service&owner=UP-PST
+        description: API Service for ${{ steps['catalogFetch'].output.entity.metadata.name }}
+        # Remove if you want it to be master, all public repos have pivoted to main as the default branch now
+        defaultBranch: main
+        token: ${{ secrets.USER_OAUTH_TOKEN }}
+        sourcePath: profiles # CHANGE THIS TO PARAM component_id
+
+    - id: register
+      name: Register
+      action: catalog:register
+      input:
+        repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
+        catalogInfoPath: "/catalog-info.yaml"
+
+  output:
+    links:
+      - title: Repository
+        url: ${{ steps.publish.output.remoteUrl }}
+      - title: Open in catalog
+        icon: catalog
+        entityRef: ${{ steps.register.output.entityRef }}

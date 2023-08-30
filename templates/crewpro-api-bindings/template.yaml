@@ -83,17 +83,18 @@ spec:
         values:
           group_id: ${{ parameters.component_group_id }}
           component_id: ${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("_", "-") | replace(".", "_")}}-api-bindings
-          api_spec_location:  ${{ steps['catalogFetch'].output.entity.metadata.annotations | pick('api/definition-raw-url') }}
-          java_package_name: ${{ parameters.component_group_id }}.${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("-", "_") | replace(".", "_") }}
+          description: ${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("_", "-") | replace(".", "_")}} API Bindings
           owner: ${{ parameters.owner }}
           system: ${{ steps['catalogFetch'].output.entity.spec.system }}
+          cataloged_api: ${{ parameters.api }}
+          # NEEDED FOR BINDINGS
+          api_spec_location:  ${{ steps['catalogFetch'].output.entity.metadata.annotations | pick('api/definition-raw-url') }}
+          java_package_name: ${{ parameters.component_group_id }}.${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("-", "_") | replace(".", "_") }}
           #source_control_url: ${{parameters.repoUrl | parseRepoUrl | pick('host')}}/${{parameters.repoUrl | parseRepoUrl | pick('owner')}}/${{parameters.repoUrl | parseRepoUrl | pick('repo')}}
           # BEGIN: PST OPINIONATED
           #project_slug: ${{ parameters.repoUrl | projectSlug }}
           project_slug: UP-PST/${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("_", "-") | replace(".", "_")}}-api-bindings
           source_control_url: github.com/UP-PST/${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("_", "-") | replace(".", "_")}}-api-bindings
-          cataloged_api: ${{ parameters.api }}
-          description: ${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("_", "-") | replace(".", "_")}} API Bindings
 
     - id: publish
       name: Publish
