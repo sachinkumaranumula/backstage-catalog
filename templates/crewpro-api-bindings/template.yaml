@@ -25,10 +25,10 @@ spec:
           title: Group Name
           type: string
           description: Group this component belongs to
-          default: com.pst.app.crewpro.api.bindings
+          default: com.pst.app.crewpro.bindings
           enum:
-            - com.pst.api.bindings
-            - com.pst.app.crewpro.api.bindings
+            - com.pst.app.bindings
+            - com.pst.app.crewpro.bindings
           enumNames:
             - "PST"
             - "PST CrewPro"

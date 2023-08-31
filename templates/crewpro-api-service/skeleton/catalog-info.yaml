@@ -6,7 +6,7 @@ metadata:
   description: ${{values.description | dump}}
   {%- endif %}
   tags:
-    - service
+    - microservice
   annotations:
     github.com/project-slug: ${{values.project_slug}}
 spec:
