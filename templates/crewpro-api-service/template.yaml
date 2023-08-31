@@ -12,7 +12,7 @@ metadata:
     - crewpro
 spec:
   owner: group:up-pst/cnx-pst-team
-  type: component
+  type: service
 
   parameters:
     - title: Provide API information
@@ -64,7 +64,7 @@ spec:
       action: fetch:template
       input:
         url: ./skeleton
-        targetPath: profiles # CHANGE THIS TO PARAM component_id
+        targetPath: ${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("_", "-") | replace(".", "_")}}-service
         copyWithoutRender:
           - .github/workflows/*
         values:
@@ -103,7 +103,7 @@ spec:
         # Remove if you want it to be master, all public repos have pivoted to main as the default branch now
         defaultBranch: main
         token: ${{ secrets.USER_OAUTH_TOKEN }}
-        sourcePath: profiles # CHANGE THIS TO PARAM component_id
+        sourcePath: ${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("_", "-") | replace(".", "_")}}-service
 
     - id: register
       name: Register
