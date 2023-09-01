@@ -9,12 +9,12 @@ info:
     email: api_maintainers@pstechnology.com
 servers:
   - description: CrewPro Dev API Server
-    url: http://dev.pstechnology.com/crewpro
+    url: http://dev.pstechnology.com/crewpro/${{values.api_system | replace("system:default/", "")}}
   - description: CrewPro Staging API Server
-    url: http://staging.pstechnology.com/crewpro
+    url: http://staging.pstechnology.com/crewpro/${{values.api_system | replace("system:default/", "")}}
 
 paths:
-  /${{values.api_system | replace("system:default/", "")}}/enter-service-name/${{values.api_version}}:
+  /enter-service-name/${{values.api_version}}:
     post:
       requestBody:
         content:
@@ -28,17 +28,17 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ServiceResponse"
-        '400':
+        "400":
           $ref: "#/components/responses/BadRequest"
-        '401':
+        "401":
           $ref: "#/components/responses/Unauthorized"
-        '403':
+        "403":
           $ref: "#/components/responses/Forbidden"
-        '429':
+        "429":
           $ref: "#/components/responses/RequestLimitExceeded"
-        '500':
+        "500":
           $ref: "#/components/responses/InternalServiceError"
-         
+
 components:
   schemas:
     ServiceRequest:

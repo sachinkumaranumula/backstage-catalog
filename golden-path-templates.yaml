@@ -11,5 +11,6 @@ metadata:
 spec:
   targets:
     - ./templates/crewpro-api-specification/template.yaml
+    - ./templates/crewpro-crud-api-specification/template.yaml
     - ./templates/crewpro-api-bindings/template.yaml
     - ./templates/crewpro-api-service/template.yaml

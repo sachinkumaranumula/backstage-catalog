@@ -1,8 +1,8 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: test-template
-  title: Debug Template
+  name: bs-playground-template
+  title: Playground
   description: Helps with testing out Template steps/actions/output
   tags:
     - test

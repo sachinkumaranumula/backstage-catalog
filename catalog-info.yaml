@@ -7,4 +7,4 @@ metadata:
 spec:
   targets:
     - ./golden-path-templates.yaml
-    - ./community-templates.yaml
+    - ./generic-templates.yaml

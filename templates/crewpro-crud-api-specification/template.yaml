@@ -1,14 +1,15 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: crewpro-api-specification-template
-  title: CrewPro API Specification
-  description: Generates API specification
+  name: crewpro-crud-api-specification-template
+  title: CrewPro CRUD API Specification
+  description: Generates CRUD API specification
   tags:
     - recommended
     - openapi
     - api
     - crewpro
+    - crud
 spec:
   owner: group:up-pst/cnx-pst-team
   type: openapi
@@ -16,22 +17,19 @@ spec:
   parameters:
     - title: Provide API information
       required:
-        - title
-        - description
+        - entity
         - version
         - owner
         - system
       properties:
-        title:
-          title: Title of API
+        entity:
+          title: Entity/Resource Name
           type: string
-          description: Title of API in OpenAPI Specification
+          description: Name of Entity/Resource on which CRUD operations need to be performed
           ui:field: EntityNamePicker
           ui:options: {}
-        description:
-          title: Description of API
-          type: string
-          description: Description of API in OpenAPI Specification
+          ui:autofocus: true
+          ui:help: 'Hint: Board-Definition, Seniority-Move-Profile, Company etc...'
         version:
           title: Version of API
           type: string
@@ -78,29 +76,30 @@ spec:
         values:
           api_system: ${{ parameters.system }}
           api_owner: ${{ parameters.owner }}
-          api_title: ${{ parameters.title | trim | replace(" ", "_") }}
+          api_entity: ${{ parameters.entity  }}
+          api_entity_title: ${{ parameters.entity |  replace("-", " ") | title}}
           api_version: ${{ parameters.version }}
-          api_description: ${{ parameters.description }}
-          api_spec_filename: ${{ parameters.title | trim | replace(" ", "_") }}-${{ parameters.version }}
-          api_catalog_name: ${{ parameters.title | trim | replace(" ", "_") }}-${{ parameters.version }}
+          api_description: CRUD API for Entity ${{ parameters.entity }}
+          api_spec_filename: ${{ parameters.entity }}-${{ parameters.version }}
+          api_catalog_name: ${{ parameters.entity | trim | replace(" ", "_") }}-${{ parameters.version }}
           # BEGIN: PST OPINIONATED
           #project_slug: ${{ parameters.repoUrl | projectSlug }}
           project_slug: UP-PST/API
-          #api_definition_raw_url: https://api.github.com/repos/${{parameters.repoUrl | parseRepoUrl | pick('owner')}}/${{parameters.repoUrl | parseRepoUrl | pick('repo')}}/contents/${{ parameters.title | trim | replace(" ", "_") }}/${{ parameters.version }}/${{ parameters.title }}-${{ parameters.version }}.yaml
-          api_definition_raw_url: https://api.github.com/repos/UP-PST/API/contents/${{ parameters.title | trim | replace(" ", "_") }}/${{ parameters.version }}/${{ parameters.title }}-${{ parameters.version }}.yaml
+          #api_definition_raw_url: https://api.github.com/repos/${{parameters.repoUrl | parseRepoUrl | pick('owner')}}/${{parameters.repoUrl | parseRepoUrl | pick('repo')}}/contents/${{ parameters.entity | trim | replace(" ", "_") }}/${{ parameters.version }}/${{ parameters.entity }}-${{ parameters.version }}.yaml
+          api_definition_raw_url: https://api.github.com/repos/UP-PST/API/contents/${{ parameters.entity | trim | replace(" ", "_") }}/${{ parameters.version }}/${{ parameters.entity }}-${{ parameters.version }}.yaml
 
     - id: publish
       name: New API Pull Request for API Review
       action: publish:github:pull-request
       input:
         #repoUrl: ${{ parameters.repoUrl }}
-        repoUrl: 'github.com?repo=API&owner=UP-PST'
-        title: "New API: ${{ parameters.title }}-${{ parameters.version }}"
-        branchName: New-API_${{ parameters.title }}-${{ parameters.version }}
+        repoUrl: "github.com?repo=API&owner=UP-PST"
+        title: "New API: ${{ parameters.entity }}-${{ parameters.version }}"
+        branchName: New-API_${{ parameters.entity }}-${{ parameters.version }}
         description: |
-          # API: ${{ parameters.title }}-${{ parameters.version }}
+          # API: ${{ parameters.entity }}-${{ parameters.version }}
 
-          ${{ parameters.description if parameters.description }}
+          CRUD API for Entity ${{ parameters.entity }}
         token: ${{ secrets.USER_OAUTH_TOKEN }}
         teamReviewers: ["API-Reviewers"]
         deleteBranchOnMerge: true
@@ -110,7 +109,7 @@ spec:
       action: github:issues:label
       input:
         #repoUrl: ${{ parameters.repoUrl }}
-        repoUrl: 'github.com?repo=API&owner=UP-PST'
+        repoUrl: "github.com?repo=API&owner=UP-PST"
         number: ${{ steps.publish.output.pullRequestNumber }}
         labels: ["New API"]
 
