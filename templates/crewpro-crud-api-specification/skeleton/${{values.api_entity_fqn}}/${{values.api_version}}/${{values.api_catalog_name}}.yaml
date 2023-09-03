@@ -21,6 +21,9 @@ paths:
       summary: Returns all ${{values.api_entity_title}}s from the system that the user has access to
       description: Returns all ${{values.api_entity_title}}s from the system that the user has access to
       operationId: find${{values.api_entity_fqn}}s
+      parameters:
+        - $ref: '#/components/parameters/PageLimit'
+        - $ref: '#/components/parameters/PageOffset'
       responses:
         "200":
           description: ${{values.api_entity_title}} response
@@ -210,6 +213,20 @@ components:
           type: string
           description: Details of the Error
   
+  parameters:
+    PageLimit:
+      name: limit
+      in: query
+      description: Limits the number of items on a page
+      schema:
+        type: integer
+    PageOffset:
+      name: offset
+      in: query
+      description: Specifies the page number of the artists to be displayed
+      schema:
+        type: integer
+
   responses:
     BadRequest:
       description: Bad Request
