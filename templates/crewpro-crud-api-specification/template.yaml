@@ -26,14 +26,17 @@ spec:
           title: Entity/Resource Name
           type: string
           description: Name of Entity/Resource on which CRUD operations need to be performed
-          ui:field: EntityNamePicker
-          ui:options: {}
+          maxLength: 63
+          pattern: '^([a-zA-Z][a-zA-Z0-9]*)(\s[a-zA-Z0-9]+)*$'
           ui:autofocus: true
-          ui:help: 'Hint: Board-Definition, Seniority-Move-Profile, Company etc...'
+          ui:help: 'Hint: Board Definition, Seniority Move Profile, Company etc...'
         version:
           title: Version of API
           type: string
           description: Version of API in OpenAPI Specification
+          maxLength: 3
+          pattern: '^([0-9]{1}).([0-9]{1})$'
+          ui:help: 'Hint: 1.0, 1.1, 2.1...'
         owner:
           title: Owner
           type: string
@@ -76,17 +79,17 @@ spec:
         values:
           api_system: ${{ parameters.system }}
           api_owner: ${{ parameters.owner }}
-          api_entity: ${{ parameters.entity  }}
-          api_entity_title: ${{ parameters.entity |  replace("-", " ") | title}}
+          api_entity: ${{ parameters.entity | replace(" ", "-") | lower }}
+          api_entity_fqn: ${{ parameters.entity | title | replace(" ", "") }}
+          api_entity_title: ${{ parameters.entity | title}}
           api_version: ${{ parameters.version }}
-          api_description: CRUD API for Entity ${{ parameters.entity }}
-          api_spec_filename: ${{ parameters.entity }}-${{ parameters.version }}
-          api_catalog_name: ${{ parameters.entity | trim | replace(" ", "_") }}-${{ parameters.version }}
+          api_description: CRUD API for Entity '${{ parameters.entity | title }}'
+          api_catalog_name: ${{ parameters.entity | title | replace(" ", "") }}-${{ parameters.version }}
           # BEGIN: PST OPINIONATED
           #project_slug: ${{ parameters.repoUrl | projectSlug }}
           project_slug: UP-PST/API
           #api_definition_raw_url: https://api.github.com/repos/${{parameters.repoUrl | parseRepoUrl | pick('owner')}}/${{parameters.repoUrl | parseRepoUrl | pick('repo')}}/contents/${{ parameters.entity | trim | replace(" ", "_") }}/${{ parameters.version }}/${{ parameters.entity }}-${{ parameters.version }}.yaml
-          api_definition_raw_url: https://api.github.com/repos/UP-PST/API/contents/${{ parameters.entity | trim | replace(" ", "_") }}/${{ parameters.version }}/${{ parameters.entity }}-${{ parameters.version }}.yaml
+          api_definition_raw_url: https://api.github.com/repos/UP-PST/API/contents/${{ parameters.entity | title | replace(" ", "") }}/${{ parameters.version }}/${{ parameters.entity }}-${{ parameters.version }}.yaml
 
     - id: publish
       name: New API Pull Request for API Review
@@ -94,12 +97,12 @@ spec:
       input:
         #repoUrl: ${{ parameters.repoUrl }}
         repoUrl: "github.com?repo=API&owner=UP-PST"
-        title: "New API: ${{ parameters.entity }}-${{ parameters.version }}"
-        branchName: New-API_${{ parameters.entity }}-${{ parameters.version }}
+        title: "New API: ${{ parameters.entity }} ${{ parameters.version }}"
+        branchName: New-API_${{ parameters.entity | capitalize | replace(" ", "") }}-${{ parameters.version }}
         description: |
-          # API: ${{ parameters.entity }}-${{ parameters.version }}
+          # API: ${{ parameters.entity }} ${{ parameters.version }}
 
-          CRUD API for Entity ${{ parameters.entity }}
+          CRUD API for Entity: ${{ parameters.entity }}
         token: ${{ secrets.USER_OAUTH_TOKEN }}
         teamReviewers: ["API-Reviewers"]
         deleteBranchOnMerge: true

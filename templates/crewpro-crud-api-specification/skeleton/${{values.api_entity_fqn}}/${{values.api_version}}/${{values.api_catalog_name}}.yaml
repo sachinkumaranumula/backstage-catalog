@@ -14,22 +14,22 @@ servers:
     url: http://staging.pstechnology.com/crewpro/${{values.api_system | replace("system:default/", "")}}/${{values.api_version}}
 
 paths:
-  "/${{values.api_entity | lower}}s":
+  "/${{values.api_entity}}s":
     get:
       tags:
         - ${{values.api_entity_title }}
-      summary: Returns all ${{values.api_entity}}s from the system that the user has access to
-      description: Returns all ${{values.api_entity}}s from the system that the user has access to
-      operationId: find${{values.api_entity | capitalize }}s
+      summary: Returns all ${{values.api_entity_title}}s from the system that the user has access to
+      description: Returns all ${{values.api_entity_title}}s from the system that the user has access to
+      operationId: find${{values.api_entity_fqn}}s
       responses:
         "200":
-          description: ${{values.api_entity}} response
+          description: ${{values.api_entity_title}} response
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  "$ref": "#/components/schemas/${{values.api_entity | capitalize }}"
+                  "$ref": "#/components/schemas/${{values.api_entity_fqn}}"
         "400":
           $ref: "#/components/responses/BadRequest"
         "401":
@@ -43,23 +43,23 @@ paths:
     post:
       tags:
         - ${{values.api_entity_title }}
-      summary: Creates a new ${{values.api_entity}} in the store.  Duplicates are not allowed
-      description: Creates a new ${{values.api_entity}} in the store.  Duplicates are not allowed
-      operationId: add${{values.api_entity | capitalize }}
+      summary: Creates a new ${{values.api_entity_title}} in the store.  Duplicates are not allowed
+      description: Creates a new ${{values.api_entity_title}} in the store.  Duplicates are not allowed
+      operationId: add${{values.api_entity_fqn}}
       requestBody:
-        description: ${{values.api_entity | capitalize }} to add to the store
+        description: ${{values.api_entity_title}} to add to the store
         required: true
         content:
           application/json:
             schema:
-              "$ref": "#/components/schemas/New${{values.api_entity | capitalize }}"
+              "$ref": "#/components/schemas/New${{values.api_entity_fqn}}"
       responses:
         "200":
-          description: ${{values.api_entity | capitalize}} response
+          description: ${{values.api_entity_title}} response
           content:
             application/json:
               schema:
-                "$ref": "#/components/schemas/${{values.api_entity | capitalize }}"
+                "$ref": "#/components/schemas/${{values.api_entity_fqn}}"
         "400":
           $ref: "#/components/responses/BadRequest"
         "401":
@@ -70,32 +70,32 @@ paths:
           $ref: "#/components/responses/RequestLimitExceeded"
         "500":
           $ref: "#/components/responses/InternalServiceError"
-  "/${{values.api_entity | lower}}/{id}":
+  "/${{values.api_entity}}/{id}":
     get:
       tags:
         - ${{values.api_entity_title }}
       summary:
         Returns a user based on a single ID, if the user does not have access
-        to the ${{values.api_entity}}
+        to the ${{values.api_entity_title}}
       description:
         Returns a user based on a single ID, if the user does not have
-        access to the ${{values.api_entity}}
-      operationId: find${{values.api_entity | capitalize}}ById
+        access to the ${{values.api_entity_title}}
+      operationId: find${{values.api_entity_fqn}}ById
       parameters:
         - name: id
           in: path
-          description: ID of ${{values.api_entity}} to fetch
+          description: ID of ${{values.api_entity_title}} to fetch
           required: true
           schema:
             type: integer
             format: int64
       responses:
         "200":
-          description: ${{values.api_entity | capitalize}} response
+          description: ${{values.api_entity_title}} response
           content:
             application/json:
               schema:
-                "$ref": "#/components/schemas/${{values.api_entity | capitalize }}"
+                "$ref": "#/components/schemas/${{values.api_entity_title}}"
         "400":
           $ref: "#/components/responses/BadRequest"
         "401":
@@ -109,27 +109,27 @@ paths:
     put:
       tags:
         - ${{values.api_entity_title }}
-      summary: Updates a single ${{values.api_entity}} based on the ID supplied
-      description: Updates a single ${{values.api_entity}} based on the ID supplied
-      operationId: update${{values.api_entity | capitalize }}
+      summary: Updates a single ${{values.api_entity_title}} based on the ID supplied
+      description: Updates a single ${{values.api_entity_title}} based on the ID supplied
+      operationId: update${{values.api_entity_fqn}}
       parameters:
         - name: id
           in: path
-          description: ID of ${{values.api_entity}} to delete
+          description: ID of ${{values.api_entity_title}} to delete
           required: true
           schema:
             type: integer
             format: int64
       requestBody:
-        description: ${{values.api_entity | capitalize }} to update
+        description: ${{values.api_entity_title}} to update
         required: true
         content:
           application/json:
             schema:
-              "$ref": "#/components/schemas/${{values.api_entity | capitalize }}"
+              "$ref": "#/components/schemas/${{values.api_entity_fqn}}"
       responses:
         "204":
-          description: ${{values.api_entity}} updated
+          description: ${{values.api_entity_title}} updated
         "400":
           $ref: "#/components/responses/BadRequest"
         "401":
@@ -144,21 +144,21 @@ paths:
           $ref: "#/components/responses/InternalServiceError"
     delete:
       tags:
-        - ${{values.api_entity_title }}
-      summary: Deletes a single ${{values.api_entity}} based on the ID supplied
-      description: Deletes a single ${{values.api_entity}} based on the ID supplied
-      operationId: delete${{values.api_entity | capitalize }}
+        - ${{values.api_entity_title}}
+      summary: Deletes a single ${{values.api_entity_title}} based on the ID supplied
+      description: Deletes a single ${{values.api_entity_title}} based on the ID supplied
+      operationId: delete${{values.api_entity_fqn}}
       parameters:
         - name: id
           in: path
-          description: ID of ${{values.api_entity}} to delete
+          description: ID of ${{values.api_entity_title}} to delete
           required: true
           schema:
             type: integer
             format: int64
       responses:
         "204":
-          description: ${{values.api_entity}} deleted
+          description: ${{values.api_entity_title}} deleted
         "400":
           $ref: "#/components/responses/BadRequest"
         "401":
@@ -171,9 +171,9 @@ paths:
           $ref: "#/components/responses/InternalServiceError"
 components:
   schemas:
-    ${{values.api_entity | capitalize }}:
+    ${{values.api_entity_fqn}}:
       allOf:
-        - "$ref": "#/components/schemas/New${{values.api_entity | capitalize }}"
+        - "$ref": "#/components/schemas/New${{values.api_entity_fqn}}"
         - type: object
           required:
             - id
@@ -181,7 +181,7 @@ components:
             id:
               type: integer
               format: int64
-    New${{values.api_entity | capitalize }}:
+    New${{values.api_entity_fqn}}:
       type: object
       required:
         - name

@@ -3,7 +3,7 @@ kind: Template
 metadata:
   name: crewpro-api-service-template
   title: CrewPro API Service
-  description: Generates api-service project from API specification
+  description: Generates Service project from API specification
   tags:
     - recommended
     - java-17
@@ -46,11 +46,25 @@ spec:
           type: string
           description: API for which bindings will be generated
           ui:field: EntityPicker
+          ui:autofocus: true
           ui:options:
             allowArbitraryValues: false
             catalogFilter:
               - kind: API
             defaultKind: API
+        db:
+          title: Select Database
+          type: string
+          description: Database that the service needs
+          default: none
+          enum:
+            - oracle
+            - postgres
+            - none
+          enumNames:
+            - 'Oracle'
+            - 'Postgres'
+            - 'None'
 
   steps:
     - id: catalogFetch
@@ -92,6 +106,7 @@ spec:
         apiSpecUrl: openapi.yaml
         mavenGroupId: ${{ parameters.component_group_id }}
         mavenArtifactId: ${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("_", "-") | replace(".", "_")}}-service
+        database: ${{ parameters.db }}
 
     - id: publish
       name: Publish
