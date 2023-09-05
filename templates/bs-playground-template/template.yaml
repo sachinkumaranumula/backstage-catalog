@@ -72,4 +72,9 @@ spec:
     #         presence: optional
     #         targets:
               # API's registered here, ensure when merging you are appending and not overriding on the list items
-              
+  output:
+    # Below needs Next Scaffolder page
+    text:
+      - title: More information
+        content: |
+          **Entity URL:** 

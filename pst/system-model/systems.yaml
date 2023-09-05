@@ -1,170 +1,143 @@
 apiVersion: backstage.io/v1alpha1
 kind: System
 metadata:
-  name: assignments
+  name: Assignments
   description: Crew Assignments
 spec:
   owner: crewpro-group
-  domain: crewpro
+  domain: CrewPro
 ---
 apiVersion: backstage.io/v1alpha1
 kind: System
 metadata:
-  name: autocall
+  name: AutoCall
   description: Crew AutoCall
 spec:
   owner: crewpro-group
-  domain: crewpro
+  domain: CrewPro
 ---
 apiVersion: backstage.io/v1alpha1
 kind: System
 metadata:
-  name: balance
+  name: Balance
   description: Crew Supply/Demand
 spec:
   owner: crewpro-group
-  domain: crewpro
+  domain: CrewPro
 ---
 apiVersion: backstage.io/v1alpha1
 kind: System
 metadata:
-  name: control
+  name: Control
   description: Setup Rail Network
 spec:
   owner: crewpro-group
-  domain: crewpro
+  domain: CrewPro
 ---
 apiVersion: backstage.io/v1alpha1
 kind: System
 metadata:
-  name: crewcallprocess
+  name: CrewCallProcess
   description: Crew Call
 spec:
   owner: crewpro-group
-  domain: crewpro
+  domain: CrewPro
 ---
 apiVersion: backstage.io/v1alpha1
 kind: System
 metadata:
-  name: employee
+  name: Employee
   description: Rail Employees
 spec:
   owner: crewpro-group
-  domain: crewpro
+  domain: CrewPro
 ---
 apiVersion: backstage.io/v1alpha1
 kind: System
 metadata:
-  name: crewcallprocess
-  description: Crew Call
-spec:
-  owner: crewpro-group
-  domain: crewpro
----
-apiVersion: backstage.io/v1alpha1
-kind: System
-metadata:
-  name: employeetracking
+  name: EmployeeTracking
   description: Employee Tracking
 spec:
   owner: crewpro-group
-  domain: crewpro
+  domain: CrewPro
 ---
 apiVersion: backstage.io/v1alpha1
 kind: System
 metadata:
-  name: foundationframework
+  name: FoundationFramework
   description: CrewPro Framework
 spec:
   owner: crewpro-group
-  domain: crewpro
+  domain: CrewPro
 ---
 apiVersion: backstage.io/v1alpha1
 kind: System
 metadata:
-  name: employeetracking
-  description: Employee Tracking
-spec:
-  owner: crewpro-group
-  domain: crewpro
----
-apiVersion: backstage.io/v1alpha1
-kind: System
-metadata:
-  name: hoursofservice
+  name: HoursOfService
   description: HOS
 spec:
   owner: crewpro-group
-  domain: crewpro
+  domain: CrewPro
 ---
 apiVersion: backstage.io/v1alpha1
 kind: System
 metadata:
-  name: hoursofservice
-  description: HOS
-spec:
-  owner: crewpro-group
-  domain: crewpro
----
-apiVersion: backstage.io/v1alpha1
-kind: System
-metadata:
-  name: miscellaneous
+  name: Miscellaneous
   description: Miscellaneous
 spec:
   owner: crewpro-group
-  domain: crewpro
+  domain: CrewPro
 ---
 apiVersion: backstage.io/v1alpha1
 kind: System
 metadata:
-  name: qualifications
+  name: Qualifications
   description: Qualifications
 spec:
   owner: crewpro-group
-  domain: crewpro
+  domain: CrewPro
 ---
 apiVersion: backstage.io/v1alpha1
 kind: System
 metadata:
-  name: selfservice
+  name: SelfService
   description: Self Service
 spec:
   owner: crewpro-group
-  domain: crewpro
+  domain: CrewPro
 ---
 apiVersion: backstage.io/v1alpha1
 kind: System
 metadata:
-  name: statustracking
+  name: StatusTracking
   description: Status Tracking
 spec:
   owner: crewpro-group
-  domain: crewpro
+  domain: CrewPro
 ---
 apiVersion: backstage.io/v1alpha1
 kind: System
 metadata:
-  name: tieup
+  name: TieUp
   description: Tie Up
 spec:
   owner: crewpro-group
-  domain: crewpro
+  domain: CrewPro
 ---
 apiVersion: backstage.io/v1alpha1
 kind: System
 metadata:
-  name: train
+  name: Train
   description: Train
 spec:
   owner: crewpro-group
-  domain: crewpro
+  domain: CrewPro
 ---
 apiVersion: backstage.io/v1alpha1
 kind: System
 metadata:
-  name: vacation
+  name: Vacation
   description: Vacation
 spec:
   owner: crewpro-group
-  domain: crewpro
+  domain: CrewPro

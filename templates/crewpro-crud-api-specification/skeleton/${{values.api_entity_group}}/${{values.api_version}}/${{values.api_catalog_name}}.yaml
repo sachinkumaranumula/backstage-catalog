@@ -98,7 +98,7 @@ paths:
           content:
             application/json:
               schema:
-                "$ref": "#/components/schemas/${{values.api_entity_title}}"
+                "$ref": "#/components/schemas/${{values.api_entity_fqn}}"
         "400":
           $ref: "#/components/responses/BadRequest"
         "401":
@@ -175,15 +175,15 @@ paths:
 components:
   schemas:
     ${{values.api_entity_fqn}}:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: integer
+          format: int64
       allOf:
         - "$ref": "#/components/schemas/New${{values.api_entity_fqn}}"
-        - type: object
-          required:
-            - id
-          properties:
-            id:
-              type: integer
-              format: int64
     New${{values.api_entity_fqn}}:
       type: object
       required:

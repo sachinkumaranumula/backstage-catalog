@@ -3,7 +3,7 @@ kind: Template
 metadata:
   name: crewpro-api-bindings-template
   title: CrewPro API bindings
-  description: Generates api-bindings project from API specification
+  description: Generates bindings project from API specification
   tags:
     - recommended
     - java-17
@@ -82,7 +82,7 @@ spec:
           - .github/workflows/*
         values:
           group_id: ${{ parameters.component_group_id }}
-          component_id: ${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("_", "-") | replace(".", "_")}}-api-bindings
+          component_id: ${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("_", "-") | replace(".", "_")}}-bindings
           description: ${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("_", "-") | replace(".", "_")}} API Bindings
           owner: ${{ parameters.owner }}
           system: ${{ steps['catalogFetch'].output.entity.spec.system }}
@@ -93,15 +93,15 @@ spec:
           #source_control_url: ${{parameters.repoUrl | parseRepoUrl | pick('host')}}/${{parameters.repoUrl | parseRepoUrl | pick('owner')}}/${{parameters.repoUrl | parseRepoUrl | pick('repo')}}
           # BEGIN: PST OPINIONATED
           #project_slug: ${{ parameters.repoUrl | projectSlug }}
-          project_slug: UP-PST/${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("_", "-") | replace(".", "_")}}-api-bindings
-          source_control_url: github.com/UP-PST/${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("_", "-") | replace(".", "_")}}-api-bindings
+          project_slug: UP-PST/${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("_", "-") | replace(".", "_")}}-bindings
+          source_control_url: github.com/UP-PST/${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("_", "-") | replace(".", "_")}}-bindings
 
     - id: publish
       name: Publish
       action: publish:github
       input:
         #repoUrl: ${{ parameters.repoUrl }}
-        repoUrl: github.com?repo=${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("_", "-") | replace(".", "_")}}-api-bindings&owner=UP-PST
+        repoUrl: github.com?repo=${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("_", "-") | replace(".", "_")}}-bindings&owner=UP-PST
         description: API Bindings for ${{ steps['catalogFetch'].output.entity.metadata.name }}
         # Remove if you want it to be master, all public repos have pivoted to main as the default branch now
         defaultBranch: main
