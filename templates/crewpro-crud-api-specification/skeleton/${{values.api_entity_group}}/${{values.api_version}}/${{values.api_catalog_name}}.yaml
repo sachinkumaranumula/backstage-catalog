@@ -203,6 +203,9 @@ components:
         - code
         - title
       properties:
+        id:
+          type: string
+          description: Unique ID for the Error
         code:
           type: string
           description: Code for the Error (used for i18N)

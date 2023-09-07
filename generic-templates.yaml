@@ -11,6 +11,6 @@ spec:
   targets:
     - ./templates/create-react-app/template.yaml
     - ./templates/docs-template/template.yaml
-    - ./templates/bs-playground-template/template.yaml #Uncomment if you want a playground to test template
+    # - ./templates/bs-playground-template/template.yaml #Uncomment if you want a playground to test template
     - ./templates/spring-boot-starter/template.yaml
     - ./templates/spring-boot-rest-service/template.yaml
