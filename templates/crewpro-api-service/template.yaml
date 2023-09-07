@@ -88,6 +88,7 @@ spec:
           owner: ${{ parameters.owner }}
           system: ${{ steps['catalogFetch'].output.entity.spec.system }}
           cataloged_api: ${{ parameters.api }}
+          db: ${{ parameters.db }}
           # BEGIN: PST OPINIONATED
           #project_slug: ${{ parameters.repoUrl | projectSlug }}
           project_slug: UP-PST/${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("_", "-") | replace(".", "_")}}-service

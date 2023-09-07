@@ -16,6 +16,7 @@ spec:
   targets:
     - ./pst/system-model/domain.yaml
     - ./pst/system-model/systems.yaml
+    - ./pst/system-model/resources.yaml
 ---
 apiVersion: backstage.io/v1alpha1
 kind: Location

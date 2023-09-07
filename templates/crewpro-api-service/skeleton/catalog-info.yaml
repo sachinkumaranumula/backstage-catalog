@@ -15,3 +15,7 @@ spec:
   owner: ${{values.owner | dump}}
   system: ${{values.system}}
   providesApis: [${{values.cataloged_api}}]
+  {%- if values.db !== "none" %}
+  dependsOn:
+    - resource:default/CrewPro-DB
+  {%- endif %}

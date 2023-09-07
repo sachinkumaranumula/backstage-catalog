@@ -1,0 +1,8 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: CrewPro-DB
+  description: Stores CrewPro Domain Entities
+spec:
+  type: database
+  owner: crewpro-group
