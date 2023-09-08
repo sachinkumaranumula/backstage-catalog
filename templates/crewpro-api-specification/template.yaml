@@ -26,8 +26,10 @@ spec:
           title: Title of API
           type: string
           description: Title of API in OpenAPI Specification
-          ui:field: EntityNamePicker
-          ui:options: {}
+          maxLength: 63
+          pattern: '^([a-zA-Z][a-zA-Z0-9]*)(\s[a-zA-Z0-9]+)*$'
+          ui:autofocus: true
+          ui:help: "Hint: Board Definition, Seniority Move Profile, Company etc..."
         description:
           title: Description of API
           type: string
@@ -78,16 +80,18 @@ spec:
         values:
           api_system: ${{ parameters.system }}
           api_owner: ${{ parameters.owner }}
-          api_title: ${{ parameters.title | trim | replace(" ", "_") }}
+          api_op: ${{ parameters.title | replace(" ", "-") | lower }}
+          api_op_fqn: ${{ parameters.title | title | replace(" ", "") }}
+          api_op_group: ${{ parameters.title | title | replace(" ", "-") }}
+          api_op_title: ${{ parameters.title | title}}
           api_version: ${{ parameters.version }}
           api_description: ${{ parameters.description }}
-          api_spec_filename: ${{ parameters.title | trim | replace(" ", "_") }}-${{ parameters.version }}
-          api_catalog_name: ${{ parameters.title | trim | replace(" ", "_") }}-${{ parameters.version }}
+          api_catalog_name: ${{ parameters.title | title | replace(" ", "-") }}-${{ parameters.version }}
           # BEGIN: PST OPINIONATED
           #project_slug: ${{ parameters.repoUrl | projectSlug }}
           project_slug: UP-PST/API
           #api_definition_raw_url: https://api.github.com/repos/${{parameters.repoUrl | parseRepoUrl | pick('owner')}}/${{parameters.repoUrl | parseRepoUrl | pick('repo')}}/contents/${{ parameters.title | trim | replace(" ", "_") }}/${{ parameters.version }}/${{ parameters.title }}-${{ parameters.version }}.yaml
-          api_definition_raw_url: https://api.github.com/repos/UP-PST/API/contents/${{ parameters.title | trim | replace(" ", "_") }}/${{ parameters.version }}/${{ parameters.title }}-${{ parameters.version }}.yaml
+          api_definition_raw_url: https://api.github.com/repos/UP-PST/API/contents/${{ parameters.title | title | replace(" ", "-") }}/${{ parameters.version }}/${{ parameters.title | title | replace(" ", "-") }}-${{ parameters.version }}.yaml
 
     - id: publish
       name: New API Pull Request for API Review
@@ -96,11 +100,13 @@ spec:
         #repoUrl: ${{ parameters.repoUrl }}
         repoUrl: 'github.com?repo=API&owner=UP-PST'
         title: "New API: ${{ parameters.title }}-${{ parameters.version }}"
-        branchName: New-API_${{ parameters.title }}-${{ parameters.version }}
+        branchName: New-API_${{ parameters.title | capitalize | replace(" ", "-") }}-${{ parameters.version }}
         description: |
           # API: ${{ parameters.title }}-${{ parameters.version }}
 
           ${{ parameters.description if parameters.description }}
+
+          API Contributor: Please [start by updating schema](/UP-PST/API/edit/New-API_${{ parameters.title | capitalize | replace(" ", "-") }}-${{ parameters.version }}/${{ parameters.title | title | replace(" ", "-") }}/${{ parameters.version }}/${{ parameters.title | title | replace(" ", "-") }}-${{ parameters.version }}.yaml)
         token: ${{ secrets.USER_OAUTH_TOKEN }}
         teamReviewers: ["API-Reviewers"]
         deleteBranchOnMerge: true
