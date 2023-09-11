@@ -120,6 +120,13 @@ spec:
         defaultBranch: main
         token: ${{ secrets.USER_OAUTH_TOKEN }}
         sourcePath: ${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("_", "-") | replace(".", "_")}}-service
+    
+    # Added for demo, waiting on git push to finish before register (async wait seem to exit before push finishes locally)
+    - id: sleep
+      name: Wait on Git Push
+      action: roadiehq:utils:sleep
+      input:
+        amount: 1
 
     - id: register
       name: Register
