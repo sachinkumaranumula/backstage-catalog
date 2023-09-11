@@ -70,6 +70,10 @@ spec:
         allowedHosts: ["github.com"]
         description: This is ${{ parameters.name }}
         repoUrl: ${{ parameters.repoUrl }}
+        # Remove if you want it to be master, all public repos have pivoted to main as the default branch now
+        defaultBranch: main
+        token: ${{ secrets.USER_OAUTH_TOKEN }}
+
 
     - id: register
       name: Register
