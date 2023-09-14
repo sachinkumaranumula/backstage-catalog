@@ -78,7 +78,7 @@ spec:
       action: fetch:template
       input:
         url: ./skeleton
-        copyWithoutRender:
+        copyWithoutTemplating:
           - .github/workflows/*
         values:
           group_id: ${{ parameters.component_group_id }}

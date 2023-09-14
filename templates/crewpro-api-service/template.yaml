@@ -79,8 +79,9 @@ spec:
       input:
         url: ./skeleton
         targetPath: ${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("_", "-") | replace(".", "_")}}-service
-        copyWithoutRender:
+        copyWithoutTemplating:
           - .github/workflows/*
+          - codegen.jar
         values:
           group_id: ${{ parameters.component_group_id }}
           component_id: ${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("_", "-") | replace(".", "_")}}-service
