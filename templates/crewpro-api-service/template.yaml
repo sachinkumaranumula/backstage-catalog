@@ -72,9 +72,16 @@ spec:
       action: catalog:fetch
       input:
         entityRef: ${{ parameters.api }}
+    
+    - id: codegenFetch
+      name: Fetch Service Scaffolder
+      action: fetch:template
+      input:
+        url: ./scaffolder
+        targetPath: generator
 
     - id: template
-      name: Fetch Skeleton + Template
+      name: Fetch Skeleton
       action: fetch:template
       input:
         url: ./skeleton
@@ -105,6 +112,7 @@ spec:
       id: generate-api-service
       name: Generate Service
       input:
+        generatorPath: generator
         apiSpecUrl: openapi.yaml
         mavenGroupId: ${{ parameters.component_group_id }}
         mavenArtifactId: ${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("_", "-") | replace(".", "_")}}-service
