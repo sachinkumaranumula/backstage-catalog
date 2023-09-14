@@ -108,7 +108,14 @@ spec:
         token: ${{ secrets.USER_OAUTH_TOKEN }}
         secrets: 
           # Safe this token just has repo:read permissions
-          API_REPO_READ_BEARER_TOKEN: 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
+          API_REPO_READ_BEARER_TOKEN: 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
+
+    # Added for demo, waiting on git push to finish before register (async wait seem to exit before push finishes locally)
+    - id: sleep
+      name: Wait on Git Push
+      action: roadiehq:utils:sleep
+      input:
+        amount: 1
 
     - id: register
       name: Register
