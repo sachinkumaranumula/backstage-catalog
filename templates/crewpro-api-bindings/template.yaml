@@ -83,7 +83,7 @@ spec:
         values:
           group_id: ${{ parameters.component_group_id }}
           component_id: ${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("_", "-") | replace(".", "_")}}-bindings
-          description: ${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("_", "-") | replace(".", "_")}} API Bindings
+          description: Bindings for API "${{ steps['catalogFetch'].output.entity.metadata.name | replace("-", " ") | replace("_", ".") | capitalize }}"
           owner: ${{ parameters.owner }}
           system: ${{ steps['catalogFetch'].output.entity.spec.system }}
           cataloged_api: ${{ parameters.api }}
