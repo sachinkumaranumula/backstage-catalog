@@ -1,0 +1,80 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: bs-playground-template
+  title: Playground
+  description: Helps with testing out Template steps/actions/output
+  tags:
+    - test
+spec:
+  owner: group:org/team
+  type: template
+
+  parameters:
+    - title: Provide API information
+      required:
+        - title
+      properties:
+        title:
+          title: Title of API
+          type: string
+          description: Title of API in OpenAPI Specification
+          ui:field: EntityNamePicker
+          ui:options: {}
+        system:
+          title: System
+          type: string
+          description: System(Module) this API belongs to
+          ui:field: EntityPicker
+          ui:options:
+            allowArbitraryValues: false
+            catalogFilter:
+              - kind: System
+            defaultKind: System
+
+  steps:
+    # - action: catalog:fetch
+    #   id: fetch
+    #   name: Fetch catalog entity
+    #   input:
+    #     entityRef: location:Enter-Location-Here
+
+    # - action: roadiehq:utils:serialize:yaml
+    #   id: serialize
+    #   name: Serialize Yaml
+    #   input:
+    #     data: ${{steps.fetch.output.entity.spec.targets}}
+
+    - action: debug:log
+      id: write-debug-line
+      name: Write "Hello Backstage!" log line
+      input:
+        message: |
+          ${{parameters.system | replace("system:default/", "")}}
+    
+    # - action: catalog:write
+    #   id: create-catalog-info-file
+    #   name: Create catalog file
+    #   input:
+    #     entity:
+    #       apiVersion: backstage.io/v1alpha1
+    #       kind: Location
+    #       metadata:
+    #         name: new-apis
+    #         description: Collection of NEW APIs
+    #         annotations:
+    #           github.com/project-slug: API
+    #         tags:
+    #           - openapi
+    #       spec:
+    #         type: url
+    #         system: api
+    #         presence: optional
+    #         targets:
+              # API's registered here, ensure when merging you are appending and not overriding on the list items
+  output:
+    # Below needs Next Scaffolder page
+    text:
+      - title: More information
+        content: |
+          **Entity URL:** 

@@ -1,0 +1,114 @@
+openapi: 3.0.3
+info:
+  title: "${{values.api_op_title}}"
+  description: ${{values.api_description}}
+  version: 1.0.0 # The version of the OpenAPI document (which is distinct from the OpenAPI Specification version or the API implementation version)
+  license:
+    name: private
+  contact:
+    email: api_maintainers@org.com
+servers:
+  - description: Dev API Server
+    url: http://dev.org.com/${{values.api_system | replace("system:default/", "")}}
+  - description: Staging API Server
+    url: http://staging.org.com/${{values.api_system | replace("system:default/", "")}}
+
+paths:
+  "/${{values.api_op}}/${{values.api_version}}":
+    post:
+      tags:
+        - ${{values.api_op_title }}
+      summary: Enter Summary about API Operation
+      description: Enter Detail about API Operation
+      operationId: ${{values.api_op_fqn}}
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ServiceRequest"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ServiceResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "429":
+          $ref: "#/components/responses/RequestLimitExceeded"
+        "500":
+          $ref: "#/components/responses/InternalServiceError"
+
+components:
+  schemas:
+    ServiceRequest:
+      type: object
+      description: Enter Description of Request
+      properties:
+        property:
+          type: string
+    ServiceResponse:
+      type: object
+      description: Enter Description of Request
+      properties:
+        property:
+          type: string
+    Errors:
+      type: array
+      items:
+        $ref: "#/components/schemas/Error"
+    Error:
+      type: object
+      required:
+        - code
+        - title
+      properties:
+        id:
+          type: string
+          description: Unique ID for the Error
+        code:
+          type: string
+          description: Code for the Error (used for i18N)
+        title:
+          type: string
+          description: A short, human-readable summary of Error
+        detail:
+          type: string
+          description: Details of the Error
+
+  responses:
+    BadRequest:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Errors"
+    Unauthorized:
+      description: Unauthorized Request
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Errors"
+    Forbidden:
+      description: Forbidden Request
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Errors"
+    RequestLimitExceeded:
+      description: Request Limit Exceeded
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Errors"
+    InternalServiceError:
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Errors"

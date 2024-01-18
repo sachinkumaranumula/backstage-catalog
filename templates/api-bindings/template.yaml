@@ -1,0 +1,132 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: api-bindings-template
+  title: API bindings
+  description: Generates bindings project from API specification
+  tags:
+    - recommended
+    - java-17
+    - maven
+    - api-bindings
+spec:
+  owner: group:org/team
+  type: library
+
+  parameters:
+    - title: Provide some simple information
+      required:
+        - component_group_id
+        - owner
+        - api
+      properties:
+        component_group_id:
+          title: Group Name
+          type: string
+          description: Group this component belongs to
+          default: com.github.app.bindings
+          enum:
+            - com.github.app.bindings
+            - com.github.app.bindings
+          enumNames:
+            - "Org"
+        owner:
+          title: Owner
+          type: string
+          description: Owner of the component
+          default: org/team
+          ui:field: OwnerPicker
+          ui:options:
+            allowedKinds:
+              - Group
+        api:
+          title: API
+          type: string
+          description: API for which bindings will be generated
+          ui:field: EntityPicker
+          ui:options:
+            allowArbitraryValues: false
+            catalogFilter:
+              - kind: API
+            defaultKind: API
+    # - title: Choose a location
+    #   required:
+    #     - repoUrl
+    #   properties:
+    #     repoUrl:
+    #       title: Repository Location
+    #       type: string
+    #       ui:field: RepoUrlPicker
+    #       ui:options:
+    #         requestUserCredentials:
+    #           secretsKey: USER_OAUTH_TOKEN
+    #         allowedOwners: ["Org"]
+    #         allowedHosts: ["github.com"]
+
+  steps:
+    # https://github.com/backstage/backstage/issues/17053
+    - id: catalogFetch
+      name: Fetch API from Catalog
+      action: catalog:fetch
+      input:
+        entityRef: ${{ parameters.api }}
+
+    - id: template
+      name: Generate Bindings Skeleton from Template
+      action: fetch:template
+      input:
+        url: ./skeleton
+        copyWithoutTemplating:
+          - .github/workflows/*
+        values:
+          group_id: ${{ parameters.component_group_id }}
+          component_id: ${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("_", "-") | replace(".", "_")}}-bindings
+          description: Bindings for API "${{ steps['catalogFetch'].output.entity.metadata.name | replace("-", " ") | replace("_", ".") | capitalize }}"
+          owner: ${{ parameters.owner }}
+          system: ${{ steps['catalogFetch'].output.entity.spec.system }}
+          cataloged_api: ${{ parameters.api }}
+          # NEEDED FOR BINDINGS
+          api_spec_location:  ${{ steps['catalogFetch'].output.entity.metadata.annotations | pick('api/definition-raw-url') }}
+          java_package_name: ${{ parameters.component_group_id }}.${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("-", "_") | replace(".", "_") }}
+          #source_control_url: ${{parameters.repoUrl | parseRepoUrl | pick('host')}}/${{parameters.repoUrl | parseRepoUrl | pick('owner')}}/${{parameters.repoUrl | parseRepoUrl | pick('repo')}}
+          # BEGIN: Org OPINIONATED
+          #project_slug: ${{ parameters.repoUrl | projectSlug }}
+          project_slug: Org/${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("_", "-") | replace(".", "_")}}-bindings
+          source_control_url: github.com/Org/${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("_", "-") | replace(".", "_")}}-bindings
+
+    - id: publish
+      name: Publish
+      action: publish:github
+      input:
+        #repoUrl: ${{ parameters.repoUrl }}
+        repoUrl: github.com?repo=${{ steps['catalogFetch'].output.entity.metadata.name | trim | lower | replace("_", "-") | replace(".", "_")}}-bindings&owner=Org
+        description: API Bindings for ${{ steps['catalogFetch'].output.entity.metadata.name }}
+        # Remove if you want it to be master, all public repos have pivoted to main as the default branch now
+        defaultBranch: main
+        token: ${{ secrets.USER_OAUTH_TOKEN }}
+        secrets: 
+          # Safe this token just has repo:read permissions
+          API_REPO_READ_BEARER_TOKEN: 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
+
+    # Added for demo, waiting on git push to finish before register (async wait seem to exit before push finishes locally)
+    - id: sleep
+      name: Wait on Git Push
+      action: roadiehq:utils:sleep
+      input:
+        amount: 1
+
+    - id: register
+      name: Register
+      action: catalog:register
+      input:
+        repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
+        catalogInfoPath: "/catalog-info.yaml"
+        
+
+  output:
+    links:
+      - title: Repository
+        url: ${{ steps.publish.output.remoteUrl }}
+      - title: Open in catalog
+        icon: catalog
+        entityRef: ${{ steps.register.output.entityRef }}

@@ -1,0 +1,13 @@
+# Model: https://backstage.io/docs/features/software-catalog/descriptor-format#kind-location
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: community-templates
+  description: A collection of all Community provided templates
+  tags: 
+    - community
+    - templates
+spec:
+  targets:
+    - ./templates/docs-template/template.yaml
+    # - ./templates/bs-playground-template/template.yaml #Uncomment if you want a playground to test template

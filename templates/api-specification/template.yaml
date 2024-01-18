@@ -1,0 +1,136 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: api-specification-template
+  title: API Specification
+  description: Generates API specification
+  tags:
+    - recommended
+    - openapi
+    - api
+spec:
+  owner: group:org/team
+  type: openapi
+
+  parameters:
+    - title: Provide API information
+      required:
+        - title
+        - description
+        - version
+        - owner
+        - system
+      properties:
+        title:
+          title: Title of API
+          type: string
+          description: Title of API in OpenAPI Specification
+          maxLength: 63
+          pattern: '^([a-zA-Z][a-zA-Z0-9]*)(\s[a-zA-Z0-9]+)*$'
+          ui:autofocus: true
+          ui:help: "Hint: Board Definition, Seniority Move Profile, Company etc..."
+        description:
+          title: Description of API
+          type: string
+          description: Description of API in OpenAPI Specification
+        version:
+          title: Version of API
+          type: string
+          description: Version of API in OpenAPI Specification
+        owner:
+          title: Owner
+          type: string
+          description: Owner of the component
+          default: org/team
+          ui:field: OwnerPicker
+          ui:options:
+            allowedKinds:
+              - Group
+        system:
+          title: System
+          type: string
+          description: System(Module) this API belongs to
+          ui:field: EntityPicker
+          ui:options:
+            allowArbitraryValues: false
+            catalogFilter:
+              - kind: System
+            defaultKind: System
+    # - title: Choose a location
+    #   properties:
+    #     repoUrl:
+    #       title: Repository Location
+    #       type: string
+    #       ui:field: RepoUrlPicker
+    #       ui:options:
+    #         requestUserCredentials:
+    #           secretsKey: USER_OAUTH_TOKEN
+    #         allowedHosts: ["github.com"]
+    #         allowedOwners: ["Org"]
+    #         allowedRepos: ["API"]
+
+  steps:
+    # fetch:plain:file did not work, original intention was to get catalog-info.yaml from github and then append using roadiehq:utils:fs:append, this has been moved into Github Actions
+    - id: template
+      name: Fetch Skeleton + Template
+      action: fetch:template
+      input:
+        url: ./skeleton
+        values:
+          api_system: ${{ parameters.system }}
+          api_owner: ${{ parameters.owner }}
+          api_op: ${{ parameters.title | replace(" ", "-") | lower }}
+          api_op_fqn: ${{ parameters.title | title | replace(" ", "") }}
+          api_op_group: ${{ parameters.title | title | replace(" ", "-") }}
+          api_op_title: ${{ parameters.title | title}}
+          api_version: ${{ parameters.version }}
+          api_description: ${{ parameters.description }}
+          api_catalog_name: ${{ parameters.title | title | replace(" ", "-") }}-${{ parameters.version }}
+          # BEGIN: Org OPINIONATED
+          #project_slug: ${{ parameters.repoUrl | projectSlug }}
+          project_slug: Org/API
+          #api_definition_raw_url: https://api.github.com/repos/${{parameters.repoUrl | parseRepoUrl | pick('owner')}}/${{parameters.repoUrl | parseRepoUrl | pick('repo')}}/contents/${{ parameters.title | trim | replace(" ", "_") }}/${{ parameters.version }}/${{ parameters.title }}-${{ parameters.version }}.yaml
+          api_definition_raw_url: https://api.github.com/repos/Org/API/contents/${{ parameters.title | title | replace(" ", "-") }}/${{ parameters.version }}/${{ parameters.title | title | replace(" ", "-") }}-${{ parameters.version }}.yaml
+
+    - id: publish
+      name: New API Pull Request for API Review
+      action: publish:github:pull-request
+      input:
+        #repoUrl: ${{ parameters.repoUrl }}
+        repoUrl: 'github.com?repo=API&owner=Org'
+        title: "New API: ${{ parameters.title }}-${{ parameters.version }}"
+        branchName: New-API_${{ parameters.title | capitalize | replace(" ", "-") }}-${{ parameters.version }}
+        description: |
+          # API: ${{ parameters.title }}-${{ parameters.version }}
+
+          ${{ parameters.description if parameters.description }}
+
+          API Contributor: Please [start by updating schema](/Org/API/edit/New-API_${{ parameters.title | capitalize | replace(" ", "-") }}-${{ parameters.version }}/${{ parameters.title | title | replace(" ", "-") }}/${{ parameters.version }}/${{ parameters.title | title | replace(" ", "-") }}-${{ parameters.version }}.yaml)
+        token: ${{ secrets.USER_OAUTH_TOKEN }}
+        teamReviewers: ["API-Reviewers"]
+        deleteBranchOnMerge: true
+
+    - id: label
+      name: Add New API Label to Pull Request
+      action: github:issues:label
+      input:
+        #repoUrl: ${{ parameters.repoUrl }}
+        repoUrl: 'github.com?repo=API&owner=Org'
+        number: ${{ steps.publish.output.pullRequestNumber }}
+        labels: ["New API"]
+
+    # NOT Registering as after a merge the entityRef conflict favors the branch as opposed to master entry
+    # - id: register
+    #   name: Register
+    #   action: catalog:register
+    #   input:
+    #     catalogInfoUrl: https://${{ parameters.repoUrl | parseRepoUrl | pick('host')}}/${{ parameters.repoUrl | parseRepoUrl | pick('owner')}}/${{ parameters.repoUrl | parseRepoUrl | pick('repo')}}/blob/New-API_${{ parameters.title }}-${{ parameters.version }}/${{ parameters.title | trim | replace(" ", "_") }}/${{ parameters.version }}/api-info.yaml
+
+  output:
+    links:
+      - title: Go to PR
+        url: ${{ steps.publish.output.remoteUrl }}
+      # Un-comment if you are registering in Catalog for PR branch
+      # - title: Open in catalog
+      #   icon: catalog
+      #   entityRef: ${{ steps['register'].output.entityRef }}

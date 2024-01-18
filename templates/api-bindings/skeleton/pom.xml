@@ -1,0 +1,176 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>${{values.group_id}}</groupId>
+    <artifactId>${{values.component_id}}</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+
+    <name>${{values.component_id}}</name>
+    <description>Generated API bindings for API: ${{values.api_spec_location}} </description>
+
+    <properties>
+        <!-- API Developer Provided -->
+        <openapi-spec-location>${{values.api_spec_location}}</openapi-spec-location>
+        <!-- CommandLine: `mvn -Dapi_spec_location_bearer_token=$API_SPEC_BEARER_TOKEN clean install`, another option is to add maven profile active by default in settings.xml to set this property-->
+        <openapi-spec-location-bearerToken>${api_spec_location_bearer_token}</openapi-spec-location-bearerToken>
+        <api-root-package>${{values.java_package_name}}</api-root-package>
+        <!-- Maven Props -->
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- Third Party Libraries -->
+        <javax.annotation-api.version>1.3.2</javax.annotation-api.version>
+        <jsr305.version>3.0.2</jsr305.version>
+        <!-- Maven plugins -->
+        <jacoco.version>0.8.8</jacoco.version>
+        <openapi-generator-maven-plugin.version>6.3.0</openapi-generator-maven-plugin.version>
+        <build-helper-maven-plugin.version>3.2.0</build-helper-maven-plugin.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>3.1.2</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.annotation</groupId>
+            <artifactId>javax.annotation-api</artifactId>
+            <version>${javax.annotation-api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+            <version>${jsr305.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <defaultGoal>install</defaultGoal>
+        <plugins>
+            <!-- Maven Release Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>3.0.1</version>
+                <configuration>
+                    <tagNameFormat>@{project.version}</tagNameFormat>
+                    <!-- The 'perform' goal by default runs Maven's 'deploy' or 'deploy site-deploy' phases. Those are handled by our DevOps build so your local release command shouldn't do them. -->
+                    <goals>verify</goals>
+                    <!-- Prevents git from pushing the pom.xml with the release version in it to master which can interfere with the DevOps automation's tag/release artifact publishing -->
+                    <pushChanges>false</pushChanges>
+                </configuration>
+            </plugin>
+            <!-- Attach source to published jar -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.3.0</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- IMPORTANT: This plugin should appear before generator plugin to maintain the order of execution -->
+            <plugin>
+                <groupId>com.googlecode.maven-download-plugin</groupId>
+                <artifactId>download-maven-plugin</artifactId>
+                <version>1.7.1</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>wget</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <!-- Need to pass below headers for GitHub Private Repos and to get RAW file -->
+                    <headers>
+                        <Authorization>Bearer ${openapi-spec-location-bearerToken}</Authorization>
+                        <Accept>application/vnd.github.raw</Accept>
+                    </headers>
+                    <uri>${openapi-spec-location}</uri>
+                    <outputDirectory>${project.build.outputDirectory}/api</outputDirectory>
+                    <outputFileName>openapi.yaml</outputFileName>
+                    <skipCache>true</skipCache>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.openapitools</groupId>
+                <artifactId>openapi-generator-maven-plugin</artifactId>
+                <version>${openapi-generator-maven-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <inputSpec>${project.build.outputDirectory}/api/openapi.yaml</inputSpec>
+                            <!-- https://openapi-generator.tech/docs/generators/java -->
+                            <generatorName>java</generatorName>
+                            <verbose>false</verbose>
+                            <generateApis>false</generateApis>
+                            <generateApiTests>false</generateApiTests>
+                            <generateModels>true</generateModels>
+                            <modelNameSuffix>Dto</modelNameSuffix>
+                            <modelPackage>${api-root-package}.dto</modelPackage>
+                            <!-- If you want to publish tests then toggle below to true and do https://maven.apache.org/plugins/maven-jar-plugin/examples/create-test-jar.html -->
+                            <generateModelTests>false</generateModelTests>
+                            <generateSupportingFiles>false</generateSupportingFiles>
+                            <generateModelDocumentation>false</generateModelDocumentation>
+                            <ignoreFileOverride>${basedir}/.openapi-generator-ignore</ignoreFileOverride>
+                            <skipValidateSpec>true</skipValidateSpec>
+                            <configOptions>
+                                <documentationProvider>none</documentationProvider>
+                                <!-- This dictates serialization library to use i.e. jackson 2.x -->
+                                <library>resttemplate</library>
+                                <dateLibrary>java8</dateLibrary>
+                                <serializationLibrary>jackson</serializationLibrary>
+                                <openApiNullable>false</openApiNullable>
+                                <generatedConstructorWithRequiredArgs>true</generatedConstructorWithRequiredArgs>
+                            </configOptions>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <scm>
+        <connection>scm:git:git://${{values.source_control_url}}.git</connection>
+        <developerConnection>scm:git:git://${{values.source_control_url}}.git</developerConnection>
+        <url>https://${{values.source_control_url}}</url>
+        <tag>HEAD</tag>
+    </scm>
+
+</project>

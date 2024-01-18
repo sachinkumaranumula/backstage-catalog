@@ -1,0 +1,16 @@
+# Model: https://backstage.io/docs/features/software-catalog/descriptor-format#kind-location
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: golden-path-templates
+  description: A collection of all Golden Path templates
+  tags: 
+    - recommended
+    - golden-path
+    - templates
+spec:
+  targets:
+    - ./templates/api-specification/template.yaml
+    - ./templates/crud-api-specification/template.yaml
+    - ./templates/api-bindings/template.yaml
+    - ./templates/api-service/template.yaml

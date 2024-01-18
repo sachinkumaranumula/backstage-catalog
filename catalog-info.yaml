@@ -1,0 +1,10 @@
+# See structure here https://github.com/backstage/backstage/tree/master/packages/catalog-model/examples
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: golden-path-catalog
+  description: A collection of all Backstage entities supporting Golden Path Demo
+spec:
+  targets:
+    - ./golden-path-templates.yaml
+    - ./generic-templates.yaml

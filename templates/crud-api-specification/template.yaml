@@ -1,0 +1,139 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: crud-api-specification-template
+  title: CRUD API Specification
+  description: Generates CRUD API specification
+  tags:
+    - recommended
+    - openapi
+    - api
+    - crud
+spec:
+  owner: group:org/team
+  type: openapi
+
+  parameters:
+    - title: Provide API information
+      required:
+        - entity
+        - version
+        - owner
+        - system
+      properties:
+        entity:
+          title: Entity/Resource Name
+          type: string
+          description: Name of Entity/Resource on which CRUD operations need to be performed
+          maxLength: 63
+          pattern: '^([a-zA-Z][a-zA-Z0-9]*)(\s[a-zA-Z0-9]+)*$'
+          ui:autofocus: true
+          ui:help: "Hint: Board Definition, Seniority Move Profile, Company etc..."
+        description:
+          title: Entity/Resource Description
+          type: string
+          description: Description of Entity in OpenAPI Specification
+        version:
+          title: Version of API
+          type: string
+          description: Version of API in OpenAPI Specification
+          maxLength: 3
+          pattern: "^([0-9]{1}).([0-9]{1})$"
+          ui:help: "Hint: 1.0, 1.1, 2.1..."
+        owner:
+          title: Owner
+          type: string
+          description: Owner of the component
+          default: org/team
+          ui:field: OwnerPicker
+          ui:options:
+            allowedKinds:
+              - Group
+        system:
+          title: System
+          type: string
+          description: System(Module) this API belongs to
+          ui:field: EntityPicker
+          ui:options:
+            allowArbitraryValues: false
+            catalogFilter:
+              - kind: System
+            defaultKind: System
+    # - title: Choose a location
+    #   properties:
+    #     repoUrl:
+    #       title: Repository Location
+    #       type: string
+    #       ui:field: RepoUrlPicker
+    #       ui:options:
+    #         requestUserCredentials:
+    #           secretsKey: USER_OAUTH_TOKEN
+    #         allowedHosts: ["github.com"]
+    #         allowedOwners: ["org"]
+    #         allowedRepos: ["API", "API-CN"]
+
+  steps:
+    # fetch:plain:file did not work, original intention was to get catalog-info.yaml from github and then append using roadiehq:utils:fs:append, this has been moved into Github Actions
+    - id: template
+      name: Fetch Skeleton + Template
+      action: fetch:template
+      input:
+        url: ./skeleton
+        values:
+          api_system: ${{ parameters.system }}
+          api_owner: ${{ parameters.owner }}
+          api_entity: ${{ parameters.entity | replace(" ", "-") | lower }}
+          api_entity_fqn: ${{ parameters.entity | title | replace(" ", "") }}
+          api_entity_group: ${{ parameters.entity | title | replace(" ", "-") }}
+          api_entity_title: ${{ parameters.entity | title}}
+          api_version: ${{ parameters.version }}
+          api_description: ${{ parameters.description }}
+          api_catalog_name: ${{ parameters.entity | title | replace(" ", "-") }}-${{ parameters.version }}
+          # BEGIN: Org OPINIONATED
+          #project_slug: ${{ parameters.repoUrl | projectSlug }}
+          project_slug: org/API
+          #api_definition_raw_url: https://api.github.com/repos/${{parameters.repoUrl | parseRepoUrl | pick('owner')}}/${{parameters.repoUrl | parseRepoUrl | pick('repo')}}/contents/${{ parameters.entity | trim | replace(" ", "_") }}/${{ parameters.version }}/${{ parameters.entity }}-${{ parameters.version }}.yaml
+          api_definition_raw_url: https://api.github.com/repos/org/API/contents/${{ parameters.entity | title | replace(" ", "-") }}/${{ parameters.version }}/${{ parameters.entity | title | replace(" ", "-") }}-${{ parameters.version }}.yaml
+
+    - id: publish
+      name: New API Pull Request for API Review
+      action: publish:github:pull-request
+      input:
+        #repoUrl: ${{ parameters.repoUrl }}
+        repoUrl: "github.com?repo=API&owner=org"
+        title: "New API: ${{ parameters.entity }} ${{ parameters.version }}"
+        branchName: New-API_${{ parameters.entity | capitalize | replace(" ", "-") }}-${{ parameters.version }}
+        description: |
+          # API: ${{ parameters.entity }} ${{ parameters.version }}
+
+          CRUD API for Entity: ${{ parameters.entity }}
+
+          API Contributor: Please [start by updating schema component](/org/API/edit/New-API_${{ parameters.entity | capitalize | replace(" ", "-") }}-${{ parameters.version }}/${{ parameters.entity | title | replace(" ", "-") }}/${{ parameters.version }}/${{ parameters.entity | title | replace(" ", "-") }}-${{ parameters.version }}.yaml): **New${{ parameters.entity | title | replace(" ", "") }}**
+        token: ${{ secrets.USER_OAUTH_TOKEN }}
+        teamReviewers: ["API-Reviewers"]
+        deleteBranchOnMerge: true
+
+    - id: label
+      name: Add New API Label to Pull Request
+      action: github:issues:label
+      input:
+        #repoUrl: ${{ parameters.repoUrl }}
+        repoUrl: "github.com?repo=API&owner=org"
+        number: ${{ steps.publish.output.pullRequestNumber }}
+        labels: ["New API"]
+
+    # NOT Registering as after a merge the entityRef conflict favors the branch as opposed to master entry
+    # - id: register
+    #   name: Register
+    #   action: catalog:register
+    #   input:
+    #     catalogInfoUrl: https://${{ parameters.repoUrl | parseRepoUrl | pick('host')}}/${{ parameters.repoUrl | parseRepoUrl | pick('owner')}}/${{ parameters.repoUrl | parseRepoUrl | pick('repo')}}/blob/New-API_${{ parameters.title }}-${{ parameters.version }}/${{ parameters.title | trim | replace(" ", "_") }}/${{ parameters.version }}/api-info.yaml
+
+  output:
+    links:
+      - title: Go to PR
+        url: ${{ steps.publish.output.remoteUrl }}
+      # Un-comment if you are registering in Catalog for PR branch
+      # - title: Open in catalog
+      #   icon: catalog
+      #   entityRef: ${{ steps['register'].output.entityRef }}
